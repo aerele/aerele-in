@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aerele.in/sitemap.xml
+
+# LLM-friendly content
+# See https://aerele.in/llms.txt for structured information about Aerele Technologies

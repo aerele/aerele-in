@@ -1,0 +1,142 @@
+[
+  {
+    "title": "fix(manufacturing): show returned qty in progress bar",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/53234",
+    "date": "2026-03-08"
+  },
+  {
+    "title": "fix: update item row delivery dates when header delivery date changes in sales order",
+    "repo": "erpnext",
+    "author": "Pandiyan P",
+    "url": "https://github.com/frappe/erpnext/pull/53235",
+    "date": "2026-03-08"
+  },
+  {
+    "title": "fix: fetch holiday list of an employee based on month end date filter\u2026",
+    "repo": "hrms",
+    "author": "Sudarshan",
+    "url": "https://github.com/frappe/hrms/pull/4199",
+    "date": "2026-03-06"
+  },
+  {
+    "title": "fix(manufacturing): ignore sales order validation for subassembly item",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53176",
+    "date": "2026-03-05"
+  },
+  {
+    "title": "fix: allow payment_request to be created in draft",
+    "repo": "erpnext",
+    "author": "Vishnu Priya Baskaran",
+    "url": "https://github.com/frappe/erpnext/pull/53160",
+    "date": "2026-03-04"
+  },
+  {
+    "title": "fix(selling): handle selling price validation for FG item ",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53132",
+    "date": "2026-03-03"
+  },
+  {
+    "title": "fix: avoid circular dependency",
+    "repo": "erpnext",
+    "author": "Vishnu Priya Baskaran",
+    "url": "https://github.com/frappe/erpnext/pull/53109",
+    "date": "2026-03-03"
+  },
+  {
+    "title": "fix: populate mr owner and set po owner as fallback",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53099",
+    "date": "2026-03-02"
+  },
+  {
+    "title": "perf: add index on reference_purchase_receipt column",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53087",
+    "date": "2026-03-02"
+  },
+  {
+    "title": "fix(manufacturing): ignore sales order validation for subassembly item",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/53084",
+    "date": "2026-03-02"
+  },
+  {
+    "title": "fix(accounts): set posting time to get incoming rate",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/53072",
+    "date": "2026-03-01"
+  },
+  {
+    "title": "fix(gross-profit): apply precision-based rounding to grouped totals",
+    "repo": "erpnext",
+    "author": "NaviN",
+    "url": "https://github.com/frappe/erpnext/pull/53071",
+    "date": "2026-03-01"
+  },
+  {
+    "title": "fix: handle html email template separately in RFQ to avoid jinja cont\u2026",
+    "repo": "erpnext",
+    "author": "Pugazhendhi Velu",
+    "url": "https://github.com/frappe/erpnext/pull/53070",
+    "date": "2026-03-01"
+  },
+  {
+    "title": "fix(stock): pass company to avoid document naming rule issue in QI",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53037",
+    "date": "2026-02-28"
+  },
+  {
+    "title": "fix: skip empty dimension values in exchange gain loss",
+    "repo": "erpnext",
+    "author": "Ravibharathi",
+    "url": "https://github.com/frappe/erpnext/pull/52896",
+    "date": "2026-02-23"
+  },
+  {
+    "title": "fix(work_order): update returned qty on work order",
+    "repo": "erpnext",
+    "author": "Pandiyan P",
+    "url": "https://github.com/frappe/erpnext/pull/52880",
+    "date": "2026-02-23"
+  },
+  {
+    "title": "fix(manufacturing): remove delete query of job card & batch and serial no ",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/52840",
+    "date": "2026-02-20"
+  },
+  {
+    "title": "fix(patch): check user type existence",
+    "repo": "hrms",
+    "author": "Nareshkanna S",
+    "url": "https://github.com/frappe/hrms/pull/4158",
+    "date": "2026-02-20"
+  },
+  {
+    "title": "fix(sales-order): update quotation status while cancelling sales order",
+    "repo": "erpnext",
+    "author": "Sowmya",
+    "url": "https://github.com/frappe/erpnext/pull/52822",
+    "date": "2026-02-20"
+  },
+  {
+    "title": "fix(manufacturing): update closed status for current work order before calculating planned qty",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/52803",
+    "date": "2026-02-19"
+  }
+]

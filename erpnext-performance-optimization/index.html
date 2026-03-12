@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPNext Performance Optimization — 8 Hours to Under a Minute | Aerele</title>
+    <meta name="description" content="ERPNext running slow? We've optimized 8-hour batch jobs to under a minute. Query profiling, caching, architectural refactoring by developers who contribute to Frappe core. Based in India.">
+    <meta property="og:title" content="ERPNext Performance Optimization | Aerele">
+    <meta property="og:description" content="We've taken 8-hour ERPNext batch jobs to under a minute. Deep profiling by Frappe core contributors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aerele.in/erpnext-performance-optimization/">
+    <meta property="og:image" content="https://aerele.in/logo-og.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Aerele Technologies">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://aerele.in/erpnext-performance-optimization/">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="keywords" content="erpnext slow, erpnext performance, erpnext optimization, frappe slow, erpnext speed up, erpnext query optimization, erpnext caching, frappe performance tuning, erpnext batch job slow, erpnext database optimization">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "ERPNext Performance Optimization",
+        "description": "ERPNext and Frappe performance optimization. Query profiling, caching, background job optimization, and architectural refactoring by active Frappe core contributors.",
+        "provider": {"@type": "Organization", "name": "Aerele Technologies Pvt Ltd", "url": "https://aerele.in"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Aerele", "item": "https://aerele.in"},
+            {"@type": "ListItem", "position": 2, "name": "ERPNext Performance Optimization", "item": "https://aerele.in/erpnext-performance-optimization/"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why is my ERPNext running slow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Common causes: unoptimized database queries (especially in custom reports and scripts), missing database indexes, N+1 query patterns in custom code, large background job queues, inefficient Server Scripts or Client Scripts, bloated database tables without archival, and improper Redis cache configuration. Most ERPNext performance issues are code-level problems, not infrastructure problems."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does ERPNext performance optimization cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For a focused optimization project, a Development Sprint (₹1,50,000 for a 3-week cycle) covers profiling, fixes, and verification. For a smaller investigation, our Hourly model (₹2,500–3,500/hr) works. For ongoing optimization, Dedicated Resource at ₹5,500–8,000/day (quarterly commitment, limited availability)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you optimize ERPNext without changing our customizations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Often yes. Many performance improvements involve adding database indexes, optimizing queries within existing code, adding caching layers, or restructuring background job execution — changes that improve speed without altering business logic. When customization changes are needed, we explain why and get approval first."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▲</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'ae': { 50:'#fafaf9',100:'#f0efed',200:'#e2e0dc',300:'#c8c4be',400:'#a9a49b',500:'#918b80',600:'#7a746a',700:'#5e5a52',800:'#3d3a35',900:'#1c1b18',950:'#0d0c0b' } }, fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] } } } }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>html{scroll-behavior:smooth;overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',system-ui,sans-serif}</style>
+</head>
+<body class="bg-ae-50 text-ae-900 antialiased">
+
+    <nav class="fixed top-0 w-full bg-ae-50/80 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center"><img src="/logo-nav.png" alt="Aerele Technologies" class="h-8"></a>
+            <div class="hidden sm:flex items-center gap-8 text-[13px] text-ae-500">
+                <a href="/" class="hover:text-ae-900">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-900">Hire Developers</a>
+                <a href="/erpnext-customization/" class="hover:text-ae-900">Customization</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-900">Integrations</a>
+                <a href="mailto:hello@aerele.in" class="px-4 py-1.5 bg-ae-900 text-ae-50 rounded-full hover:bg-ae-800">Get in touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 sm:pt-44 sm:pb-24">
+        <div class="max-w-3xl mx-auto px-6">
+            <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ae-100 border border-ae-200/60 text-xs font-medium text-ae-600 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                Optimized by Frappe core contributors
+            </p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                ERPNext running slow? <span class="text-ae-400">We've fixed that.</span>
+            </h1>
+            <p class="text-lg text-ae-500 leading-relaxed max-w-2xl mb-8">
+                We've taken 8-hour batch jobs down to under a minute. Not by throwing hardware at the problem — by understanding the Frappe framework at the source level and fixing the actual bottleneck. Our developers contribute to Frappe core, so they know where the framework is fast, where it's slow, and how to work with both.
+            </p>
+            <a href="mailto:hello@aerele.in" class="inline-block px-6 py-3 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">Get a performance audit →</a>
+        </div>
+    </section>
+
+    <!-- The headline result -->
+    <section class="py-16 border-t border-ae-200/60 bg-ae-950 text-ae-50">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="grid grid-cols-3 gap-8">
+                <div>
+                    <p class="text-4xl font-extrabold text-red-400">8 hrs</p>
+                    <p class="text-xs text-ae-400 mt-1">Before optimization</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-extrabold text-ae-400">→</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-extrabold text-green-400">&lt;1 min</p>
+                    <p class="text-xs text-ae-400 mt-1">After optimization</p>
+                </div>
+            </div>
+            <p class="text-sm text-ae-400 mt-6">Actual result from a client's batch processing job on ERPNext</p>
+        </div>
+    </section>
+
+    <section class="py-20 border-t border-ae-200/60">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Common ERPNext performance problems we fix</h2>
+            <p class="text-ae-500 mb-12">Most ERPNext performance issues are code problems, not infrastructure problems. Adding more RAM won't fix an N+1 query that runs 10,000 times per page load.</p>
+
+            <div class="space-y-10">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Slow reports and list views</h3>
+                    <p class="text-ae-500 leading-relaxed">Query Reports that take 30+ seconds. List views that time out on large datasets. Usually caused by missing indexes, unoptimized SQL, or Python-side filtering that should happen in the query. We profile the actual queries hitting MariaDB, add proper indexes, rewrite the SQL, and push filtering to the database layer. Result: sub-second reports.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Background job bottlenecks</h3>
+                    <p class="text-ae-500 leading-relaxed">Payroll processing that takes hours. Bulk invoice generation that blocks the queue. Background jobs that fail silently and retry forever. We restructure batch operations to use efficient bulk queries instead of document-by-document processing, implement proper chunking with progress tracking, and fix retry logic to prevent queue poisoning.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">N+1 query patterns</h3>
+                    <p class="text-ae-500 leading-relaxed">The most common performance killer in Frappe customizations: a loop that calls <code class="text-xs bg-ae-100 px-1 py-0.5 rounded">frappe.get_doc()</code> or <code class="text-xs bg-ae-100 px-1 py-0.5 rounded">frappe.get_value()</code> for every row. 1,000 items = 1,000 database queries. We refactor these to batch queries using <code class="text-xs bg-ae-100 px-1 py-0.5 rounded">frappe.get_all()</code> with proper filters. One query instead of a thousand.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Slow form loads</h3>
+                    <p class="text-ae-500 leading-relaxed">Documents with many linked fields, custom scripts that make API calls on load, child tables with thousands of rows. We identify which calls are blocking the render, implement lazy loading for heavy data, add server-side caching for frequently accessed values, and restructure client scripts to load data asynchronously.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Database bloat</h3>
+                    <p class="text-ae-500 leading-relaxed">ERPNext databases that grow to 50GB+ with years of transaction data. Slow backups, slow queries, growing storage costs. We implement data archival strategies, set up table partitioning where applicable, clean up orphaned records, and optimize table structures — all without losing any business data.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Redis and caching issues</h3>
+                    <p class="text-ae-500 leading-relaxed">Frappe uses Redis heavily for caching, queuing, and session management. Misconfigured Redis can cause cache misses that hit the database for every request, queue backlogs that delay background processing, and session issues under high concurrency. We tune Redis configuration, implement proper cache invalidation, and ensure the caching layer is actually caching.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-ae-950 text-ae-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Our approach to performance optimization</h2>
+            <p class="text-ae-400 mb-12">We don't guess. We measure, identify, fix, and verify.</p>
+
+            <div class="space-y-8">
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-10 h-10 bg-ae-800 text-ae-50 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Profile</h3>
+                        <p class="text-ae-300 leading-relaxed">We enable MariaDB slow query log, Frappe request profiling, and Redis monitoring. We measure baseline performance on the specific operations that are slow. No assumptions — we look at actual query execution plans, actual Python call stacks, actual cache hit rates.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-10 h-10 bg-ae-800 text-ae-50 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Identify the top bottleneck</h3>
+                        <p class="text-ae-300 leading-relaxed">Usually 80% of the slowness comes from 1-2 specific queries or code paths. We find the biggest offender first. Fixing the top bottleneck often reveals the second one — they compound. We rank by impact, not by how interesting the problem is.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-10 h-10 bg-ae-800 text-ae-50 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Fix with minimal blast radius</h3>
+                        <p class="text-ae-300 leading-relaxed">We fix the bottleneck with the smallest change that achieves the result. Add an index, not a rewrite. Cache a value, not refactor the architecture. Only escalate to bigger changes when the small ones aren't sufficient. Every change is tested against the same dataset that was slow.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <div class="flex-shrink-0 w-10 h-10 bg-ae-800 text-ae-50 rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Verify and document</h3>
+                        <p class="text-ae-300 leading-relaxed">We measure again. Same operation, same dataset, same conditions. We show the before/after numbers. We document what was changed, why it was slow, and how to prevent the pattern in future development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 border-t border-ae-200/60">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Why Frappe contributors optimize better</h2>
+            <p class="text-ae-500 leading-relaxed mb-8">When your optimizer has contributed to the framework's query builder, ORM, and caching layer, they know where the performance boundaries are. They know which Frappe methods are O(1) and which are O(n). They know what gets cached and what doesn't. They don't need to reverse-engineer the framework — they helped build it.</p>
+            <p class="text-ae-500 leading-relaxed">That's the difference between someone who profiles your code and someone who profiles your code AND knows the framework internals well enough to suggest a change to how the framework itself handles your use case.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 border-t border-ae-200/60 bg-ae-100/50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-12">Frequently asked questions</h2>
+            <div class="space-y-6">
+                <details class="group" open>
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-ae-200/60 text-sm font-semibold text-ae-900">
+                        Why is my ERPNext running slow?
+                        <svg class="w-4 h-4 text-ae-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="py-4 text-sm text-ae-500 leading-relaxed">Common causes include: unoptimized database queries in custom reports and scripts, missing database indexes, N+1 query patterns in custom code, large background job queues, inefficient Server Scripts or Client Scripts, bloated database tables without archival, and misconfigured Redis caching. Most ERPNext performance problems are code-level, not infrastructure — adding more RAM rarely helps if the root cause is a query that does a full table scan.</p>
+                </details>
+                <details class="group">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-ae-200/60 text-sm font-semibold text-ae-900">
+                        How much does ERPNext performance optimization cost?
+                        <svg class="w-4 h-4 text-ae-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="py-4 text-sm text-ae-500 leading-relaxed">For a focused optimization project, a Development Sprint (₹1,50,000, 3-week cycle) covers profiling, identifying top bottlenecks, implementing fixes, and measuring results. For a smaller investigation, our Hourly model (₹2,500–3,500/hr) works. For ongoing optimization as part of larger development, Dedicated Resource at ₹5,500–8,000/day (quarterly commitment, limited availability).</p>
+                </details>
+                <details class="group">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-ae-200/60 text-sm font-semibold text-ae-900">
+                        Will optimization break our existing customizations?
+                        <svg class="w-4 h-4 text-ae-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="py-4 text-sm text-ae-500 leading-relaxed">Most optimizations are additive — adding indexes, adding cache layers, restructuring queries within existing code. We don't change business logic without discussion. Every change is tested against your data and verified before deployment. We explain what we're changing and why before we do it.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-ae-950 text-ae-50">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">ERPNext slow? Let's fix it.</h2>
+            <p class="text-ae-400 mb-8">Tell us what's slow — reports, batch jobs, form loads, the whole system. We'll profile it and give you an honest assessment of what's fixable and how long it'll take.</p>
+            <a href="mailto:hello@aerele.in" class="inline-block px-8 py-3.5 bg-white text-ae-950 rounded-full text-sm font-semibold hover:bg-ae-100 transition-colors">hello@aerele.in →</a>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-ae-200/60">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ae-400">
+            <p>© 2025 Aerele Technologies Pvt Ltd · Tiruppur, India</p>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-ae-700">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Developers</a>
+                <a href="/erpnext-customization/" class="hover:text-ae-700">Customization</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-700">Integrations</a>
+                <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

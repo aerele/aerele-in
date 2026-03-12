@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Banking Suite — ERPNext Bank Integration Case Study | Aerele</title>
+    <meta name="description" content="Open-source ERPNext bank integration with ICICI, HDFC, Axis, YES Bank, Kotak, HSBC, UBI, and BOB. Vendor payouts, payroll disbursement, and statement reconciliation directly from ERPNext.">
+    <meta property="og:title" content="India Banking Suite — ERPNext Bank Integration Case Study | Aerele">
+    <meta property="og:description" content="ERPNext bank integration with 12+ Indian banks. Open-source india-banking suite by Aerele.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aerele.in/case-studies/india-banking/">
+    <meta property="og:image" content="https://aerele.in/logo-og.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Aerele Technologies">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="India Banking Suite — ERPNext Bank Integration">
+    <meta name="twitter:description" content="Open-source bank integration for ERPNext. 12+ Indian banks, enterprise-scale.">
+    <link rel="canonical" href="https://aerele.in/case-studies/india-banking/">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="keywords" content="erpnext bank integration, erpnext icici integration, erpnext hdfc integration, india banking erpnext, erpnext payment integration, erpnext vendor payout, erpnext payroll bank, erpnext bank statement reconciliation, frappe bank api">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "India Banking Suite — ERPNext Bank Integration with 8 Indian Banks",
+        "description": "How Aerele built an open-source bank integration for ERPNext supporting ICICI, HDFC, Axis, YES Bank, Kotak, HSBC, UBI, and Bank of Baroda.",
+        "author": {"@type": "Organization", "name": "Aerele Technologies Pvt Ltd"},
+        "publisher": {"@type": "Organization", "name": "Aerele Technologies Pvt Ltd", "url": "https://aerele.in"},
+        "datePublished": "2024-01-01",
+        "url": "https://aerele.in/case-studies/india-banking/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Aerele", "item": "https://aerele.in"},
+            {"@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://aerele.in/case-studies/"},
+            {"@type": "ListItem", "position": 3, "name": "India Banking", "item": "https://aerele.in/case-studies/india-banking/"}
+        ]
+    }
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▲</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'ae': { 50:'#fafaf9',100:'#f0efed',200:'#e2e0dc',300:'#c8c4be',400:'#a9a49b',500:'#918b80',600:'#7a746a',700:'#5e5a52',800:'#3d3a35',900:'#1c1b18',950:'#0d0c0b' } }, fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] } } } }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { overflow-x: hidden; font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="bg-ae-50 text-ae-900 antialiased">
+
+    <nav class="fixed top-0 w-full bg-ae-50/80 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center"><img src="/logo-nav.png" alt="Aerele Technologies" class="h-8"></a>
+            <div class="hidden sm:flex items-center gap-8 text-[13px] text-ae-500">
+                <a href="/" class="hover:text-ae-900 transition-colors">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="mailto:hello@aerele.in" class="px-4 py-1.5 bg-ae-900 text-ae-50 rounded-full hover:bg-ae-800 transition-colors">Get in touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 sm:pt-28">
+        <div class="max-w-3xl mx-auto px-6">
+            <nav class="text-xs text-ae-400" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-ae-700">Home</a> <span class="mx-1">→</span>
+                <span>Case Studies</span> <span class="mx-1">→</span>
+                <span class="text-ae-700">India Banking Suite</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="pt-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto px-6">
+            <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ae-100 border border-ae-200/60 text-xs font-medium text-ae-600 mb-6">
+                Open Source · 31+ ⭐ · 43+ forks
+            </p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                India Banking Suite
+            </h1>
+            <p class="text-xl text-ae-500 leading-relaxed max-w-2xl mb-8">
+                ERPNext integration with 12+ Indian banks. Vendor payouts, payroll disbursement, and bank statement reconciliation — all from within ERPNext.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/aerele/india-banking" class="px-6 py-3 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">View on GitHub →</a>
+                <a href="mailto:hello@aerele.in" class="px-6 py-3 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">Deploy for your business →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-20 border-t border-ae-200/60">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">The problem</h2>
+            <div class="space-y-4 text-ae-500 leading-relaxed">
+                <p>Indian businesses running ERPNext had a painful gap: the ERP tracked what they owed vendors and employees, but actually paying them required logging into bank portals, manually entering details, uploading CSV files, and then reconciling statements back into ERPNext.</p>
+                <p>For companies with multiple entities and bank accounts across different banks, this meant hours of daily manual work, data entry errors, failed payments from typos, and reconciliation that was always behind.</p>
+                <p>Existing solutions either required expensive middleware or were bank-specific point solutions that couldn't handle multi-bank environments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 bg-ae-950 text-ae-50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">What we built</h2>
+
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-semibold text-lg mb-3">Unified bank integration layer</h3>
+                    <p class="text-ae-300 leading-relaxed">A single Frappe app that abstracts bank API differences behind a unified interface. Create a Payment Entry in ERPNext, click "Send to Bank" — the app handles the rest. Works the same whether it's ICICI Connected Banking or HDFC Corporate Net Banking.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg mb-3">8 bank connectors</h3>
+                    <p class="text-ae-300 leading-relaxed mb-4">Each bank has its own API format, authentication method, and quirks. We built dedicated connectors for:</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">ICICI</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">HDFC</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">Axis</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">YES Bank</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">Kotak</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">HSBC</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">Union Bank</div>
+                        <div class="bg-ae-900/50 border border-ae-800/50 rounded-lg p-3 text-center text-sm">Bank of Baroda</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg mb-3">Three core workflows</h3>
+                    <div class="space-y-4 text-ae-300">
+                        <p><strong class="text-white">Vendor payouts:</strong> Payment Entries in ERPNext → pushed to bank API → real-time status tracking → auto-reconciliation. Supports NEFT, RTGS, IMPS.</p>
+                        <p><strong class="text-white">Payroll disbursement:</strong> Bulk salary payments from Payroll Entry. Process hundreds of salary transfers in a single batch. No CSV uploads to bank portals.</p>
+                        <p><strong class="text-white">Statement reconciliation:</strong> Auto-fetch bank statements via API. Smart matching against existing ERPNext transactions. Handles partial matches and suggests manual review for ambiguous entries.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg mb-3">Host-to-host (H2H) support</h3>
+                    <p class="text-ae-300 leading-relaxed">For enterprises that need secure file-based integration instead of API calls — encrypted file generation, SFTP upload to bank, response file parsing, and status reconciliation. Available via the india-banking-h2h companion app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scale -->
+    <section class="py-20 border-t border-ae-200/60">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">Enterprise scale</h2>
+            <div class="space-y-4 text-ae-500 leading-relaxed">
+                <p>The india-banking suite is deployed at enterprise scale — multiple banks with multiple accounts running in a single multi-company ERPNext site. Built on standard <strong class="text-ae-900">Payment Request</strong> and <strong class="text-ae-900">Payment Order</strong> doctypes — fully upgrade-friendly. Numerous companies run their entire banking operations through this single integration. <a href="https://frappe.io/incubator/project/India%20Banking" target="_blank" rel="noopener" class="underline text-ae-700">Under Frappe's Incubation Program →</a></p>
+                <p>The app is designed for multi-company setups from day one. Each entity can have different banks, different approval workflows, and different payment preferences. The unified interface means finance teams don't need to learn multiple bank portals.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 mt-12 text-center">
+                <div class="border border-ae-200 rounded-lg p-6">
+                    <p class="text-2xl font-extrabold">7+</p>
+                    <p class="text-xs text-ae-400 mt-1">Entities managed</p>
+                </div>
+                <div class="border border-ae-200 rounded-lg p-6">
+                    <p class="text-2xl font-extrabold">11+</p>
+                    <p class="text-xs text-ae-400 mt-1">Bank accounts</p>
+                </div>
+                <div class="border border-ae-200 rounded-lg p-6">
+                    <p class="text-2xl font-extrabold">8</p>
+                    <p class="text-xs text-ae-400 mt-1">Banks supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical architecture -->
+    <section class="py-20 border-t border-ae-200/60 bg-ae-100/50">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">Technical architecture</h2>
+            <div class="space-y-4 text-ae-500 leading-relaxed text-sm">
+                <p><strong class="text-ae-700">Framework:</strong> Frappe framework (Python backend, JS frontend)</p>
+                <p><strong class="text-ae-700">Bank communication:</strong> REST APIs (ICICI, YES Bank, Kotak), SOAP/XML (HDFC), SFTP file exchange (H2H mode)</p>
+                <p><strong class="text-ae-700">Security:</strong> OAuth 2.0, client certificates, IP whitelisting, encrypted payload exchange — per bank's requirements</p>
+                <p><strong class="text-ae-700">Error handling:</strong> Retry with exponential backoff, dead letter queue for failed transactions, full audit logging</p>
+                <p><strong class="text-ae-700">Reconciliation:</strong> Scheduled bank statement fetch, fuzzy matching algorithm, configurable matching rules, manual review queue</p>
+                <p><strong class="text-ae-700">Multi-tenancy:</strong> Works with Frappe multi-company setup. Each company can have separate bank configurations and approval flows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open source -->
+    <section class="py-20 border-t border-ae-200/60">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-4">This is open source</h2>
+            <p class="text-ae-500 mb-8 max-w-xl mx-auto">The entire india-banking suite is MIT licensed and available on GitHub. Read the code, deploy it yourself, or hire us to set it up and maintain it for your business.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/aerele/india-banking" class="px-5 py-2.5 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">india-banking · 31 ⭐</a>
+                <a href="https://github.com/aerele/india-banking-connector" class="px-5 py-2.5 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">india-banking-connector</a>
+                <a href="https://github.com/aerele/india-banking-h2h" class="px-5 py-2.5 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">india-banking-h2h</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-ae-950 text-ae-50">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Need bank integration for your ERPNext?</h2>
+            <p class="text-ae-400 mb-8">Whether you want to deploy india-banking, add a new bank connector, or build a custom integration — we're the team that built it.</p>
+            <a href="mailto:hello@aerele.in" class="inline-block px-8 py-3.5 bg-white text-ae-950 rounded-full text-sm font-semibold hover:bg-ae-100 transition-colors">hello@aerele.in →</a>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-ae-200/60">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ae-400">
+            <p>© 2025 Aerele Technologies Pvt Ltd · Tiruppur, India</p>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-ae-700">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Developers</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-700">Integrations</a>
+                <a href="/about/" class="hover:text-ae-700">About</a>
+                <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

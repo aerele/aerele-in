@@ -1,0 +1,231 @@
+{
+  "total_prs": 530,
+  "total_contributors": 17,
+  "repos_touched": [
+    "ecommerce_integrations",
+    "erpnext",
+    "frappe",
+    "hrms",
+    "payments",
+    "webshop"
+  ],
+  "contributors": [
+    {
+      "username": "ravibharathi656",
+      "name": "Ravibharathi",
+      "avatar": "https://avatars.githubusercontent.com/u/131471282?v=4",
+      "profile_url": "https://github.com/ravibharathi656",
+      "total_merged_prs": 92,
+      "repos": {
+        "erpnext": 83,
+        "ecommerce_integrations": 1,
+        "frappe": 6,
+        "hrms": 1,
+        "payments": 1
+      },
+      "summary": "Accounts and payments specialist. Deep work on payment reconciliation, exchange rate handling, POS, bank transactions, and GL entries. Also contributed performance improvements like batch processing for auto bank reconciliation and subscription processing."
+    },
+    {
+      "username": "venkat102",
+      "name": "Venkatesh",
+      "avatar": "https://avatars.githubusercontent.com/u/47534423?v=4",
+      "profile_url": "https://github.com/venkat102",
+      "total_merged_prs": 89,
+      "repos": {
+        "hrms": 16,
+        "erpnext": 70,
+        "frappe": 3
+      },
+      "summary": "Core accounting and payroll contributor. Extensive fixes across payment entries, tax withholding, period closing vouchers, cost center allocation, and multi-currency handling. Strong HRMS work including salary slips, leave encashment, and shift assignments."
+    },
+    {
+      "username": "l0gesh29",
+      "name": "Logesh Periyasamy",
+      "avatar": "https://avatars.githubusercontent.com/u/63584088?v=4",
+      "profile_url": "https://github.com/l0gesh29",
+      "total_merged_prs": 63,
+      "repos": {
+        "erpnext": 57,
+        "hrms": 4,
+        "frappe": 2
+      },
+      "summary": "Accounting reports and ledger expert. Built features like company currency display in GL reports, cashflow opening/closing balance, and accounting dimension filters. Key fixes in payment reconciliation, trial balance, and asset valuation."
+    },
+    {
+      "username": "kavin-114",
+      "name": "Kavin",
+      "avatar": "https://avatars.githubusercontent.com/u/78342682?v=4",
+      "profile_url": "https://github.com/kavin-114",
+      "total_merged_prs": 55,
+      "repos": {
+        "erpnext": 55
+      },
+      "summary": "Stock and manufacturing specialist. Focused on serial/batch handling, pick lists, POS batch calculations, subcontracting, and work order validations. Deep expertise in inventory operations and warehouse management."
+    },
+    {
+      "username": "Sudharsanan11",
+      "name": "Sudharsanan Ashok",
+      "avatar": "https://avatars.githubusercontent.com/u/135326972?v=4",
+      "profile_url": "https://github.com/Sudharsanan11",
+      "total_merged_prs": 37,
+      "repos": {
+        "erpnext": 35,
+        "hrms": 2
+      },
+      "summary": "Manufacturing and stock operations contributor. Work across production plans, work orders, batch quantity calculations, subcontracting orders, and stock reservations. Also contributed to buying workflows and quality inspection."
+    },
+    {
+      "username": "Navin-S-R",
+      "name": "NaviN",
+      "avatar": "https://avatars.githubusercontent.com/u/118178330?v=4",
+      "profile_url": "https://github.com/Navin-S-R",
+      "total_merged_prs": 33,
+      "repos": {
+        "erpnext": 32,
+        "frappe": 1
+      },
+      "summary": "Asset management and financial reporting contributor. Key work on asset depreciation, capitalization, partial asset sales, and gross profit reporting. Also improved payment reconciliation and standardized cost center handling across transactions."
+    },
+    {
+      "username": "pugazhendhivelu",
+      "name": "Pugazhendhi Velu",
+      "avatar": "https://avatars.githubusercontent.com/u/126157273?v=4",
+      "profile_url": "https://github.com/PugazhendhiVelu",
+      "total_merged_prs": 33,
+      "repos": {
+        "erpnext": 25,
+        "hrms": 2,
+        "frappe": 6
+      },
+      "summary": "Full-stack ERPNext contributor across stock, manufacturing, and framework. Fixes in barcode scanning, warehouse handling, period closing, and quality inspection. Also contributed to Frappe framework UI including form sidebar and data exporter improvements."
+    },
+    {
+      "username": "Bhavan23",
+      "name": "Bhavansathru",
+      "avatar": "https://avatars.githubusercontent.com/u/122002510?v=4",
+      "profile_url": "https://github.com/Bhavan23",
+      "total_merged_prs": 25,
+      "repos": {
+        "frappe": 1,
+        "erpnext": 21,
+        "payments": 1,
+        "webshop": 1,
+        "ecommerce_integrations": 1
+      },
+      "summary": "Broadest ecosystem coverage \u2014 contributed across 6 repos including frappe, erpnext, payments, webshop, ecommerce_integrations, and frappe_docker. Key work on payment reconciliation, budget management, bank reconciliation, and inter-company transactions."
+    },
+    {
+      "username": "nareshkannasln",
+      "name": "Nareshkanna S",
+      "avatar": "https://avatars.githubusercontent.com/u/159678797?v=4",
+      "profile_url": "https://github.com/nareshkannasln",
+      "total_merged_prs": 23,
+      "repos": {
+        "hrms": 21,
+        "frappe": 1,
+        "erpnext": 1
+      },
+      "summary": "HRMS specialist. Contributions across expense claims, salary structure, leave management, gratuity, and attendance. Also built job opening template auto-fetch and improved the salary register report."
+    },
+    {
+      "username": "SowmyaArunachalam",
+      "name": "Sowmya",
+      "avatar": "https://avatars.githubusercontent.com/u/106989392?v=4",
+      "profile_url": "https://github.com/SowmyaArunachalam",
+      "total_merged_prs": 22,
+      "repos": {
+        "erpnext": 18,
+        "frappe": 1,
+        "ecommerce_integrations": 2,
+        "hrms": 1
+      },
+      "summary": "Versatile contributor across selling, assets, and accounts. Built features like configurable asset depreciation notifications, attendance permissions, and default age ranges in accounts. Fixes across sales orders, material requests, and CI infrastructure."
+    },
+    {
+      "username": "Pandiyan5273",
+      "name": "Pandiyan P",
+      "avatar": "https://avatars.githubusercontent.com/u/171273338?v=4",
+      "profile_url": "https://github.com/Pandiyan5273",
+      "total_merged_prs": 14,
+      "repos": {
+        "erpnext": 14
+      },
+      "summary": "Stock and manufacturing contributor. Focused on warehouse mapping, barcode scanning, UOM handling, and work order improvements. Clean, targeted fixes in stock entry and subassembly workflows."
+    },
+    {
+      "username": "Karuppasamy923",
+      "name": "Karuppasamy",
+      "avatar": "https://avatars.githubusercontent.com/u/126139358?v=4",
+      "profile_url": "https://github.com/Karuppasamy923",
+      "total_merged_prs": 13,
+      "repos": {
+        "erpnext": 10,
+        "hrms": 1,
+        "frappe": 1,
+        "payments": 1
+      },
+      "summary": "Contributed across accounts, payments, and integrations. Built MT940 bank statement import, pegged currency support, and Razorpay currency extensions. Work on inter-company transaction validation and trend reports."
+    },
+    {
+      "username": "ervishnucs",
+      "name": "Vishnu Priya Baskaran",
+      "avatar": "https://avatars.githubusercontent.com/u/145791817?v=4",
+      "profile_url": "https://github.com/ervishnucs",
+      "total_merged_prs": 11,
+      "repos": {
+        "erpnext": 8,
+        "ecommerce_integrations": 2,
+        "frappe": 1
+      },
+      "summary": "Accounts and ecommerce contributor. Fixes in payment requests, budget variance reporting, bank reconciliation, and Bootstrap layout handling. Also worked on ecommerce integrations and framework test infrastructure."
+    },
+    {
+      "username": "rs-rethik",
+      "name": "Rethik M",
+      "avatar": "https://avatars.githubusercontent.com/u/85231069?v=4",
+      "profile_url": "https://github.com/rs-rethik",
+      "total_merged_prs": 9,
+      "repos": {
+        "erpnext": 8,
+        "hrms": 1
+      },
+      "summary": "Accounts and stock contributor. Built multiselect CC in process statement of accounts, difference posting date for invoice advances. Fixes in expense claim validation, exchange loss/gain, and stock quantity reporting."
+    },
+    {
+      "username": "DHINESH00",
+      "name": "Dhinesh",
+      "avatar": "https://avatars.githubusercontent.com/u/79265267?v=4",
+      "profile_url": "https://github.com/DHINESH00",
+      "total_merged_prs": 6,
+      "repos": {
+        "frappe": 1,
+        "erpnext": 5
+      },
+      "summary": "Focused contributions on pricing and bank reconciliation. Fixes in pricing rule application, discount handling, currency updates, and the bank reconciliation tool."
+    },
+    {
+      "username": "sudarsan2001",
+      "name": "Sudarshan",
+      "avatar": "https://avatars.githubusercontent.com/u/73628063?v=4",
+      "profile_url": "https://github.com/sudarsan2001",
+      "total_merged_prs": 4,
+      "repos": {
+        "hrms": 1,
+        "frappe": 1,
+        "erpnext": 2
+      },
+      "summary": "HRMS and accounts contributor. Fixes in holiday list handling, asset depreciation schedules, GL entry currency, and translation improvements for link fields."
+    },
+    {
+      "username": "chethank1407",
+      "name": "Chethan Kumar C",
+      "avatar": "https://avatars.githubusercontent.com/u/61577372?v=4",
+      "profile_url": "https://github.com/Chethank1407",
+      "total_merged_prs": 1,
+      "repos": {
+        "erpnext": 1
+      },
+      "summary": "Contributed to ERPNext accounting setup with print and stationery account renaming."
+    }
+  ]
+}
