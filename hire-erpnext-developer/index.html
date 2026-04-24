@@ -128,59 +128,83 @@
                 extend: {
                     colors: {
                         'ae': {
-                            50: '#fafaf9', 100: '#f0efed', 200: '#e2e0dc', 300: '#c8c4be',
-                            400: '#a9a49b', 500: '#918b80', 600: '#7a746a', 700: '#5e5a52',
-                            800: '#3d3a35', 900: '#1c1b18', 950: '#0d0c0b',
+                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
+                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
+                        },
+                        'brand': {
+                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b',
                         }
                     },
-                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
                 }
             }
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>html{scroll-behavior:smooth;overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',system-ui,sans-serif}</style>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/logo-nav.png" as="image">
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
+    </style>
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
 
-    <nav class="fixed top-0 w-full bg-ae-50/80 backdrop-blur-md z-50 border-b border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2.5"><img src="/logo-nav.png" alt="Aerele Technologies" class="h-8"><span class="text-[15px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span></a>
-            <div class="hidden sm:flex items-center gap-8 text-[13px] text-ae-500">
-                <a href="/" class="hover:text-ae-900">Home</a>
-                <a href="/erpnext-customization/" class="hover:text-ae-900">Customization</a>
-                <a href="/erpnext-integration/" class="hover:text-ae-900">Integrations</a>
-                <a href="/about/" class="hover:text-ae-900">About</a>
-                <a href="tel:+917790844832" class="px-4 py-1.5 bg-ae-900 text-ae-50 rounded-full hover:bg-ae-800">Get in touch</a>
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
+                <a href="/" class="hover:text-ae-900 transition-colors">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
+                <a href="/erpnext-customization/" class="hover:text-ae-900 transition-colors">Customization</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
+            <button class="sm:hidden p-2 text-ae-600" aria-label="Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="pt-32 pb-16 sm:pt-44 sm:pb-24">
-        <div class="max-w-3xl mx-auto px-6">
-            <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ae-100 border border-ae-200/60 text-xs font-medium text-ae-600 mb-6">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+    <section class="relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-ae-200 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
                 600+ pull requests merged into ERPNext core
             </p>
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
-                Hire ERPNext developers who <span class="text-ae-400">contribute to the source code</span>
+            <h1 class="font-semibold tracking-tight leading-[1.15] text-white mb-6" style="font-size: clamp(1.5rem, 4.4vw, 3.25rem);">
+                Hire ERPNext developers who <span class="text-brand-400 font-semibold">contribute to the source code</span>
             </h1>
-            <p class="text-lg text-ae-500 leading-relaxed max-w-2xl mb-8">
+            <p class="text-lg text-ae-200 leading-relaxed max-w-2xl mb-8">
                 ERPNext is built on the Frappe framework. The best ERPNext developers aren't just people who configure it – they're people who understand the framework underneath. Our team has 600+ pull requests merged into ERPNext, Frappe, HRMS, Payments, and Webshop. That means when something breaks in your ERPNext, our developers can trace it to the source, not just Google the error message.
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="mailto:hello@aerele.in" class="px-6 py-3 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">Start a conversation →</a>
-                <a href="/hire-frappe-developer/" class="px-6 py-3 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">See full developer page →</a>
+                <a href="mailto:hello@aerele.in" class="px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-lg text-sm font-medium transition-colors">Start a conversation →</a>
+                <a href="/hire-frappe-developer/" class="px-6 py-3 border border-white/15 text-white rounded-lg text-sm font-medium hover:border-white/30 transition-colors">See full developer page →</a>
             </div>
         </div>
     </section>
 
     <!-- ERPNext = Frappe explanation -->
     <section class="py-16 border-t border-ae-200/60 bg-ae-100/50">
-        <div class="max-w-3xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <h2 class="text-xl font-bold mb-4">ERPNext runs on Frappe. The best ERPNext developer is a Frappe developer.</h2>
             <p class="text-ae-500 leading-relaxed">Every ERPNext customization, integration, and performance fix ultimately touches the Frappe framework. Custom doctypes? Frappe. REST APIs? Frappe. Background jobs? Frappe. Permissions? Frappe. The ERPNext developer who understands Frappe deeply – and has contributed to it – will always outperform one who only knows the ERPNext UI layer. That's why <a href="/hire-frappe-developer/" class="underline text-ae-700">our hiring page focuses on Frappe expertise</a>: it's the foundation that determines how good your ERPNext developer actually is.</p>
         </div>
@@ -188,8 +212,8 @@
 
     <!-- Meet the developers -->
     <section class="py-20 border-t border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Meet the developers who contribute to ERPNext</h2>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950 mb-4">Meet the developers who contribute to ERPNext</h2>
             <p class="text-ae-500 mb-12">Every person below has pull requests merged into the ERPNext ecosystem. Each card shows their ERPNext-specific contributions. Click to verify on GitHub.</p>
 
             <div id="erpnext-contributors-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -200,8 +224,8 @@
 
     <!-- What ERPNext work we do -->
     <section class="py-20 border-t border-ae-200/60">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">What our ERPNext developers build</h2>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950 mb-4">What our ERPNext developers build</h2>
             <p class="text-ae-500 mb-12">These aren't hypothetical. These are shipped, production systems across India, Oman, UAE, and Germany.</p>
 
             <div class="grid sm:grid-cols-2 gap-6">
@@ -235,8 +259,8 @@
 
     <!-- ERPNext modules we contribute to -->
     <section class="py-20 bg-ae-950 text-ae-50">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">ERPNext modules our developers have contributed to</h2>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white mb-4">ERPNext modules our developers have contributed to</h2>
             <p class="text-ae-400 mb-12">Pull requests merged into these core ERPNext ecosystem repositories. Publicly verifiable on GitHub.</p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -278,8 +302,8 @@
 
     <!-- Pricing -->
     <section class="py-20 border-t border-ae-200/60">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">ERPNext developer pricing</h2>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950 mb-4">ERPNext developer pricing</h2>
             <p class="text-ae-500 mb-10">Transparent. No "schedule a call" to see numbers.</p>
 
             <div class="space-y-4">
@@ -339,8 +363,8 @@
 
     <!-- FAQ -->
     <section class="py-20 border-t border-ae-200/60">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-2xl font-bold tracking-tight mb-12">Frequently asked questions about hiring ERPNext developers</h2>
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950 mb-12">Frequently asked questions about hiring ERPNext developers</h2>
             <div class="space-y-6">
                 <details class="group" open>
                     <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-ae-200/60 text-sm font-semibold text-ae-900">
@@ -383,19 +407,19 @@
 
     <!-- CTA -->
     <section class="py-20 bg-ae-950 text-ae-50">
-        <div class="max-w-2xl mx-auto px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Your next ERPNext developer should be a contributor</h2>
+        <div class="max-w-2xl mx-auto px-6 sm:px-8 text-center">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white mb-4">Your next ERPNext developer should be a contributor</h2>
             <p class="text-ae-400 mb-8">Tell us what you're building on ERPNext. We'll tell you if we're the right fit.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="mailto:hello@aerele.in" class="px-8 py-3.5 bg-white text-ae-950 rounded-full text-sm font-semibold hover:bg-ae-100 transition-colors">hello@aerele.in →</a>
-                <a href="tel:+917790844832" class="px-8 py-3.5 border border-ae-700 text-ae-50 rounded-full text-sm font-semibold hover:border-ae-500 transition-colors">+91 77908 44832</a>
-                <a href="/hire-frappe-developer/" class="px-8 py-3.5 border border-ae-700 text-ae-50 rounded-full text-sm font-semibold hover:border-ae-500 transition-colors">Full developer page →</a>
+                <a href="mailto:hello@aerele.in" class="px-8 py-3.5 bg-brand-500 text-white rounded-lg text-sm font-semibold hover:bg-brand-600 transition-colors">hello@aerele.in →</a>
+                <a href="tel:+917790844832" class="px-8 py-3.5 border border-white/15 text-ae-50 rounded-lg text-sm font-semibold hover:border-white/30 transition-colors">+91 77908 44832</a>
+                <a href="/hire-frappe-developer/" class="px-8 py-3.5 border border-white/15 text-ae-50 rounded-lg text-sm font-semibold hover:border-white/30 transition-colors">Full developer page →</a>
             </div>
         </div>
     </section>
 
     <footer class="py-10 border-t border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-8 text-xs">
                 <div>
                     <p class="font-semibold text-ae-700 mb-3">Services</p>

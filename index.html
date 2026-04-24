@@ -239,21 +239,31 @@
             theme: {
                 extend: {
                     colors: {
+                        // Navy-slate scale (lens.aerele.in design language)
                         'ae': {
-                            50: '#fafaf9', 100: '#f0efed', 200: '#e2e0dc', 300: '#c8c4be',
-                            400: '#a9a49b', 500: '#918b80', 600: '#7a746a', 700: '#5e5a52',
-                            800: '#3d3a35', 900: '#1c1b18', 950: '#0d0c0b',
+                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
+                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
+                        },
+                        // Emerald accent
+                        'brand': {
+                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b',
                         }
                     },
-                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
                 }
             }
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preload" href="/logo-nav.png" as="image">
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -263,78 +273,95 @@
         @keyframes scroll-up { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scroll-up 50s linear infinite; }
         .animate-scroll-vertical:hover { animation-play-state: paused; }
+        /* Subtle radial glow behind hero — matches lens's depth */
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
     </style>
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
 
     <!-- Nav -->
-    <nav class="fixed top-0 w-full bg-ae-50/80 backdrop-blur-md z-50 border-b border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5">
                 <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
-                <span class="text-[15px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
             </a>
-            <div class="hidden sm:flex items-center gap-8 text-[13px] text-ae-500">
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
                 <a href="#why" class="hover:text-ae-900 transition-colors">Why Us</a>
                 <a href="#work" class="hover:text-ae-900 transition-colors">Work</a>
                 <a href="#team" class="hover:text-ae-900 transition-colors">Team</a>
                 <a href="#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="px-4 py-1.5 bg-ae-900 text-ae-50 rounded-full hover:bg-ae-800 transition-colors">Hire us</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
             <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-ae-50">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-600">
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
                 <a href="#why">Why Us</a><a href="#work">Work</a><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
             </div>
         </div>
     </nav>
 
     <!-- ===== HERO ===== -->
-    <section class="pt-32 pb-12 sm:pt-44 sm:pb-20 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row lg:items-start lg:gap-12">
-                <div class="flex-1 max-w-xl">
+    <section class="relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+                <div class="flex-1 min-w-0 w-full max-w-xl">
                     <!-- The anchor line -->
-                    <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ae-100 border border-ae-200/60 text-xs font-medium text-ae-600 mb-6">
-                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-ae-200 mb-7 uppercase tracking-wider">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
                         Active contributors to the Frappe ecosystem
                     </p>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.08] text-ae-950">
-                        Hire from the team that contributes to your ERPNext
+                    <h1 class="font-semibold tracking-tight leading-[1.15] text-white" style="font-size: clamp(1.5rem, 4.4vw, 3.25rem);">
+                        Hire from the team that <span class="text-brand-400 font-semibold">contributes</span> to your ERPNext.
                     </h1>
 
-                    <p class="mt-6 text-lg text-ae-500 leading-relaxed">
-                        Aerele's engineers have 600+ pull requests merged into Frappe, ERPNext, HRMS, and more. Active contributors to the framework your business runs on.
+                    <p class="mt-6 text-lg text-ae-200 leading-relaxed max-w-xl">
+                        Aerele's engineers have <span class="text-white font-medium">600+ pull requests</span> merged into Frappe, ERPNext, HRMS, and more — active contributors to the framework your business runs on.
                     </p>
 
-                    <p class="mt-3 text-base text-ae-400">
+                    <p class="mt-3 text-base text-ae-400 max-w-xl leading-relaxed">
                         Need a developer who already knows the codebase? Hire one of ours for your product, integration, or optimization project.
                     </p>
 
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="#contact" class="px-6 py-3 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">Start a conversation</a>
-                        <a href="#work" class="px-6 py-3 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">See the proof</a>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">Start a conversation <span aria-hidden="true">→</span></a>
+                        <a href="#work" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">See the proof</a>
+                    </div>
+
+                    <!-- Hero stats -->
+                    <div class="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-3 text-xs text-ae-500 border-t border-white/10 pt-5">
+                        <div><span class="text-base font-semibold text-ae-100">30+</span> <span class="ml-1">developers</span></div>
+                        <div><span class="text-base font-semibold text-ae-100">600+</span> <span class="ml-1">core contributions</span></div>
+                        <div><span class="text-base font-semibold text-ae-100">100+</span> <span class="ml-1">customer repos</span></div>
                     </div>
                 </div>
 
-                <!-- Live PR ticker -->
-                <div class="relative w-full lg:w-[340px] h-[280px] lg:h-[400px] shrink-0 mt-10 lg:mt-2">
-                    <div class="absolute inset-0 rounded-xl bg-ae-950 overflow-hidden">
-                        <div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-ae-950 to-transparent z-10"></div>
-                        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-ae-950 to-transparent z-10"></div>
-                        <div class="absolute top-0 left-0 right-0 z-20 px-4 pt-3 pb-2">
-                            <div class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                <span class="text-[10px] uppercase tracking-widest text-ae-500 font-medium">Live from GitHub – merged this week</span>
-                            </div>
+                <!-- Live PR ticker (Mac-style code window) -->
+                <div class="relative w-full lg:flex-1 lg:max-w-[560px] h-[360px] lg:h-[460px] shrink-0 mt-12 lg:mt-0">
+                    <div class="absolute inset-0 rounded-xl bg-ae-950 border border-white/10 shadow-2xl shadow-black/40 overflow-hidden">
+                        <!-- Traffic lights -->
+                        <div class="flex items-center gap-1.5 px-4 py-3 border-b border-white/5 bg-black/30">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
+                            <span class="ml-3 text-[11px] font-mono text-ae-300">tail -f merged-prs.log</span>
+                            <span class="ml-auto inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-brand-400 font-medium">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+                                live
+                            </span>
                         </div>
-                        <div class="absolute inset-0 pt-10 overflow-hidden">
-                            <div id="pr-ticker" class="flex flex-col gap-1 animate-scroll-vertical"></div>
+                        <div class="relative h-[calc(100%-42px)]">
+                            <div class="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-ae-950 to-transparent z-10 pointer-events-none"></div>
+                            <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-ae-950 to-transparent z-10 pointer-events-none"></div>
+                            <div class="absolute inset-0 pt-3 overflow-hidden">
+                                <div id="pr-ticker" class="flex flex-col gap-1 animate-scroll-vertical"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -344,7 +371,7 @@
 
     <!-- ===== SOCIAL PROOF BAR ===== -->
     <section class="py-10 border-y border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center">
             <p class="text-xs text-ae-400 uppercase tracking-widest mb-6">Companies that chose Aerele</p>
             <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
                 <span class="text-sm font-semibold text-ae-900 whitespace-nowrap">Frappe Technologies</span>
@@ -421,9 +448,9 @@
 
     <!-- ===== THE QUESTION ===== -->
     <section id="why" class="py-24 sm:py-32">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="max-w-3xl mx-auto text-center fade-in">
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950 leading-tight">
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">
                     Why do companies choose us over<br>other Frappe service providers?
                 </h2>
                 <p class="mt-6 text-ae-500 text-lg leading-relaxed">Because there's a difference between teams that <em>use</em> ERPNext and teams that <em>contribute</em> to it.</p>
@@ -433,28 +460,28 @@
                 <!-- Differentiator 1 -->
                 <div class="p-7 rounded-xl bg-white border border-ae-200/60">
                     <p class="text-xs text-ae-400 uppercase tracking-widest mb-4">The proof</p>
-                    <h3 class="text-lg font-bold text-ae-950 mb-2">We work where the framework lives</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">We work where the framework lives</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">Our team doesn't just file issues – we submit fixes, build features, and get them merged upstream. The people working on your project are the same ones improving the framework for everyone.</p>
                 </div>
 
                 <!-- Differentiator 2 -->
                 <div class="p-7 rounded-xl bg-white border border-ae-200/60">
                     <p class="text-xs text-ae-400 uppercase tracking-widest mb-4">The depth</p>
-                    <h3 class="text-lg font-bold text-ae-950 mb-2">600+ contributions to the core</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">600+ contributions to the core</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">Bug fixes, features, and performance improvements – merged upstream. When we debug your issue, we're often looking at code we contributed or reviewed.</p>
                 </div>
 
                 <!-- Differentiator 3 -->
                 <div class="p-7 rounded-xl bg-white border border-ae-200/60">
                     <p class="text-xs text-ae-400 uppercase tracking-widest mb-4">The results</p>
-                    <h3 class="text-lg font-bold text-ae-950 mb-2">8-hour jobs → under a minute</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">8-hour jobs → under a minute</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">We don't just write code – we make existing code faster. Deep profiling, query optimization, architectural refactoring. We've turned day-long batch processes into sub-minute operations.</p>
                 </div>
 
                 <!-- Differentiator 4 -->
                 <div class="p-7 rounded-xl bg-white border border-ae-200/60">
                     <p class="text-xs text-ae-400 uppercase tracking-widest mb-4">The integrity</p>
-                    <h3 class="text-lg font-bold text-ae-950 mb-2">We help you outgrow us</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">We help you outgrow us</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">We don't build lock-in. We recommend you build an internal team alongside our engagement. Most of our clients do – and they still come back for the hard problems.</p>
                 </div>
             </div>
@@ -463,10 +490,10 @@
 
     <!-- ===== WHAT WE DO ===== -->
     <section class="py-20 sm:py-28 bg-ae-950 text-ae-50">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in">
                 <p class="text-xs text-ae-500 uppercase tracking-widest mb-3">What we do</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Four ways to work with us</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2]">Four ways to work with us</h2>
             </div>
 
             <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-8 fade-in">
@@ -492,17 +519,17 @@
 
     <!-- ===== OUR WORK ===== -->
     <section id="work" class="py-20 sm:py-28">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in">
                 <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">The proof</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">Don't take our word for it.<br>Read the code.</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">Don't take our word for it.<br>Read the code.</h2>
             </div>
 
             <!-- Case Studies -->
             <div class="mt-14 space-y-6 fade-in">
                 <div class="p-8 rounded-xl bg-white border border-ae-200/60">
                     <div class="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 class="text-lg font-bold text-ae-950">India Banking Suite</h3>
+                        <h3 class="text-base font-semibold text-ae-950">India Banking Suite</h3>
                         <a href="https://github.com/aerele/india-banking" target="_blank" rel="noopener" class="text-xs text-ae-400 hover:text-ae-700 underline">GitHub →</a>
                     </div>
                     <p class="text-sm text-ae-500 leading-relaxed mb-4">Open-source ERPNext integration supporting <strong>12+ Indian banks</strong> – HDFC, ICICI, Axis, Kotak, YES, Union Bank, Canara, Bank of Baroda, IDFC, HSBC, Citi, SCB, and more. Vendor payouts, payroll payouts, statement reconciliation, and virtual account receipts. <a href="https://frappe.io/incubator/project/India%20Banking" target="_blank" rel="noopener" class="underline text-ae-700">Under Frappe's Incubation Program →</a></p>
@@ -518,7 +545,7 @@
 
                 <div class="p-8 rounded-xl bg-white border border-ae-200/60">
                     <div class="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 class="text-lg font-bold text-ae-950">Warehouse Robotics × ERPNext</h3>
+                        <h3 class="text-base font-semibold text-ae-950">Warehouse Robotics × ERPNext</h3>
                         <span class="text-xs text-ae-400">Alfarsi National Enterprises, Oman</span>
                     </div>
                     <p class="text-sm text-ae-500 leading-relaxed">Direct connection between ERPNext and warehouse robotics systems. Orders trigger automated conveyor belt delivery. Returns go back and are stored in racks automatically. Real-time sync between ERP and physical warehouse operations.</p>
@@ -573,10 +600,10 @@
 
     <!-- ===== TEAM ===== -->
     <section id="team" class="py-20 sm:py-28 bg-white border-y border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in">
                 <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">The team</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">30+ contributors. 600+ merged PRs.</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">30+ contributors. 600+ merged PRs.</h2>
                 <p class="mt-4 text-ae-500 max-w-xl">Every person on this list has code merged into the Frappe ecosystem. These are the engineers you'd be working with.</p>
             </div>
 
@@ -588,25 +615,25 @@
 
     <!-- ===== HOW WE WORK ===== -->
     <section class="py-20 sm:py-28">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in text-center max-w-2xl mx-auto">
                 <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">How it works</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">Three steps. No bureaucracy.</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">Three steps. No bureaucracy.</h2>
             </div>
 
-            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-8 fade-in">
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-ae-950 text-ae-50 text-sm font-bold mb-4">1</div>
+            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 fade-in">
+                <div class="relative p-7 rounded-xl bg-white border border-ae-200/60">
+                    <div class="font-mono text-5xl font-bold text-ae-100 leading-none mb-4">01</div>
                     <h3 class="text-base font-semibold text-ae-900 mb-2">Tell us the problem</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">New product on Frappe, integration that doesn't exist, slow ERP, or need a dedicated developer. We scope it together.</p>
                 </div>
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-ae-950 text-ae-50 text-sm font-bold mb-4">2</div>
+                <div class="relative p-7 rounded-xl bg-white border border-ae-200/60">
+                    <div class="font-mono text-5xl font-bold text-ae-100 leading-none mb-4">02</div>
                     <h3 class="text-base font-semibold text-ae-900 mb-2">Choose your model</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">Dedicated engineer on your team, or focused 3-week sprints. Both backed by our full engineering bench.</p>
                 </div>
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-ae-950 text-ae-50 text-sm font-bold mb-4">3</div>
+                <div class="relative p-7 rounded-xl bg-white border border-ae-200/60">
+                    <div class="font-mono text-5xl font-bold text-ae-100 leading-none mb-4">03</div>
                     <h3 class="text-base font-semibold text-ae-900 mb-2">We deliver. You ship.</h3>
                     <p class="text-sm text-ae-500 leading-relaxed">Production-grade code, documented and tested. We also help you build internal capability – you shouldn't depend on any vendor forever.</p>
                 </div>
@@ -616,20 +643,20 @@
 
     <!-- ===== PRICING ===== -->
     <section id="pricing" class="py-20 sm:py-28 bg-white border-y border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in text-center max-w-2xl mx-auto">
                 <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">Pricing</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">No hidden costs. No surprise invoices.</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">No hidden costs. No surprise invoices.</h2>
                 <p class="text-sm text-ae-500 mt-3">Every competitor hides pricing behind a "schedule a call." We don't.</p>
             </div>
 
-            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto fade-in">
+            <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 fade-in">
                 <!-- Hourly -->
                 <div class="p-7 rounded-xl border border-ae-200/60 flex flex-col">
-                    <h3 class="text-lg font-bold text-ae-950 mb-1">Hourly</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1">Hourly</h3>
                     <p class="text-sm text-ae-400 mb-6">Small, impactful changes</p>
                     <div class="mb-6">
-                        <span class="text-3xl font-extrabold text-ae-950">₹2,500–3,500</span>
+                        <span class="text-[1.75rem] font-semibold tracking-tight text-ae-950">₹2,500–3,500</span>
                         <span class="text-sm text-ae-400"> / hour + taxes</span>
                     </div>
                     <ul class="space-y-3 text-sm text-ae-600 mb-8 flex-grow">
@@ -641,14 +668,14 @@
                 </div>
 
                 <!-- Dedicated Resource -->
-                <div class="p-7 rounded-xl bg-ae-950 text-ae-50 flex flex-col">
+                <div class="relative p-7 rounded-xl bg-ae-900 text-white flex flex-col ring-1 ring-brand-500/20 shadow-xl shadow-brand-500/10">
                     <div class="flex items-center justify-between mb-1">
-                        <h3 class="text-lg font-bold">Dedicated Resource</h3>
-                        <span class="px-2.5 py-0.5 bg-white/10 rounded-full text-[10px] uppercase tracking-wider">Popular</span>
+                        <h3 class="text-base font-semibold">Dedicated Resource</h3>
+                        <span class="px-2.5 py-0.5 bg-brand-500 text-white rounded-full text-[10px] uppercase tracking-wider font-semibold">Popular</span>
                     </div>
                     <p class="text-sm text-ae-400 mb-6">Full-time developer on your project · Quarterly commitment</p>
                     <div class="mb-6">
-                        <span class="text-3xl font-extrabold">₹5,500–8,000</span>
+                        <span class="text-[1.75rem] font-semibold tracking-tight">₹5,500–8,000</span>
                         <span class="text-sm text-ae-400"> / working day + taxes</span>
                     </div>
                     <ul class="space-y-3 text-sm text-ae-200 mb-8 flex-grow">
@@ -662,10 +689,10 @@
 
                 <!-- Sprint -->
                 <div class="p-7 rounded-xl border border-ae-200/60 flex flex-col">
-                    <h3 class="text-lg font-bold text-ae-950 mb-1">Development Sprint</h3>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1">Development Sprint</h3>
                     <p class="text-sm text-ae-400 mb-6">2 weeks dev + 1 week implementation</p>
                     <div class="mb-6">
-                        <span class="text-3xl font-extrabold text-ae-950">₹1,50,000</span>
+                        <span class="text-[1.75rem] font-semibold tracking-tight text-ae-950">₹1,50,000</span>
                         <span class="text-sm text-ae-400"> / sprint + taxes</span>
                     </div>
                     <ul class="space-y-3 text-sm text-ae-600 mb-8 flex-grow">
@@ -678,31 +705,31 @@
             </div>
 
             <!-- Which model suits you -->
-            <div class="mt-12 max-w-3xl mx-auto fade-in">
-                <h3 class="text-lg font-bold text-center mb-6">Which model fits?</h3>
-                <div class="grid sm:grid-cols-3 gap-4 text-xs text-ae-500">
-                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-4">
-                        <p class="font-semibold text-ae-900 mb-2">Hourly works when:</p>
-                        <ul class="space-y-1.5">
+            <div class="mt-12 fade-in">
+                <h3 class="text-base font-semibold text-center mb-6">Which model fits?</h3>
+                <div class="grid sm:grid-cols-3 gap-4 text-sm text-ae-500 leading-relaxed">
+                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-5">
+                        <p class="font-semibold text-ae-900 mb-3">Hourly works when:</p>
+                        <ul class="space-y-2">
                             <li>→ Quick bug fix or patch needed</li>
                             <li>→ One-off code review</li>
                             <li>→ Architecture consultation</li>
                             <li>→ Small feature under a few days</li>
                         </ul>
                     </div>
-                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-4">
-                        <p class="font-semibold text-ae-900 mb-2">Dedicated works when:</p>
-                        <ul class="space-y-1.5">
+                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-5">
+                        <p class="font-semibold text-ae-900 mb-3">Dedicated works when:</p>
+                        <ul class="space-y-2">
                             <li>→ You have functional expertise, need technical depth</li>
                             <li>→ Frappe partners outsourcing complex development</li>
                             <li>→ Code takeover, upgrade prep, maintainability</li>
                             <li>→ Multi-quarter product or platform work</li>
                         </ul>
-                        <p class="mt-2 text-[10px] text-ae-400">Minimum quarterly commitment · Limited slots</p>
+                        <p class="mt-3 text-xs text-ae-400">Minimum quarterly commitment · Limited slots</p>
                     </div>
-                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-4">
-                        <p class="font-semibold text-ae-900 mb-2">Sprint works when:</p>
-                        <ul class="space-y-1.5">
+                    <div class="bg-ae-50 border border-ae-200/60 rounded-lg p-5">
+                        <p class="font-semibold text-ae-900 mb-3">Sprint works when:</p>
+                        <ul class="space-y-2">
                             <li>→ Scoped integration or custom app</li>
                             <li>→ Performance optimization project</li>
                             <li>→ Fixed deliverable, fixed budget</li>
@@ -716,10 +743,10 @@
 
     <!-- ===== FAQ ===== -->
     <section id="faq" class="py-20 sm:py-28">
-        <div class="max-w-3xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="fade-in text-center">
                 <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">FAQ</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">Common questions</h2>
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">Common questions</h2>
             </div>
 
             <div class="mt-14 space-y-6 fade-in">
@@ -776,17 +803,17 @@
 
     <!-- ===== FINAL CTA ===== -->
     <section id="contact" class="py-24 sm:py-32">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="max-w-2xl mx-auto text-center fade-in">
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ae-950">
+                <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">
                     Your next Frappe developer should be a contributor
                 </h2>
                 <p class="mt-6 text-ae-500 text-lg leading-relaxed">
                     Tell us what you're working on. If it involves Frappe, you're talking to the right team.
                 </p>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href="mailto:hello@aerele.in" class="inline-flex px-8 py-4 bg-ae-900 text-ae-50 rounded-full text-sm font-medium hover:bg-ae-800 transition-colors">hello@aerele.in</a>
-                    <a href="tel:+917790844832" class="inline-flex px-8 py-4 border border-ae-300 text-ae-700 rounded-full text-sm font-medium hover:border-ae-400 transition-colors">+91 77908 44832</a>
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <a href="mailto:hello@aerele.in" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">hello@aerele.in <span aria-hidden="true">→</span></a>
+                    <a href="tel:+917790844832" class="inline-flex items-center px-5 py-2.5 border border-ae-300 text-ae-800 rounded-lg text-sm font-medium hover:border-ae-400 hover:bg-white transition-colors">+91 77908 44832</a>
                 </div>
             </div>
 
@@ -813,7 +840,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-8 text-xs">
                 <div>
                     <p class="font-semibold text-ae-700 mb-3">Services</p>
@@ -880,14 +907,14 @@
                     
                 };
                 const build = () => prs.map(pr => {
-                    const title = pr.title.length > 52 ? pr.title.slice(0, 52) + '…' : pr.title;
-                    return `<a href="${pr.url}" target="_blank" rel="noopener" class="block px-4 py-2.5 mx-2 rounded-lg group hover:bg-white/5 transition-colors" style="background:${colors[pr.repo]||'rgba(241,245,249,0.1)'}">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="text-[10px] font-medium" style="color:${tc[pr.repo]||'#94a3b8'}">${pr.repo}</span>
-                            <span class="text-[10px] text-ae-600">·</span>
-                            <span class="text-[10px] text-ae-500">${pr.author}</span>
+                    const title = pr.title.length > 78 ? pr.title.slice(0, 78) + '…' : pr.title;
+                    return `<a href="${pr.url}" target="_blank" rel="noopener" class="block px-4 py-3 mx-2 rounded-lg group hover:bg-white/5 transition-colors" style="background:${colors[pr.repo]||'rgba(241,245,249,0.1)'}">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span class="text-xs font-mono font-medium" style="color:${tc[pr.repo]||'#94a3b8'}">${pr.repo}</span>
+                            <span class="text-xs text-ae-500">·</span>
+                            <span class="text-xs text-ae-400">${pr.author}</span>
                         </div>
-                        <div class="text-[11px] text-ae-300 leading-snug group-hover:text-ae-100 transition-colors">${title}</div>
+                        <div class="text-sm text-ae-200 leading-snug group-hover:text-white transition-colors">${title}</div>
                     </a>`;
                 }).join('');
                 ticker.innerHTML = build() + build();
@@ -914,11 +941,11 @@
                                 <div class="text-[11px] text-ae-400">Software Development Engineer</div>
                             </div>
                             <div class="ml-auto text-right">
-                                <div class="text-lg font-bold text-ae-950">${c.total_merged_prs}</div>
+                                <div class="text-base font-semibold text-ae-950">${c.total_merged_prs}</div>
                                 <div class="text-[10px] text-ae-400">PRs</div>
                             </div>
                         </div>
-                        <p class="text-xs text-ae-500 leading-relaxed mb-3">${c.summary || ''}</p>
+                        <p class="text-sm text-ae-500 leading-relaxed mb-3">${c.summary || ''}</p>
                         <div class="flex flex-wrap gap-1">${tags}</div>`;
                     grid.appendChild(card);
                 });

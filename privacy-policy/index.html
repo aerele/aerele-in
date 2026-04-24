@@ -43,44 +43,70 @@
                 extend: {
                     colors: {
                         'ae': {
-                            50: '#fafaf9', 100: '#f0efed', 200: '#e2e0dc', 300: '#c8c4be',
-                            400: '#a9a49b', 500: '#918b80', 600: '#7a746a', 700: '#5e5a52',
-                            800: '#3d3a35', 900: '#1c1b18', 950: '#0d0c0b',
+                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
+                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
+                        },
+                        'brand': {
+                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b',
                         }
                     },
-                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
                 }
             }
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>html{scroll-behavior:smooth;overflow-x:hidden}body{overflow-x:hidden;font-family:'Inter',system-ui,sans-serif}</style>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/logo-nav.png" as="image">
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
+    </style>
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
 
-    <nav class="fixed top-0 w-full bg-ae-50/80 backdrop-blur-md z-50 border-b border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2.5"><img src="/logo-nav.png" alt="Aerele Technologies" class="h-8"><span class="text-[15px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span></a>
-            <div class="hidden sm:flex items-center gap-8 text-[13px] text-ae-500">
-                <a href="/" class="hover:text-ae-900">Home</a>
-                <a href="/about/" class="hover:text-ae-900">About</a>
-                <a href="tel:+917790844832" class="px-4 py-1.5 bg-ae-900 text-ae-50 rounded-full hover:bg-ae-800">Get in touch</a>
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
+                <a href="/" class="hover:text-ae-900 transition-colors">Home</a>
+                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
+                <a href="/erpnext-customization/" class="hover:text-ae-900 transition-colors">Customization</a>
+                <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
+            <button class="sm:hidden p-2 text-ae-600" aria-label="Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
     </nav>
 
-    <section class="pt-32 pb-8">
-        <div class="max-w-3xl mx-auto px-6">
-            <p class="text-xs text-ae-400 mb-4"><a href="/" class="hover:text-ae-700">Aerele</a> → Privacy Policy</p>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Privacy Policy</h1>
-            <p class="text-sm text-ae-400">Last updated: March 12, 2025</p>
+    <section class="relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <p class="text-xs text-ae-300 mb-4"><a href="/" class="hover:text-white">Aerele</a> → Privacy Policy</p>
+            <h1 class="font-semibold tracking-tight leading-[1.15] text-white mb-4" style="font-size: clamp(1.5rem, 4.4vw, 3.25rem);">Privacy Policy</h1>
+            <p class="text-sm text-ae-300">Last updated: March 12, 2025</p>
         </div>
     </section>
 
-    <section class="pb-20">
-        <div class="max-w-3xl mx-auto px-6 prose prose-sm prose-ae">
+    <section class="pb-20 pt-16">
+        <div class="max-w-3xl mx-auto px-6 sm:px-8 prose prose-sm prose-ae">
             <div class="space-y-8 text-sm text-ae-600 leading-relaxed">
 
                 <div>
@@ -238,7 +264,7 @@
     </section>
 
     <footer class="py-10 border-t border-ae-200/60">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <p class="text-xs text-ae-400">© 2025 Aerele Technologies Pvt Ltd · Tiruppur, India</p>
                 <div class="flex gap-6 text-xs text-ae-400">
