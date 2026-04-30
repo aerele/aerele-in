@@ -275,6 +275,8 @@
         .animate-scroll-vertical:hover { animation-play-state: paused; }
         /* Subtle radial glow behind hero — matches lens's depth */
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
+        .aerelens-mark { font-weight: 700; letter-spacing: -0.028em; color: #0a1a3f; line-height: 1; display: inline-flex; align-items: baseline; }
+        .aerelens-mark .pill { background: #0a1a3f; color: #fff; padding: 0.12em 0.32em; border-radius: 0.32em; margin-left: 0.04em; }
     </style>
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
@@ -289,6 +291,7 @@
             <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
                 <a href="#why" class="hover:text-ae-900 transition-colors">Why Us</a>
                 <a href="#work" class="hover:text-ae-900 transition-colors">Work</a>
+                <a href="#products" class="hover:text-ae-900 transition-colors">Products</a>
                 <a href="#team" class="hover:text-ae-900 transition-colors">Team</a>
                 <a href="#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
@@ -300,7 +303,7 @@
         </div>
         <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
             <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="#why">Why Us</a><a href="#work">Work</a><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
+                <a href="#why">Why Us</a><a href="#work">Work</a><a href="#products">Products</a><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
             </div>
         </div>
     </nav>
@@ -514,6 +517,37 @@
                     <p class="text-sm text-ae-400 leading-relaxed">Inherited a slow ERPNext? We profile, optimize, and refactor. We've taken 8-hour batch jobs to under a minute. Query tuning, architecture fixes, the problems other vendors can't diagnose.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section id="products" class="py-20 sm:py-28 bg-ae-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-3xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">Products by Aerele</p>
+                <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ae-900">We build software too — not just for clients, for ourselves.</h2>
+                <p class="mt-4 text-ae-500 text-lg leading-relaxed">Tools we use every day, packaged up for the rest of the Frappe community.</p>
+            </div>
+
+            <a href="/products/" class="group mt-10 fade-in flex items-center gap-6 sm:gap-8 p-6 sm:p-8 bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl transition-colors">
+                <img src="/products/aerelens-mark.svg" alt="AereLens" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl border border-ae-200/60 shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <span class="aerelens-mark" style="font-size: 22px;">Aere<span class="pill">Lens</span></span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-50 border border-brand-200 text-[10px] font-medium text-brand-700 uppercase tracking-wider">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                            New
+                        </span>
+                    </div>
+                    <p class="mt-2 text-ae-700 text-sm sm:text-base leading-snug">See what'll break before your ERPNext upgrade.</p>
+                </div>
+                <span class="text-ae-400 group-hover:text-ae-700 transition-colors hidden sm:inline" aria-hidden="true">→</span>
+            </a>
+
+            <p class="mt-6 text-sm text-ae-500">
+                More products in development.
+                <a href="/products/" class="text-brand-700 font-medium hover:text-brand-800 underline underline-offset-4">See all →</a>
+            </p>
         </div>
     </section>
 
@@ -841,7 +875,14 @@
     <!-- Footer -->
     <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
         <div class="max-w-7xl mx-auto px-6 sm:px-8">
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-8 text-xs">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-8 text-xs">
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Products</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="https://lens.aerele.in/" class="hover:text-ae-700">AereLens</a>
+                        <a href="/products/" class="hover:text-ae-700">All products</a>
+                    </div>
+                </div>
                 <div>
                     <p class="font-semibold text-ae-700 mb-3">Services</p>
                     <div class="flex flex-col gap-2 text-ae-400">
