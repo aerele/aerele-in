@@ -39,6 +39,28 @@ Code reviews focused on "will this survive production" – security, error handl
 
 ---
 
+## Products by Aerele
+
+In addition to building software for clients, Aerele ships its own products. These tools are built on top of the work we do every day — and built by the same engineers who contribute to Frappe core.
+
+### AereLens
+
+URL: https://lens.aerele.in/
+Tagline: See what'll break before your ERPNext upgrade.
+
+AereLens runs a deep audit on a custom Frappe app and surfaces breaking changes, deprecated APIs, and version-incompatible patterns before the upgrade ships. Every check it runs is informed by the work Aerele does on the framework itself — when AereLens flags a deprecated API, it's because we've watched it deprecate; when it warns about a breaking change, it's because we've often reviewed (or written) the patch upstream.
+
+Capabilities:
+- **Migration audit** — see exactly what breaks when moving between Frappe / ERPNext versions.
+- **Code review** — deprecated APIs and Frappe-specific issues, ranked by severity.
+- **Shareable reports** — actionable findings with file/line references that a team can ship from.
+
+Status: launching the week of 2026-05-04. First product in a small, growing line of tools Aerele plans to release for the Frappe community.
+
+Products page: https://aerele.in/products/
+
+---
+
 ## What Aerele Does NOT Do
 
 - ERPNext implementation / go-live projects
