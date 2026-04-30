@@ -158,6 +158,32 @@ scanning 142 files…
 
 Severity dots use existing color palette: red `#ff8a8a`, amber `#ffcd6e`, emerald `#6ee7b7`. Pure HTML/CSS — no JS, no live data, no fetch. The window is purely illustrative and uses fictitious file paths.
 
+### 3b. The story behind the name (brand-meaning section)
+
+`bg-white py-16 sm:py-20 border-t border-ae-200/60`, `max-w-4xl mx-auto px-6 sm:px-8`. Sits between the AereLens featured card and the "Why we build our own products" narrative.
+
+Purpose: explain that AereLens = `Aere` (the team — 30+ engineers, 600+ merged PRs in Frappe core) + `Lens` (the product — that team's contributor expertise focused on your code). Positions the product as a credible extension of the existing contributor narrative aerele.in already tells, and ties it to the broader ERPNext ecosystem.
+
+Structure:
+
+- Eyebrow: `▸ THE STORY BEHIND THE NAME`
+- H2 (centered, same scale as the "Why this matters" H2):
+
+  > Aere meets Lens — our contributor experience, focused on your code.
+
+- A typographic breakdown row (three "tiles" separated by `+` and `=`, stacked on mobile, row on `sm:`):
+  - **Aere** — wordmark in the navy color · "The team — 30+ engineers with 600+ merged PRs in Frappe, ERPNext, HRMS, and Payments core."
+  - **`+`** glyph
+  - **Lens** — the navy pill alone (no "Aere" prefix) · "The product — what we built so the same eyes that review Frappe core can look at your code too."
+  - **`=`** glyph
+  - **AereLens** — the full wordmark · "Contributor expertise, codified — applied to your app so the ERPNext ecosystem grows stronger for everyone."
+
+- Closing paragraph below the breakdown (centered, `max-w-2xl mx-auto`):
+
+  > Every check AereLens runs is informed by the work we do every day on the framework itself. When the audit flags a deprecated API, it's because we've watched it deprecate. When it warns about a breaking change, it's because we've reviewed — and often written — the patch upstream.
+
+Reuses the existing `.aerelens-mark` styles defined in the page; introduces no new tokens.
+
 ### 4. Why we build our own products (centered narrative)
 
 `bg-white py-16`, `max-w-3xl mx-auto px-6 sm:px-8 text-center`.

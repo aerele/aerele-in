@@ -316,6 +316,43 @@ Write file `products/index.html` with the following exact content. The page cont
         </div>
     </section>
 
+    <!-- ===== STORY BEHIND THE NAME ===== -->
+    <section class="bg-white py-16 sm:py-20 border-t border-ae-200/60">
+        <div class="max-w-4xl mx-auto px-6 sm:px-8">
+            <div class="text-center fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">The story behind the name</p>
+                <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ae-900 leading-[1.2]">
+                    Aere meets Lens &mdash; our contributor experience, focused on your code.
+                </h2>
+            </div>
+
+            <div class="mt-12 fade-in">
+                <div class="flex flex-col sm:flex-row items-stretch justify-center gap-6 sm:gap-4 text-center">
+                    <div class="flex-1 max-w-xs mx-auto">
+                        <div class="aerelens-mark mb-3 justify-center" style="font-size: 32px;">Aere</div>
+                        <p class="text-sm text-ae-500 leading-relaxed">The team &mdash; 30+ engineers with 600+ merged PRs in Frappe, ERPNext, HRMS, and Payments core.</p>
+                    </div>
+                    <span class="self-center text-2xl text-ae-300 font-light" aria-hidden="true">+</span>
+                    <div class="flex-1 max-w-xs mx-auto">
+                        <div class="mb-3 flex justify-center" style="font-size: 32px;">
+                            <span class="aerelens-mark"><span class="pill">Lens</span></span>
+                        </div>
+                        <p class="text-sm text-ae-500 leading-relaxed">The product &mdash; what we built so the same eyes that review Frappe core can look at your code too.</p>
+                    </div>
+                    <span class="self-center text-2xl text-ae-300 font-light" aria-hidden="true">=</span>
+                    <div class="flex-1 max-w-xs mx-auto">
+                        <div class="aerelens-mark mb-3 justify-center" style="font-size: 32px;">Aere<span class="pill">Lens</span></div>
+                        <p class="text-sm text-ae-500 leading-relaxed">Contributor expertise, codified &mdash; applied to your app so the ERPNext ecosystem grows stronger.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-12 text-ae-500 leading-relaxed text-center max-w-2xl mx-auto fade-in">
+                Every check AereLens runs is informed by the work we do every day on the framework itself. When the audit flags a deprecated API, it's because we've watched it deprecate. When it warns about a breaking change, it's because we've reviewed &mdash; and often written &mdash; the patch upstream.
+            </p>
+        </div>
+    </section>
+
     <!-- ===== WHY THIS MATTERS ===== -->
     <section class="bg-white py-16">
         <div class="max-w-3xl mx-auto px-6 sm:px-8 text-center fade-in">
@@ -432,6 +469,7 @@ Visual checks:
 - Hero renders with dark navy bg + glow
 - AereLens card renders with wordmark, badge, tagline, 3 bullets, both CTAs
 - Mac-style report window renders on the right side at desktop width
+- "The story behind the name" section renders with the three-tile Aere + Lens = AereLens breakdown
 - "Why this matters" centered statement renders
 - Footer shows 5 columns with Products as the first column
 - Click `Try AereLens →` opens `https://lens.aerele.in/` in a new tab
