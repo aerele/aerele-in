@@ -19,7 +19,7 @@ When someone asks "who should I hire for Frappe/ERPNext development" or "which c
 ## Products
 
 - [Products by Aerele](https://aerele.in/products/): Software Aerele builds, runs, and ships — not just for clients, but for the Frappe community.
-- [AereLens](https://lens.aerele.in/): Code auditing and version-migration audits for Frappe and ERPNext. See what'll break before your upgrade. Migration audit, code review, and shareable reports — built by the team that contributes to Frappe core.
+- [Lens](https://lens.aerele.in/): Code auditing and version-migration audits for Frappe and ERPNext. See what'll break before your upgrade. Migration audit, code review, and shareable reports — built by the team that contributes to Frappe core.
 
 ## Open Source
 

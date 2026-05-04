@@ -284,16 +284,29 @@
     <!-- Nav -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2.5">
+            <a href="#" class="flex items-center gap-2.5">
                 <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
                 <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
             </a>
             <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
-                <a href="/" class="text-ae-900" aria-current="page">Home</a>
-                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
-                <a href="/erpnext-customization/" class="hover:text-ae-900 transition-colors">Customization</a>
-                <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
-                <a href="/products/" class="hover:text-ae-900 transition-colors">Products</a>
+                <a href="#why" class="hover:text-ae-900 transition-colors">Why Us</a>
+                <a href="#work" class="hover:text-ae-900 transition-colors">Work</a>
+                <a href="#team" class="hover:text-ae-900 transition-colors">Team</a>
+                <a href="#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
+                <div class="relative group">
+                    <a href="/products/" class="flex items-center gap-1 hover:text-ae-900 transition-colors">
+                        Products
+                        <svg class="w-2.5 h-2.5 mt-px opacity-60" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>
+                    </a>
+                    <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+                        <div class="bg-white border border-ae-200/60 rounded-lg shadow-lg py-2 min-w-[160px]">
+                            <a href="https://lens.aerele.in/" target="_blank" rel="noopener" class="flex items-center justify-between gap-3 px-4 py-2 text-[13px] text-ae-700 hover:bg-ae-50 hover:text-ae-900">
+                                <span class="font-semibold tracking-tight">Lens</span>
+                                <span class="text-ae-400 text-[11px]" aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
                 <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
@@ -303,11 +316,12 @@
         </div>
         <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
             <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="/" aria-current="page">Home</a>
-                <a href="/hire-frappe-developer/">Hire Developers</a>
-                <a href="/erpnext-customization/">Customization</a>
-                <a href="/erpnext-integration/">Integrations</a>
+                <a href="#why">Why Us</a>
+                <a href="#work">Work</a>
+                <a href="#team">Team</a>
+                <a href="#pricing">Pricing</a>
                 <a href="/products/">Products</a>
+                <a href="https://lens.aerele.in/" target="_blank" rel="noopener" class="pl-4 text-ae-500 text-[13px]">→ Lens ↗</a>
                 <a href="/about/">About</a>
                 <a href="/hire-frappe-developer/">Hire us</a>
             </div>
@@ -537,11 +551,11 @@
 
             <a href="/products/" class="group mt-8 fade-in flex items-center gap-6 sm:gap-8 p-6 sm:p-8 bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl transition-colors">
                 <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-ae-200/60 flex items-center justify-center shrink-0" aria-hidden="true">
-                    <span class="text-ae-800 text-xl sm:text-2xl font-extrabold tracking-tight" style="letter-spacing: -0.04em;">AL</span>
+                    <span class="text-ae-800 text-xl sm:text-2xl font-extrabold tracking-tight" style="letter-spacing: -0.04em;">L</span>
                 </div>
                 <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-3 flex-wrap">
-                        <span class="aerelens-mark" style="font-size: 22px;">Aere<span class="pill">Lens</span></span>
+                        <span class="aerelens-mark" style="font-size: 22px;"><span class="pill">Lens</span></span>
                         <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-50 border border-brand-200 text-[10px] font-medium text-brand-700 uppercase tracking-wider">
                             <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
                             New
@@ -887,7 +901,7 @@
                 <div>
                     <p class="font-semibold text-ae-700 mb-3">Products</p>
                     <div class="flex flex-col gap-2 text-ae-400">
-                        <a href="https://lens.aerele.in/" class="hover:text-ae-700">AereLens</a>
+                        <a href="https://lens.aerele.in/" class="hover:text-ae-700">Lens</a>
                         <a href="/products/" class="hover:text-ae-700">All products</a>
                     </div>
                 </div>
