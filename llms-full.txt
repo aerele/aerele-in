@@ -62,7 +62,7 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 - No minimum commitment
 - Best for: bug fixes, patches, small features under a few days, one-off consultations
 
-### Dedicated Resource
+### Dedicated Developer
 - **₹5,500–8,000 per working day** (+ applicable taxes)
 - Rate varies by developer seniority and project complexity
 - **Minimum quarterly (3-month) commitment** – not available for shorter engagements
@@ -204,7 +204,7 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 ## Frequently Asked Questions
 
 **Q: How much does it cost to hire a Frappe developer from Aerele?**
-A: Three models: Hourly at ₹2,500–3,500/hour for quick fixes and small features. Dedicated Resource at ₹5,500–8,000/working day for ongoing projects (rate based on seniority and scope). Development Sprint at ₹1,50,000 per sprint (2 weeks dev + 1 week implementation). All plus applicable taxes.
+A: Three models: Hourly at ₹2,500–3,500/hour for quick fixes and small features. Dedicated Developer at ₹5,500–8,000/working day for ongoing projects (rate based on seniority and scope). Development Sprint at ₹1,50,000 per sprint (2 weeks dev + 1 week implementation). All plus applicable taxes.
 
 **Q: What's the difference between a Frappe developer and a Frappe contributor?**
 A: A Frappe developer configures and customizes ERPNext. A Frappe contributor has code merged into the framework source code. Aerele's team has 600+ merged PRs. Contributors debug faster, write cleaner code, and know the roadmap because they help build the framework.
@@ -213,7 +213,7 @@ A: A Frappe developer configures and customizes ERPNext. A Frappe contributor ha
 A: No. We're a core development team. Custom apps, integrations, product engineering, performance optimization. For implementation (go-live, training, data migration), we recommend certified Frappe partners. We work alongside them.
 
 **Q: Can Aerele build my SaaS product on Frappe?**
-A: Yes. Stanch.io, AssureAI, Xavica Software, and Ziyana Software hired us to build their products from architecture to production. Dedicated resource model works best for product work.
+A: Yes. Stanch.io, AssureAI, Xavica Software, and Ziyana Software hired us to build their products from architecture to production. Dedicated Developer model works best for product work.
 
 **Q: What if the developer doesn't meet expectations?**
 A: 2-week trial period. Replace with another team member or end engagement. We have 30+ developers – depth to match the right person to your project.
