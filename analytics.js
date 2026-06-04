@@ -78,7 +78,7 @@
     var text = document.createElement("p");
     text.style.cssText = "margin:0;flex:1 1 320px;";
     text.innerHTML =
-      'We use privacy-friendly product analytics (PostHog) to understand how visitors use the site. ' +
+      'We use privacy-friendly analytics to understand how visitors use this site. ' +
       'We set no cookies and send no data until you accept. ' +
       '<a href="/privacy-policy/" style="color:#0f172a;text-decoration:underline;">Privacy policy</a>.';
 
