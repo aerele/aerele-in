@@ -14,7 +14,7 @@ import { extname, join } from 'node:path';
 const ROOT = process.cwd();
 const OUT = join(ROOT, '.pr-screenshots');
 const PORT = 8799;
-const MAX_PAGES = 12;
+const MAX_PAGES = 16;
 
 const MIME = {
   '.html': 'text/html;charset=utf-8', '.css': 'text/css', '.js': 'text/javascript',
@@ -48,7 +48,11 @@ const changedRoutes = (process.env.CHANGED_FILES || '')
   .map((r) => (r.endsWith('/') ? r : r + '/'))
   .map((r) => (r === '//' ? '/' : r));
 
-const routes = [...new Set(changedRoutes.length ? ['/', ...changedRoutes] : DEFAULT)].slice(0, MAX_PAGES);
+// Prioritise the marketing surfaces (home, products, blog) so the cap never cuts them.
+const rank = (r) => (r === '/' ? 0 : r.startsWith('/products/') ? 1 : r === '/blog/' ? 2 : r.startsWith('/blog/') ? 3 : 4);
+const routes = [...new Set(changedRoutes.length ? ['/', ...changedRoutes] : DEFAULT)]
+  .sort((a, b) => rank(a) - rank(b))
+  .slice(0, MAX_PAGES);
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch();
