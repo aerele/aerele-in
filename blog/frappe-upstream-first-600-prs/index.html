@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What 600+ merged PRs into Frappe taught us about upstream-first work – Aerele Blog</title>
+    <meta name="description" content="Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.">
+    <meta property="og:title" content="What 600+ merged PRs into Frappe taught us about upstream-first work">
+    <meta property="og:description" content="Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aerele.in/blog/frappe-upstream-first-600-prs/">
+    <meta property="og:image" content="https://aerele.in/logo-og.png">
+    <meta property="og:site_name" content="Aerele Technologies">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What 600+ merged PRs into Frappe taught us about upstream-first work">
+    <meta name="twitter:description" content="Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.">
+    <meta name="twitter:image" content="https://aerele.in/logo-og.png">
+    <link rel="canonical" href="https://aerele.in/blog/frappe-upstream-first-600-prs/">
+    <link rel="alternate" type="text/plain" href="https://aerele.in/llms.txt" title="LLM-friendly content">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="author" content="Aerele Engineering">
+    <meta name="keywords" content="Frappe, Open Source, Engineering Culture">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What 600+ merged PRs into Frappe taught us about upstream-first work","description":"Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.","datePublished":"2026-04-30","author":{"@type":"Organization","name":"Aerele Engineering"},"publisher":{"@type":"Organization","name":"Aerele Technologies Pvt Ltd","logo":{"@type":"ImageObject","url":"https://aerele.in/logo-nav.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aerele.in/blog/frappe-upstream-first-600-prs/"},"url":"https://aerele.in/blog/frappe-upstream-first-600-prs/","keywords":"Frappe, Open Source, Engineering Culture"}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: {
+                'ae': { 50:'#f7f8fb',100:'#eef2fb',200:'#e4e9f5',300:'#c9d2e8',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#1e293b',800:'#0a1a3f',900:'#060f2b',950:'#05102a' },
+                'brand': { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' }
+            },
+            fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], mono:['JetBrains Mono','ui-monospace','SFMono-Regular','Menlo','monospace'] }
+        } } }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
+        .cover-glow { background: radial-gradient(ellipse 70% 80% at 25% 20%, rgba(16,185,129,0.18), transparent 70%), radial-gradient(ellipse 60% 60% at 85% 30%, rgba(26,50,116,0.55), transparent 70%); }
+        /* Prose - styles the Markdown body, on-brand (no typography plugin needed) */
+        .prose { color: #475569; font-size: 1.0625rem; line-height: 1.75; }
+        .prose > * + * { margin-top: 1.25em; }
+        .prose h2 { color: #05102a; font-weight: 600; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; margin-top: 2.25em; margin-bottom: 0.25em; }
+        .prose h3 { color: #05102a; font-weight: 600; font-size: 1.1875rem; line-height: 1.3; margin-top: 1.75em; margin-bottom: 0.25em; }
+        .prose a { color: #059669; text-decoration: underline; text-underline-offset: 2px; }
+        .prose a:hover { color: #047857; }
+        .prose strong { color: #060f2b; font-weight: 600; }
+        .prose ul, .prose ol { padding-left: 1.4em; }
+        .prose ul { list-style: disc; } .prose ol { list-style: decimal; }
+        .prose li { margin-top: 0.4em; }
+        .prose li::marker { color: #94a3b8; }
+        .prose blockquote { border-left: 3px solid #10b981; padding-left: 1rem; color: #64748b; font-style: italic; }
+        .prose code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.875em; background: #eef2fb; color: #1e293b; padding: 0.15em 0.4em; border-radius: 6px; }
+        .prose pre { background: #05102a; color: #e4e9f5; padding: 1.25rem; border-radius: 12px; overflow-x: auto; font-size: 0.875rem; line-height: 1.6; }
+        .prose pre code { background: transparent; color: inherit; padding: 0; font-size: inherit; }
+        .prose img { border-radius: 12px; margin: 1.75em 0; }
+        .prose hr { border: 0; border-top: 1px solid #e4e9f5; margin: 2.5em 0; }
+        @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+    </style>
+</head>
+<body class="bg-ae-50 text-ae-900 antialiased">
+
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
+                <a href="/#why" class="hover:text-ae-900 transition-colors">Why Us</a>
+                <a href="/#work" class="hover:text-ae-900 transition-colors">Work</a>
+                <a href="/#team" class="hover:text-ae-900 transition-colors">Team</a>
+                <a href="/#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
+                <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
+                <a href="/blog/" class="text-ae-900" aria-current="page">Blog</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+            </div>
+            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <article>
+    <header class="relative pt-28 pb-12 sm:pt-32 sm:pb-14 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-3xl mx-auto px-6 sm:px-8">
+            <nav class="flex items-center gap-2 text-[12px] text-ae-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-ae-200">Home</a><span aria-hidden="true">/</span>
+                <a href="/blog/" class="hover:text-ae-200">Blog</a><span aria-hidden="true">/</span>
+                <span class="text-ae-300">Experience</span>
+            </nav>
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/15 text-brand-400 ring-1 ring-brand-500/30 mb-5">Experience</span>
+            <h1 class="font-semibold tracking-tight leading-[1.15] text-white" style="font-size: clamp(1.5rem, 4vw, 2.75rem);">What 600+ merged PRs into Frappe taught us about upstream-first work</h1>
+            <div class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-ae-300">
+                <span>Aerele Engineering</span><span class="text-ae-600">·</span>
+                <span>Apr 30, 2026</span><span class="text-ae-600">·</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== COVER ===== -->
+    <div class="bg-ae-50">
+        <div class="max-w-3xl mx-auto px-6 sm:px-8 -mt-8 sm:-mt-10 relative z-10">
+            <div class="rounded-2xl overflow-hidden border border-ae-200/60 shadow-sm">
+                <div class="relative h-56 sm:h-64 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+        <span class="font-mono text-7xl sm:text-8xl font-semibold text-white/10 select-none">{ }</span>
+        <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/10 text-ae-200 ring-1 ring-white/15">Experience</span>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BODY ===== -->
+    <div class="bg-ae-50 py-12 sm:py-16">
+        <div class="max-w-3xl mx-auto px-6 sm:px-8">
+            <div class="prose max-w-none">
+<p>When you find a bug or a missing feature in Frappe, you have two choices. Patch it locally and move on, or fix it <strong>upstream</strong> so it lands in the framework for everyone. We&#39;ve chosen upstream more than 600 times. Here&#39;s what that choice taught us.</p>
+<h2>The fork tax is real and compounding</h2>
+<p>A local patch feels faster. It is - once. Then the framework moves, your patch drifts, and every upgrade becomes an archaeology project to figure out what you changed and why. Multiply that across years and a dozen patches and you&#39;re maintaining a private fork of Frappe whether you meant to or not.</p>
+<p><strong>Upstream-first is the cheaper option on any timeline longer than a quarter.</strong> The fix becomes the framework&#39;s responsibility to keep working, not yours.</p>
+<h2>What actually gets a PR merged</h2>
+<p>Contributing to a project you don&#39;t own is a skill. The patches that got merged shared a few traits:</p>
+<ul>
+<li><strong>Small and single-purpose.</strong> One change, one reason. A 40-line PR with a clear title gets reviewed; a 2,000-line &quot;improvements&quot; PR sits forever.</li>
+<li><strong>A reproduction, not a description.</strong> &quot;Here&#39;s the exact steps and the failing case&quot; moves faster than a paragraph of explanation.</li>
+<li><strong>Tests that encode the bug.</strong> A test that fails before and passes after does the convincing for you.</li>
+<li><strong>Respect for the maintainers&#39; constraints.</strong> They&#39;re balancing every other user. A fix that&#39;s right <em>for the framework</em> beats one that&#39;s right <em>for us</em>.</li>
+</ul>
+<h2>It changes how you write code</h2>
+<p>The surprising part: contributing upstream made our client work better, not slower. When you regularly read and modify the framework&#39;s source, you stop guessing about how it behaves. You know which APIs are stable, which are internal, and which are about to change - because you&#39;re often the one changing them.</p>
+<blockquote>
+<p>The team that fixes the framework is the team that understands the framework. There&#39;s no shortcut to that understanding.</p>
+</blockquote>
+<h2>Why it matters for the people who hire us</h2>
+<p>If your business runs on ERPNext, it runs on Frappe. When something breaks deep in the framework, there&#39;s a real difference between a team that can only work <em>around</em> it and a team that can fix it <em>at the source</em> - and has done so hundreds of times.</p>
+<p>That&#39;s not a marketing line; it&#39;s a merge history. And it&#39;s the same instinct behind <a href="/products/lens/">Lens</a>: take what we&#39;ve learned fixing the framework and codify it into something repeatable.</p>
+<h2>If you want to start</h2>
+<p>Pick the smallest real bug you&#39;ve hit. Reproduce it cleanly. Write the failing test. Open the PR. The first one is the hardest; after that, upstream-first stops being a principle and becomes a habit.</p>
+
+            </div>
+            <div class="mt-10 pt-6 border-t border-ae-200/60 flex flex-wrap gap-3"><span class="text-[12px] text-ae-400 font-mono">#Frappe</span><span class="text-[12px] text-ae-400 font-mono">#Open Source</span><span class="text-[12px] text-ae-400 font-mono">#Engineering Culture</span></div>
+        </div>
+    </div>
+    </article>
+
+    <section class="py-16 sm:py-20 bg-ae-50 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <p class="text-xs text-ae-400 uppercase tracking-[0.1em] mb-6 font-medium">More from the blog</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="/blog/optimus-open-source-frappe-profiler/" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+        <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+        <span class="font-mono text-6xl font-semibold text-white/10 select-none">Δt</span>
+        <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/10 text-ae-200 ring-1 ring-white/15">Experience</span>
+    </div>
+        <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">We built Optimus to profile our own Frappe work, then open-sourced it</h3>
+            <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here&#39;s the story, and what it does.</p>
+            <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Optimus</span><span class="text-[11px] text-ae-400 font-mono">#Open Source</span><span class="text-[11px] text-ae-400 font-mono">#Frappe</span></div>
+            <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                <span>Aerele Engineering</span><span>Jun 9, 2026 · 6 min read</span>
+            </div>
+        </div>
+    </a>
+                <a href="/blog/lens-code-audit/" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+        <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+        <span class="font-mono text-6xl font-semibold text-white/10 select-none">&lt;/&gt;</span>
+        <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+    </div>
+        <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Lens Code Audit: catch risky Frappe customizations before they ship</h3>
+            <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Most ERPNext upgrade pain starts in custom code. Lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production.</p>
+            <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Lens</span><span class="text-[11px] text-ae-400 font-mono">#Frappe</span><span class="text-[11px] text-ae-400 font-mono">#Code Review</span></div>
+            <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                <span>Aerele Engineering</span><span>Jun 2, 2026 · 6 min read</span>
+            </div>
+        </div>
+    </a>
+                <a href="/blog/lens-compat-check/" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+        <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+        <span class="font-mono text-6xl font-semibold text-white/10 select-none">≅</span>
+        <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+    </div>
+        <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Lens Compatibility Check: know if your apps survive the next ERPNext upgrade</h3>
+            <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Upgrades stall on one question - will our customizations still work? Lens answers it up front with a per-app compatibility report against your target version.</p>
+            <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Lens</span><span class="text-[11px] text-ae-400 font-mono">#ERPNext</span><span class="text-[11px] text-ae-400 font-mono">#Upgrade</span></div>
+            <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                <span>Aerele Engineering</span><span>May 26, 2026 · 5 min read</span>
+            </div>
+        </div>
+    </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-20 sm:py-24 bg-ae-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8 text-center">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white max-w-2xl mx-auto">Want this kind of result on your ERPNext?</h2>
+            <p class="mt-4 text-ae-200 max-w-xl mx-auto leading-relaxed">We're active Frappe contributors with 600+ merged PRs. Tell us what you're building.</p>
+            <div class="mt-8 flex flex-wrap gap-3 justify-center">
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">Work with us <span aria-hidden="true">→</span></a>
+                <a href="/products/lens/" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Explore Lens</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-8 text-xs">
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Services</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Frappe Developer</a>
+                        <a href="/hire-erpnext-developer/" class="hover:text-ae-700">Hire ERPNext Developer</a>
+                        <a href="/erpnext-customization/" class="hover:text-ae-700">ERPNext Customization</a>
+                        <a href="/erpnext-integration/" class="hover:text-ae-700">ERPNext Integration</a>
+                        <a href="/erpnext-performance-optimization/" class="hover:text-ae-700">Performance Optimization</a>
+                        <a href="/frappe-product-engineering/" class="hover:text-ae-700">Product Engineering</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Resources</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/blog/" class="hover:text-ae-700">Blog</a>
+                        <a href="/docs/" class="hover:text-ae-700">Documentation</a>
+                        <a href="/#products" class="hover:text-ae-700">Products</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Case Studies</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/case-studies/india-banking/" class="hover:text-ae-700">India Banking Suite</a>
+                        <a href="/case-studies/alfarsi-robotics/" class="hover:text-ae-700">Warehouse Robotics</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Company</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/about/" class="hover:text-ae-700">About</a>
+                        <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Open Source</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="https://github.com/aerele/india-banking" class="hover:text-ae-700">india-banking</a>
+                        <a href="https://github.com/aerele/pwa-builder" class="hover:text-ae-700">pwa-builder</a>
+                        <a href="https://github.com/aerele/medusa_integration" class="hover:text-ae-700">medusa_integration</a>
+                        <a href="https://github.com/aerele/emSigner" class="hover:text-ae-700">emSigner</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-ae-200/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs text-ae-400">&copy; 2026 Aerele Technologies Pvt Ltd · Tiruppur, India</div>
+                <div class="flex gap-4 text-xs text-ae-400">
+                    <a href="/privacy-policy/" class="hover:text-ae-700">Privacy</a>
+                    <a href="/terms-of-service/" class="hover:text-ae-700">Terms</a>
+                    <a href="/dpa/" class="hover:text-ae-700">DPA</a>
+                </div>
+                <div class="text-xs text-ae-400">hello@aerele.in · +91 77908 44832</div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
+        const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+        document.querySelectorAll('[data-ytid]').forEach(b => b.addEventListener('click', () => {
+            const i = document.createElement('iframe');
+            i.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.ytid + '?autoplay=1&rel=0';
+            i.title = b.dataset.yttitle || 'Video';
+            i.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            i.allowFullscreen = true;
+            i.className = 'absolute inset-0 w-full h-full';
+            b.replaceWith(i);
+        }));
+    </script>
+</body>
+</html>
