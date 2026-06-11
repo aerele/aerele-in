@@ -56,19 +56,6 @@
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "name": "Lens code audit walkthrough",
-        "description": "A short walkthrough of Lens auditing a custom Frappe/ERPNext app for breaking changes before an upgrade.",
-        "thumbnailUrl": "https://i.ytimg.com/vi/aqz-KE-bpKQ/maxresdefault.jpg",
-        "uploadDate": "2026-06-10",
-        "embedUrl": "https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ",
-        "contentUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ"
-    }
-    </script>
-
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" href="/favicon.ico">
@@ -164,32 +151,6 @@
                 <div><span class="text-base font-semibold text-ae-100">600+</span> <span class="ml-1">Frappe core PRs</span></div>
                 <div><span class="text-base font-semibold text-ae-100">Lens</span> <span class="ml-1">now live</span></div>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== DEMO VIDEO ===== -->
-    <section class="bg-ae-50 pt-16 sm:pt-20">
-        <div class="max-w-4xl mx-auto px-6 sm:px-8">
-            <div class="text-center mb-6 fade-in">
-                <p class="text-xs text-ae-400 uppercase tracking-widest mb-2">See it run</p>
-                <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ae-900">Watch Lens audit a real app</h2>
-            </div>
-            <figure class="m-0 fade-in">
-                <div class="relative aspect-video rounded-2xl overflow-hidden border border-ae-200/60 shadow-sm bg-ae-950 cover-glow">
-                    <button type="button" data-ytid="aqz-KE-bpKQ" data-yttitle="Lens code audit walkthrough" aria-label="Play video: Lens code audit walkthrough" class="group absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer">
-                        <img src="https://i.ytimg.com/vi/aqz-KE-bpKQ/maxresdefault.jpg" onerror="this.style.display='none'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
-                        <span class="absolute inset-0 bg-ae-950/30 group-hover:bg-ae-950/20 transition-colors"></span>
-                        <span class="relative z-10 inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-500 text-white shadow-lg shadow-black/30 group-hover:scale-105 group-hover:bg-brand-600 transition-all">
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                        </span>
-                        <span class="absolute bottom-4 left-4 right-4 z-10 flex items-center gap-2 text-left">
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur text-[11px] font-medium text-white uppercase tracking-wider"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Demo</span>
-                            <span class="text-sm font-medium text-white drop-shadow">Lens code audit walkthrough</span>
-                        </span>
-                    </button>
-                </div>
-                <figcaption class="mt-3 text-center text-xs text-ae-400">Placeholder demo - swap for the real Lens walkthrough.</figcaption>
-            </figure>
         </div>
     </section>
 
@@ -410,16 +371,6 @@
             });
         }, { threshold: 0.12 });
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-        // Lazy-load YouTube embeds on click (no iframe/cookies until played)
-        document.querySelectorAll('[data-ytid]').forEach((b) => b.addEventListener('click', () => {
-            const i = document.createElement('iframe');
-            i.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.ytid + '?autoplay=1&rel=0';
-            i.title = b.dataset.yttitle || 'Video';
-            i.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-            i.allowFullscreen = true;
-            i.className = 'absolute inset-0 w-full h-full';
-            b.replaceWith(i);
-        }));
     </script>
 </body>
 </html>

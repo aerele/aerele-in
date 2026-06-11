@@ -9,8 +9,6 @@ author: Aerele Engineering
 featured: true
 coverGlyph: "</>"
 coverTone: emerald
-video: https://youtu.be/aqz-KE-bpKQ
-videoTitle: "Lens code audit: 90-second walkthrough"
 ---
 
 Every long-running ERPNext deployment accumulates custom code: a few server scripts here, an override there, a custom app that quietly grew into the backbone of the business. None of it is a problem - until you try to upgrade, and the things you forgot you wrote start failing in ways nobody can explain.
