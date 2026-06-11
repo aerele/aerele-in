@@ -70,28 +70,6 @@
       "videoPoster": ""
     },
     {
-      "slug": "erpnext-bank-reconciliation-minutes",
-      "title": "How we cut ERPNext bank reconciliation from days to minutes",
-      "excerpt": "A finance team was closing books a week late because reconciliation was manual. Here's the ingestion pipeline and matching logic we built on Frappe to make it near-instant.",
-      "category": "Use Case",
-      "tags": [
-        "ERPNext",
-        "Banking",
-        "Automation"
-      ],
-      "date": "2026-05-14",
-      "readingTime": "7 min read",
-      "author": "Aerele Engineering",
-      "featured": false,
-      "cover": {
-        "glyph": "₹",
-        "tone": "emerald"
-      },
-      "video": null,
-      "videoTitle": "",
-      "videoPoster": ""
-    },
-    {
       "slug": "frappe-upstream-first-600-prs",
       "title": "What 600+ merged PRs into Frappe taught us about upstream-first work",
       "excerpt": "Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.",
