@@ -1,6 +1,6 @@
 ---
 title: "We built Optimus to profile our own Frappe work, then open-sourced it"
-excerpt: "Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here's the story, and what it does."
+excerpt: "System freezes under heavy load, lock wait timeouts, 'server is too busy' errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem."
 category: Experience
 tags: [Optimus, Open Source, Frappe, Performance]
 date: 2026-06-09
@@ -11,7 +11,11 @@ coverGlyph: "Δt"
 coverTone: navy
 ---
 
-Most of our performance work starts the same way: a client says a process is slow, and nobody can say exactly *where*. The instinct is to profile a single request. The problem is that a slow ERPNext process is rarely a single request.
+You probably know the symptoms. The system freezes whenever the load gets heavy. The error log fills up with `Lock wait timeout exceeded`. Requests time out, and users start screenshotting *"the server is too busy to process the request"* in the middle of a billing run.
+
+We kept meeting these exact issues on client ERPNext sites, and the root cause was almost never the hardware. It was customization: a hook firing on every save, a query running inside a loop, a background job locking the same rows users were editing. The performance bottleneck was always somewhere in the custom code. The hard part was saying exactly *where*.
+
+The instinct is to profile a single request. The problem is that a slow ERPNext process is rarely a single request.
 
 **Optimus** is the tool we built to deal with that, and it's now [open source on GitHub](https://github.com/Aerele-RnD/optimus).
 

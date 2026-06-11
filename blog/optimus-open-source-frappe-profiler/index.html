@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We built Optimus to profile our own Frappe work, then open-sourced it – Aerele Blog</title>
-    <meta name="description" content="Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here&#39;s the story, and what it does.">
+    <meta name="description" content="System freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.">
     <meta property="og:title" content="We built Optimus to profile our own Frappe work, then open-sourced it">
-    <meta property="og:description" content="Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here&#39;s the story, and what it does.">
+    <meta property="og:description" content="System freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://aerele.in/blog/optimus-open-source-frappe-profiler/">
     <meta property="og:image" content="https://aerele.in/logo-og.png">
     <meta property="og:site_name" content="Aerele Technologies">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="We built Optimus to profile our own Frappe work, then open-sourced it">
-    <meta name="twitter:description" content="Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here&#39;s the story, and what it does.">
+    <meta name="twitter:description" content="System freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.">
     <meta name="twitter:image" content="https://aerele.in/logo-og.png">
     <link rel="canonical" href="https://aerele.in/blog/optimus-open-source-frappe-profiler/">
     <link rel="alternate" type="text/plain" href="https://aerele.in/llms.txt" title="LLM-friendly content">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="author" content="Aerele Engineering">
     <meta name="keywords" content="Optimus, Open Source, Frappe, Performance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"We built Optimus to profile our own Frappe work, then open-sourced it","description":"Optimus started as an internal tool for profiling whole Frappe business flows on client performance work. We made it public as a contribution to the Frappe ecosystem. Here's the story, and what it does.","datePublished":"2026-06-09","author":{"@type":"Organization","name":"Aerele Engineering"},"publisher":{"@type":"Organization","name":"Aerele Technologies Pvt Ltd","logo":{"@type":"ImageObject","url":"https://aerele.in/logo-nav.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aerele.in/blog/optimus-open-source-frappe-profiler/"},"url":"https://aerele.in/blog/optimus-open-source-frappe-profiler/","keywords":"Optimus, Open Source, Frappe, Performance"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"We built Optimus to profile our own Frappe work, then open-sourced it","description":"System freezes under heavy load, lock wait timeouts, 'server is too busy' errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.","datePublished":"2026-06-09","author":{"@type":"Organization","name":"Aerele Engineering"},"publisher":{"@type":"Organization","name":"Aerele Technologies Pvt Ltd","logo":{"@type":"ImageObject","url":"https://aerele.in/logo-nav.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aerele.in/blog/optimus-open-source-frappe-profiler/"},"url":"https://aerele.in/blog/optimus-open-source-frappe-profiler/","keywords":"Optimus, Open Source, Frappe, Performance"}</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { theme: { extend: {
@@ -130,7 +130,9 @@
     <div class="bg-ae-50 py-12 sm:py-16">
         <div class="max-w-3xl mx-auto px-6 sm:px-8">
             <div class="prose max-w-none">
-<p>Most of our performance work starts the same way: a client says a process is slow, and nobody can say exactly <em>where</em>. The instinct is to profile a single request. The problem is that a slow ERPNext process is rarely a single request.</p>
+<p>You probably know the symptoms. The system freezes whenever the load gets heavy. The error log fills up with <code>Lock wait timeout exceeded</code>. Requests time out, and users start screenshotting <em>&quot;the server is too busy to process the request&quot;</em> in the middle of a billing run.</p>
+<p>We kept meeting these exact issues on client ERPNext sites, and the root cause was almost never the hardware. It was customization: a hook firing on every save, a query running inside a loop, a background job locking the same rows users were editing. The performance bottleneck was always somewhere in the custom code. The hard part was saying exactly <em>where</em>.</p>
+<p>The instinct is to profile a single request. The problem is that a slow ERPNext process is rarely a single request.</p>
 <p><strong>Optimus</strong> is the tool we built to deal with that, and it&#39;s now <a href="https://github.com/Aerele-RnD/optimus">open source on GitHub</a>.</p>
 <h2>The thing single-request profilers miss</h2>
 <p>A real business flow in ERPNext fans out. One click submits a document, which queues a background job, which writes to a dozen tables, which fires more hooks. Profile only the HTTP request and you see the fast part. The slow part ran somewhere you weren&#39;t looking.</p>
