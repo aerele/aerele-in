@@ -1,0 +1,139 @@
+{
+  "posts": [
+    {
+      "slug": "optimus-open-source-frappe-profiler",
+      "title": "We built Optimus to profile our own Frappe work, then open-sourced it",
+      "excerpt": "System freezes under heavy load, lock wait timeouts, 'server is too busy' errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.",
+      "category": "Experience",
+      "tags": [
+        "Optimus",
+        "Open Source",
+        "Frappe",
+        "Performance"
+      ],
+      "date": "2026-06-09",
+      "readingTime": "6 min read",
+      "author": "Aerele Engineering",
+      "featured": false,
+      "cover": {
+        "glyph": "Δt",
+        "tone": "navy"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    },
+    {
+      "slug": "lens-code-audit",
+      "title": "Lens Code Audit: catch risky Frappe customizations before they ship",
+      "excerpt": "Most ERPNext upgrade pain starts in custom code. Lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production.",
+      "category": "Product",
+      "tags": [
+        "Lens",
+        "Frappe",
+        "Code Review",
+        "Migration"
+      ],
+      "date": "2026-06-02",
+      "readingTime": "6 min read",
+      "author": "Aerele Engineering",
+      "featured": true,
+      "cover": {
+        "glyph": "</>",
+        "tone": "emerald"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    },
+    {
+      "slug": "lens-compat-check",
+      "title": "Lens Compatibility Check: know if your apps survive the next ERPNext upgrade",
+      "excerpt": "Upgrades stall on one question - will our customizations still work? Lens answers it up front with a per-app compatibility report against your target version.",
+      "category": "Product",
+      "tags": [
+        "Lens",
+        "ERPNext",
+        "Upgrade",
+        "Compatibility"
+      ],
+      "date": "2026-05-26",
+      "readingTime": "5 min read",
+      "author": "Aerele Engineering",
+      "featured": true,
+      "cover": {
+        "glyph": "≅",
+        "tone": "navy"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    },
+    {
+      "slug": "frappe-upstream-first-600-prs",
+      "title": "What 600+ merged PRs into Frappe taught us about upstream-first work",
+      "excerpt": "Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.",
+      "category": "Experience",
+      "tags": [
+        "Frappe",
+        "Open Source",
+        "Engineering Culture"
+      ],
+      "date": "2026-04-30",
+      "readingTime": "8 min read",
+      "author": "Aerele Engineering",
+      "featured": false,
+      "cover": {
+        "glyph": "{ }",
+        "tone": "navy"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    },
+    {
+      "slug": "india-banking-rails-production",
+      "title": "Integrating ERPNext with India's banking rails: production lessons",
+      "excerpt": "NEFT, RTGS, UPI and host-to-host files in a regulated workflow. The retries, idempotency, and audit trails that kept it reliable when money was on the line.",
+      "category": "Use Case",
+      "tags": [
+        "ERPNext",
+        "Banking",
+        "Integrations"
+      ],
+      "date": "2026-04-12",
+      "readingTime": "9 min read",
+      "author": "Aerele Engineering",
+      "featured": false,
+      "cover": {
+        "glyph": "⇄",
+        "tone": "navy"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    },
+    {
+      "slug": "why-we-built-lens",
+      "title": "Why we built Lens - codifying migration audits into software",
+      "excerpt": "Years of migration reviews turned into a tool. What we automated, what still needs a senior human, and what we learned shipping our first product.",
+      "category": "Experience",
+      "tags": [
+        "Lens",
+        "Product",
+        "Frappe"
+      ],
+      "date": "2026-03-20",
+      "readingTime": "5 min read",
+      "author": "Aerele Engineering",
+      "featured": false,
+      "cover": {
+        "glyph": "◎",
+        "tone": "emerald"
+      },
+      "video": null,
+      "videoTitle": "",
+      "videoPoster": ""
+    }
+  ]
+}

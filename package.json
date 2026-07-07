@@ -1,0 +1,13 @@
+{
+  "name": "aerele-in",
+  "version": "1.0.0",
+  "private": true,
+  "description": "aerele.in: static marketing site. Blog posts authored as Markdown in content/blog and built to static HTML.",
+  "type": "module",
+  "scripts": {
+    "build:blog": "node scripts/build-blog.mjs"
+  },
+  "devDependencies": {
+    "marked": "^15.0.0"
+  }
+}

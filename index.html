@@ -273,7 +273,7 @@
         @keyframes scroll-up { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scroll-up 50s linear infinite; }
         .animate-scroll-vertical:hover { animation-play-state: paused; }
-        /* Subtle radial glow behind hero — matches lens's depth */
+        /* Subtle radial glow behind hero - matches lens's depth */
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
     </style>
     <script defer src="/analytics.js"></script>
@@ -292,6 +292,8 @@
                 <a href="#work" class="hover:text-ae-900 transition-colors">Work</a>
                 <a href="#team" class="hover:text-ae-900 transition-colors">Team</a>
                 <a href="#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
+                <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
+                <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
                 <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
@@ -301,7 +303,7 @@
         </div>
         <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
             <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="#why">Why Us</a><a href="#work">Work</a><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
+                <a href="#why">Why Us</a><a href="#work">Work</a><a href="#team">Team</a><a href="#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
             </div>
         </div>
     </nav>
@@ -323,7 +325,7 @@
                     </h1>
 
                     <p class="mt-6 text-lg text-ae-200 leading-relaxed max-w-xl">
-                        Aerele's engineers have <span class="text-white font-medium">600+ pull requests</span> merged into Frappe, ERPNext, HRMS, and more — active contributors to the framework your business runs on.
+                        Aerele's engineers have <span class="text-white font-medium">600+ pull requests</span> merged into Frappe, ERPNext, HRMS, and more - active contributors to the framework your business runs on.
                     </p>
 
                     <p class="mt-3 text-base text-ae-400 max-w-xl leading-relaxed">
@@ -514,6 +516,51 @@
                     <h3 class="text-base font-semibold text-ae-50 mb-2">Code Review & Performance</h3>
                     <p class="text-sm text-ae-400 leading-relaxed">Inherited a slow ERPNext? We profile, optimize, and refactor. We've taken 8-hour batch jobs to under a minute. Query tuning, architecture fixes, the problems other vendors can't diagnose.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section id="products" class="py-20 sm:py-28 bg-ae-50 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 fade-in">
+                <div>
+                    <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">Products</p>
+                    <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-ae-950">Software we build and run</h2>
+                    <p class="mt-4 text-ae-500 text-lg leading-relaxed max-w-2xl">Tools we built from our own work in the Frappe ecosystem, by the same engineers who contribute upstream.</p>
+                </div>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 fade-in">
+                <!-- Optimus -->
+                <div class="flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950">Optimus</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-ae-100 border border-ae-200 text-[10px] font-medium text-ae-600 uppercase tracking-wider whitespace-nowrap">Open source</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Flow-aware performance profiler for Frappe and ERPNext. Capture a whole business flow and get a report you can act on.</p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <a href="/products/optimus/" class="inline-flex items-center gap-1 text-xs font-medium text-brand-600 hover:text-brand-700">Learn more <span aria-hidden="true">→</span></a>
+                        <a href="https://github.com/Aerele-RnD/optimus" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-medium text-ae-500 hover:text-ae-800">GitHub <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+                <!-- Lens -->
+                <a href="/products/lens/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Lens</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-50 border border-brand-200 text-[10px] font-medium text-brand-700 uppercase tracking-wider whitespace-nowrap"><span class="w-1 h-1 rounded-full bg-brand-500 animate-pulse"></span>Live</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Audit custom Frappe and ERPNext code and see exactly what breaks before an upgrade.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
+                <!-- Frappe Claw -->
+                <a href="/products/frappe-claw/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Frappe Claw</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-ae-100 border border-ae-300 text-[10px] font-medium text-ae-500 uppercase tracking-wider whitespace-nowrap"><span class="w-1 h-1 rounded-full bg-ae-400"></span>Coming soon</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Build agents and deploy them in your Frappe site to automate business workflows and development activities.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
             </div>
         </div>
     </section>
