@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimus by Aerele – Flow-aware performance profiler for Frappe & ERPNext</title>
+    <meta name="description" content="Optimus is an open-source, flow-aware performance profiler for Frappe and ERPNext. Capture a whole business flow, then get a report you can act on. MIT licensed.">
+
+    <meta property="og:title" content="Optimus by Aerele – Flow-aware performance profiler for Frappe & ERPNext">
+    <meta property="og:description" content="Capture a whole Frappe/ERPNext business flow and get a report you can act on. Open source, MIT licensed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aerele.in/products/optimus/">
+    <meta property="og:image" content="https://aerele.in/logo-og.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Aerele Technologies">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Optimus by Aerele – Flow-aware profiler for Frappe & ERPNext">
+    <meta name="twitter:description" content="Capture a whole Frappe/ERPNext business flow and get a report you can act on. Open source.">
+    <meta name="twitter:image" content="https://aerele.in/logo-og.png">
+
+    <link rel="canonical" href="https://aerele.in/products/optimus/">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="author" content="Aerele Technologies Pvt Ltd">
+    <meta name="keywords" content="optimus, frappe performance profiler, erpnext profiling, frappe slow, pyinstrument frappe, aerele products">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Optimus",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Linux, macOS",
+        "url": "https://github.com/Aerele-RnD/optimus",
+        "description": "A flow-aware performance profiler for Frappe and ERPNext. Captures whole business workflows (HTTP requests and background jobs) and generates actionable HTML reports.",
+        "license": "https://opensource.org/licenses/MIT",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Aerele Technologies Pvt Ltd",
+            "url": "https://aerele.in"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ae': {
+                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
+                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
+                        },
+                        'brand': {
+                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/logo-nav.png" as="image">
+
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
+        @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+    </style>
+</head>
+<body class="bg-ae-50 text-ae-900 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
+                <a href="/#why" class="hover:text-ae-900 transition-colors">Why Us</a>
+                <a href="/#work" class="hover:text-ae-900 transition-colors">Work</a>
+                <a href="/#team" class="hover:text-ae-900 transition-colors">Team</a>
+                <a href="/#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
+                <a href="/#products" class="text-ae-900">Products</a>
+                <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+            </div>
+            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <nav class="flex items-center gap-2 text-[12px] text-ae-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-ae-200">Home</a><span aria-hidden="true">/</span>
+                <a href="/#products" class="hover:text-ae-200">Products</a><span aria-hidden="true">/</span>
+                <span class="text-ae-300">Optimus</span>
+            </nav>
+            <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-ae-200 mb-7 uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                Open source · by Aerele
+            </p>
+            <h1 class="font-semibold tracking-tight leading-[1.15] text-white max-w-3xl" style="font-size: clamp(1.5rem, 4.4vw, 3.25rem);">
+                Find out <span class="text-brand-400 font-semibold">why</span> your Frappe flow is slow.
+            </h1>
+            <p class="mt-6 text-lg text-ae-200 leading-relaxed max-w-2xl">
+                Optimus is a flow-aware performance profiler for Frappe and ERPNext. Capture an entire business flow, then read a report that points straight at what to fix.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="https://github.com/Aerele-RnD/optimus" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">View on GitHub <span aria-hidden="true">↗</span></a>
+                <a href="/#products" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">All products</a>
+            </div>
+            <div class="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-3 text-xs text-ae-500 border-t border-white/10 pt-5 max-w-2xl">
+                <div><span class="text-base font-semibold text-ae-100">MIT</span> <span class="ml-1">licensed</span></div>
+                <div><span class="text-base font-semibold text-ae-100">Python</span> <span class="ml-1">pip-installable</span></div>
+                <div><span class="text-base font-semibold text-ae-100">HTTP + jobs</span> <span class="ml-1">whole-flow capture</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT IT DOES ===== -->
+    <section class="bg-ae-50 py-20 sm:py-24">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-2xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">What it does</p>
+                <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">Profile the whole flow, not just one request.</h2>
+                <p class="mt-4 text-ae-500 text-lg leading-relaxed">Slow ERPNext processes rarely live in a single endpoint. Optimus follows the work across requests and background jobs, so the report reflects what actually happened.</p>
+            </div>
+            <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 fade-in">
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">Whole-flow capture</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Captures a complete business workflow - the HTTP requests and the background jobs they trigger - in one profile, so nothing important falls outside the trace.</p>
+                </div>
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">Two reports, on purpose</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">A customer-safe report with redacted data you can share with an outside dev shop, plus a detailed raw report for your own debugging. Findings, not just numbers.</p>
+                </div>
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">Real call trees and queries</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Built on pyinstrument call-tree sampling and query analysis, rendered to clean HTML - so you see the slow path and the slow SQL side by side.</p>
+                </div>
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <h3 class="text-base font-semibold text-ae-950 mb-2">Open source, runs on your box</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">MIT licensed and pip-installable. Run it where your bench runs - no data leaves your infrastructure, no account required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-20 sm:py-24 bg-ae-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8 text-center">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white max-w-2xl mx-auto">Optimus is open source. Go profile something.</h2>
+            <p class="mt-4 text-ae-300 max-w-xl mx-auto leading-relaxed">Clone the repo, point it at a slow flow, and read the report. Built and maintained by the team behind 600+ Frappe core PRs.</p>
+            <div class="mt-8 flex flex-wrap gap-3 justify-center">
+                <a href="https://github.com/Aerele-RnD/optimus" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">View on GitHub <span aria-hidden="true">↗</span></a>
+                <a href="/erpnext-performance-optimization/" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Want us to do it? Performance services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MORE PRODUCTS ===== -->
+    <section class="bg-ae-50 py-16 sm:py-20 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-12 fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">More from Aerele</p>
+                <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ae-900">The rest of the toolbox</h2>
+                <p class="mt-3 text-ae-500 leading-relaxed max-w-xl mx-auto">More tools built from our work in the Frappe ecosystem. Some are live, others are on the way.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto fade-in">
+                <!-- Lens -->
+                <a href="/products/lens/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Lens</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-50 border border-brand-200 text-[10px] font-medium text-brand-700 uppercase tracking-wider whitespace-nowrap"><span class="w-1 h-1 rounded-full bg-brand-500 animate-pulse"></span>Live</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Audit custom Frappe and ERPNext code and see exactly what breaks before an upgrade.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
+                <!-- Frappe Claw -->
+                <a href="/products/frappe-claw/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Frappe Claw</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-ae-100 border border-ae-300 text-[10px] font-medium text-ae-500 uppercase tracking-wider whitespace-nowrap"><span class="w-1 h-1 rounded-full bg-ae-400"></span>Coming soon</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Build agents and deploy them in your Frappe site to automate business workflows and development activities.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-8 text-xs">
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Resources</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/blog/" class="hover:text-ae-700">Blog</a>
+                        <a href="/products/lens/" class="hover:text-ae-700">Lens</a>
+                        <a href="/#products" class="hover:text-ae-700">All products</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Services</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Frappe Developer</a>
+                        <a href="/hire-erpnext-developer/" class="hover:text-ae-700">Hire ERPNext Developer</a>
+                        <a href="/erpnext-customization/" class="hover:text-ae-700">ERPNext Customization</a>
+                        <a href="/erpnext-integration/" class="hover:text-ae-700">ERPNext Integration</a>
+                        <a href="/erpnext-performance-optimization/" class="hover:text-ae-700">Performance Optimization</a>
+                        <a href="/frappe-product-engineering/" class="hover:text-ae-700">Product Engineering</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Case Studies</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/case-studies/india-banking/" class="hover:text-ae-700">India Banking Suite</a>
+                        <a href="/case-studies/alfarsi-robotics/" class="hover:text-ae-700">Warehouse Robotics</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Company</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/about/" class="hover:text-ae-700">About</a>
+                        <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Open Source</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="https://github.com/aerele/india-banking" class="hover:text-ae-700">india-banking</a>
+                        <a href="https://github.com/aerele/pwa-builder" class="hover:text-ae-700">pwa-builder</a>
+                        <a href="https://github.com/aerele/medusa_integration" class="hover:text-ae-700">medusa_integration</a>
+                        <a href="https://github.com/aerele/emSigner" class="hover:text-ae-700">emSigner</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-ae-200/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs text-ae-400">&copy; 2026 Aerele Technologies Pvt Ltd · Tiruppur, India</div>
+                <div class="flex gap-4 text-xs text-ae-400">
+                    <a href="/privacy-policy/" class="hover:text-ae-700">Privacy</a>
+                    <a href="/terms-of-service/" class="hover:text-ae-700">Terms</a>
+                    <a href="/dpa/" class="hover:text-ae-700">DPA</a>
+                </div>
+                <div class="text-xs text-ae-400">hello@aerele.in · +91 77908 44832</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>

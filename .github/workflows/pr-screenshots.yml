@@ -1,0 +1,64 @@
+name: PR Screenshots
+
+# Auto-captures full-page screenshots of the pages a PR changes and posts them
+# as a sticky comment. Images are stored on a throwaway `screenshots/pr-<N>`
+# branch (never merged into gh-pages), matching the repo's existing convention.
+#
+# Note: for `pull_request`, GitHub runs the workflow from the BASE branch, so
+# this activates for PRs opened AFTER it lands on gh-pages (not the PR that adds it).
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**/*.html'
+      - '**/*.css'
+      - 'content/blog/**'
+      - 'scripts/build-blog.mjs'
+
+permissions:
+  contents: write        # push the screenshots/pr-<N> branch
+  pull-requests: write   # post the sticky comment
+
+concurrency:
+  group: pr-screenshots-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  screenshots:
+    # Skip fork PRs (no write token available there).
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci || npm install
+          npm install --no-save playwright@^1
+
+      - name: Build blog
+        run: npm run build:blog
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture screenshots
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          CHANGED_FILES="$(git diff --name-only "origin/${BASE_REF}...HEAD")" \
+            node scripts/pr-screenshots.mjs
+
+      - name: Publish screenshots and comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: bash scripts/publish-screenshots.sh
