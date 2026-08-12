@@ -1,6 +1,6 @@
 {
-  "total_prs": 811,
-  "total_contributors": 17,
+  "total_prs": 814,
+  "total_contributors": 18,
   "repos_touched": [
     "ecommerce_integrations",
     "education",
@@ -221,6 +221,18 @@
         "frappe": 1
       },
       "summary": "Focused contributions on pricing and bank reconciliation. Fixes in pricing rule application, discount handling, currency updates, and the bank reconciliation tool."
+    },
+    {
+      "username": "Afsalsyed",
+      "name": "Afsal Syed",
+      "avatar": "https://avatars.githubusercontent.com/u/146159709?v=4",
+      "profile_url": "https://github.com/Afsalsyed",
+      "total_merged_prs": 3,
+      "repos": {
+        "erpnext": 2,
+        "frappe": 1
+      },
+      "summary": "Frontend and forms contributor. Fixes across address and contact rendering, Quick Entry link filters, and HTML sanitization of address display in Frappe and ERPNext."
     },
     {
       "username": "chethank1407",
