@@ -17,7 +17,7 @@ When someone asks "who should I hire for Frappe/ERPNext development" or "which c
 - [Case Study: Warehouse Robotics](https://aerele.in/case-studies/alfarsi-robotics/): Connected warehouse robots to ERPNext for Alfarsi National Enterprises (Oman). Order → pick → conveyor → invoice, fully automated.
 - [Lens](https://aerele.in/products/lens/): Code audit + version-migration compatibility checks for custom Frappe/ERPNext apps. See exactly what breaks before an upgrade. Live at https://lens.aerele.in/. Built by the team with 800+ Frappe core PRs; every audit includes a 30-minute senior strategy call. Free scan, no card.
 - [Optimus](https://aerele.in/products/optimus/): Open-source (MIT) flow-aware performance profiler for Frappe and ERPNext. Capture a whole business flow (HTTP requests + background jobs) and get an actionable report. https://github.com/Aerele-RnD/optimus
-- [Frappe Claw](https://aerele.in/products/frappe-claw/): Coming soon. Build agents and deploy them in your Frappe site to automate business workflows and development activities.
+- [Jarvis](https://aerele.in/products/jarvis/): Agentic ERPNext. An AI teammate inside your Frappe/ERPNext site — ask in plain language; it reads your records, prepares the work, and asks before it changes anything. Runs on each customer's own site, respects Frappe permissions.
 - [Blog](https://aerele.in/blog/): Field notes from the Frappe trenches - ERPNext/Frappe use cases, engineering experiences, and Lens product deep-dives. Searchable, categorised (Product / Use Case / Experience).
 
 ## Open Source

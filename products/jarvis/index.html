@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis by Aerele – Agentic ERPNext, your AI teammate</title>
+    <meta name="description" content="Jarvis is an AI teammate that lives in your ERPNext. Ask in plain language; it reads your records, prepares the work, keeps routine work moving, and asks before important changes. Request a demo.">
+
+    <meta property="og:title" content="Jarvis by Aerele – Agentic ERPNext, your AI teammate">
+    <meta property="og:description" content="An AI teammate inside your Frappe/ERPNext site. It reads your records, prepares the work, and asks before important changes. Request a demo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aerele.in/products/jarvis/">
+    <meta property="og:image" content="https://aerele.in/products/jarvis/media/jarvis-og.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Aerele Technologies">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jarvis by Aerele – Agentic ERPNext, your AI teammate">
+    <meta name="twitter:description" content="An AI teammate inside your Frappe/ERPNext site. It reads your records, prepares the work, and asks before important changes.">
+    <meta name="twitter:image" content="https://aerele.in/products/jarvis/media/jarvis-og.png">
+
+    <link rel="canonical" href="https://aerele.in/products/jarvis/">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="author" content="Aerele Technologies Pvt Ltd">
+    <meta name="keywords" content="jarvis, agentic erpnext, ai agents frappe, erpnext ai assistant, aerele">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Jarvis",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Frappe/ERPNext",
+        "url": "https://aerele.in/products/jarvis/",
+        "description": "An AI teammate that lives in your ERPNext. It reads your records, prepares the work, keeps routine work moving, and brings you the decisions that genuinely need you.",
+        "image": "https://aerele.in/products/jarvis/media/jarvis-og.png",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Aerele Technologies",
+            "url": "https://aerele.in"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Jarvis by Aerele",
+        "url": "https://aerele.in/products/jarvis/",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Aerele Technologies",
+            "url": "https://aerele.in"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ae': {
+                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
+                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
+                        },
+                        'brand': {
+                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b',
+                        },
+                        'jarvis': {
+                            50:  '#f1f2ff', 100: '#e6e8ff', 200: '#d0d6ff', 300: '#b0baff',
+                            400: '#8b96ff', 500: '#6e8bff', 600: '#8b5cf6', 700: '#7c3aed',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/logo-nav.png" as="image">
+
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+        img { max-width: 100%; }
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(110,139,255,0.14), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.20), transparent 70%); }
+        .jarvis-grad { background: linear-gradient(135deg, #6e8bff, #8b5cf6); }
+        .jarvis-grad-text { background: linear-gradient(135deg, #6e8bff, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .jarvis-grad-border { border-color: rgba(139,92,246,0.35); }
+        @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+    </style>
+</head>
+<body class="bg-ae-50 text-ae-900 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
+                <span class="text-[16px] font-semibold text-ae-900 tracking-tight">Aerele Technologies</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
+                <a href="/#why" class="hover:text-ae-900 transition-colors">Why Us</a>
+                <a href="/#work" class="hover:text-ae-900 transition-colors">Work</a>
+                <a href="/#team" class="hover:text-ae-900 transition-colors">Team</a>
+                <a href="/#pricing" class="hover:text-ae-900 transition-colors">Pricing</a>
+                <a href="/#products" class="text-ae-900">Products</a>
+                <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
+                <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
+                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+            </div>
+            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
+            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden bg-ae-900 text-white">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <nav class="flex items-center gap-2 text-[12px] text-ae-400 mb-6" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-ae-200">Home</a><span aria-hidden="true">/</span>
+                <a href="/#products" class="hover:text-ae-200">Products</a><span aria-hidden="true">/</span>
+                <span class="text-ae-300">Jarvis</span>
+            </nav>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div>
+                    <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border jarvis-grad-border text-[11px] font-medium text-ae-100 mb-7 uppercase tracking-wider">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><defs><linearGradient id="jspark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6e8bff"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><path d="M12 2.5 L14 10 L21.5 12 L14 14 L12 21.5 L10 14 L2.5 12 L10 10 Z" fill="url(#jspark)"/></svg>
+                        Agentic ERPNext is here
+                        <span class="inline-flex items-center gap-1 ml-1 text-jarvis-300"><span class="w-1.5 h-1.5 rounded-full jarvis-grad animate-pulse"></span>New</span>
+                    </p>
+                    <h1 class="font-semibold tracking-tight leading-[1.12] text-white" style="font-size: clamp(1.75rem, 4.6vw, 3.25rem);">
+                        Meet Jarvis, an <span class="jarvis-grad-text">AI teammate</span> that lives in your ERP.
+                    </h1>
+                    <p class="mt-6 text-lg text-ae-200 leading-relaxed max-w-xl">
+                        Jarvis understands your records, prepares the work, keeps routine work moving, and brings you the decisions that genuinely need you.
+                    </p>
+                    <p class="mt-4 text-base font-medium text-white max-w-xl">
+                        The business keeps moving. <span class="jarvis-grad-text">You stay in control.</span>
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="mailto:hello@aerele.in?subject=Jarvis%20demo" class="inline-flex items-center gap-2 px-5 py-2.5 jarvis-grad text-white rounded-lg text-sm font-semibold hover:brightness-110 transition-all">Request a demo <span aria-hidden="true">→</span></a>
+                        <a href="mailto:hello@aerele.in?subject=Jarvis%20enquiry" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Talk to us</a>
+                    </div>
+                    <p class="mt-5 text-[13px] text-ae-400">Works with Frappe / ERPNext. Runs on your own site, on your data.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 jarvis-grad opacity-20 blur-2xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
+                    <img src="/products/jarvis/media/onboarding-intro.png" alt="Jarvis onboarding screen introducing an AI teammate that reads your data, builds a knowledge base, respects Frappe permissions, and asks before important changes." width="1200" height="800" class="relative rounded-2xl border border-white/10 shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VALUE BULLETS ===== -->
+    <section class="bg-white py-16 sm:py-20 border-b border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-2xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">What Jarvis is</p>
+                <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">An AI teammate, working on top of the records you already keep.</h2>
+                <p class="mt-4 text-ae-500 leading-relaxed">Ask a question, hand off a task, or let it watch the books - all in plain language. Jarvis runs on your own Frappe/ERPNext site, alongside the data your business already trusts.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Reads your real data</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">It trusts the ledger over guesses, answering from the records your business actually holds.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Learns your business</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">It builds a personalized knowledge base of how your business works as you work.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Respects permissions</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">It follows each user's Frappe permissions, so everyone sees only what they're allowed to.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Asks before it acts</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">It asks before important changes, so a person stays in the loop on the work that matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== THREE PILLARS ===== -->
+    <section class="bg-ae-50 py-20 sm:py-24">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-2xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">How it helps</p>
+                <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">Three ways Jarvis carries the work.</h2>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-sm font-mono jarvis-grad-text mb-3">01</p>
+                    <h3 class="text-lg font-semibold text-ae-950 mb-2">Understand what is happening</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Ask a plain question and see the records behind the answer.</p>
+                </div>
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-sm font-mono jarvis-grad-text mb-3">02</p>
+                    <h3 class="text-lg font-semibold text-ae-950 mb-2">Keep good work moving</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Prepare the next step and turn a trusted routine into work your team can repeat.</p>
+                </div>
+                <div class="p-7 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-sm font-mono jarvis-grad-text mb-3">03</p>
+                    <h3 class="text-lg font-semibold text-ae-950 mb-2">Give attention where it matters</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Let Jarvis watch the routine and bring people the exceptions and decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CORE FEATURES ===== -->
+    <section class="bg-white py-20 sm:py-24 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-2xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">Inside Jarvis</p>
+                <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">Everything you need, where the work already is.</h2>
+                <p class="mt-4 text-ae-500 leading-relaxed">A connected set of tools for asking, preparing, automating, and deciding - all inside your ERPNext.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 fade-in">
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.83L3 20l1.17-3.5A7.9 7.9 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Chat</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Tell Jarvis what you need in plain words. <code class="font-mono text-[12px] text-ae-600">@</code>-mention people, <code class="font-mono text-[12px] text-ae-600">/</code> to pick a record type, tool, or Skill, attach files and images, use voice, and choose the AI model.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Agents</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Installable specialists for one area - Bank &amp; Reconciliation, Close &amp; Reporting - that run on a schedule and produce Runs and Findings. An installed Agent is not an invisible employee.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Skills</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Save a business rule, tone, or checklist once and invoke it with <code class="font-mono text-[12px] text-ae-600">/name</code>. Share it or promote it to role or company scope with review.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Triggers</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Watch for a record event and start a saved instruction - event-driven automation you create in plain language.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Macros</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Turn several chat steps into one named routine. Run it manually or on a schedule, with a full run history.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Approval Board</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">The inbox for work Jarvis prepared that a person must decide - drafts, questions, agent-prepared work. Approve, reject, or answer. Only the owner of an approval or a Jarvis administrator can approve it.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Dashboards</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Turn a conversation about your numbers into a saved, shareable view and export PNG or PDF. Sharing never grants access to source data a viewer couldn't already read.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">File Box</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Drop in supplier bills, bank statements, and price lists. Jarvis processes them into draft work - a bill becomes a draft purchase invoice - that still routes through approval.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Wiki &amp; Business Notes</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">A business memory grown from notes and reviewed learning - scoped to company, role, or user, with trust signals like Latest source, Conflicting, and Stale. The Wiki helps Jarvis remember; it does not replace the official amount, stock level, or status in your records.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Command palette</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed"><code class="font-mono text-[12px] text-ae-600">Cmd/Ctrl+K</code> to jump to conversations, dashboards, Frappe records, lists, and reports - only what you're allowed to open.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">AI models</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Admins connect chat-subscription or API-key providers and set a fallback order; "Auto" picks per workspace. A fallback protects availability, not identical answers.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-ae-50 border border-ae-200/60">
+                    <div class="w-9 h-9 rounded-lg jarvis-grad flex items-center justify-center mb-4" aria-hidden="true">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19v3m0 0h-4m4 0h4m-4-6a4 4 0 01-4-4V6a4 4 0 118 0v6a4 4 0 01-4 4z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold text-ae-950 mb-1.5">Voice, mobile &amp; more</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed">Voice and files, notifications, learning &amp; review, a mobile app (QR pairing - pairing a phone does not widen your access), lists &amp; filters, and conversations built around one outcome each.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST & APPROVALS (differentiator) ===== -->
+    <section class="relative py-20 sm:py-24 bg-ae-900 text-white overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="fade-in">
+                    <p class="text-xs text-jarvis-300 uppercase tracking-widest mb-3">Trust &amp; approvals</p>
+                    <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white">A clear line between reading and changing.</h2>
+                    <p class="mt-6 text-lg text-ae-200 leading-relaxed">
+                        Jarvis can read and explain directly. Important and hard-to-reverse actions always require a person. An administrator may allow some ordinary, reversible changes within a chat.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="mailto:hello@aerele.in?subject=Jarvis%20demo" class="inline-flex items-center gap-2 px-5 py-2.5 jarvis-grad text-white rounded-lg text-sm font-semibold hover:brightness-110 transition-all">See how approvals work <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div class="grid gap-4 fade-in">
+                    <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-base font-semibold text-white mb-1.5">Changes come to you as a confirmation card</h3>
+                        <p class="text-sm text-ae-300 leading-relaxed">A change surfaces as a confirmation card in chat or on the Approval Board before it happens.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-base font-semibold text-white mb-1.5">Approval is scoped, not a blank cheque</h3>
+                        <p class="text-sm text-ae-300 leading-relaxed">Approval is permission for the one action shown - nothing more.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-base font-semibold text-white mb-1.5">Background work obeys the same boundary</h3>
+                        <p class="text-sm text-ae-300 leading-relaxed">Agent and scheduled work follows the same rules as anything you ask for directly.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                        <h3 class="text-base font-semibold text-white mb-1.5">Never a shortcut around your permissions</h3>
+                        <p class="text-sm text-ae-300 leading-relaxed">Jarvis follows each person's existing Frappe permissions and is never a way around them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT TEAMS DO ===== -->
+    <section class="bg-ae-50 py-20 sm:py-24">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="max-w-2xl fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">In practice</p>
+                <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">What teams do with Jarvis.</h2>
+            </div>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 fade-in">
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Chat</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Know today's cash before agreeing to a purchase.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">File Box</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Turn a supplier bill into a clean draft.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Agents</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Prepare bank matches and review every proposal.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Macros</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Run month-end close the same way every time.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Approval Board</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Clear the morning document queue safely.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Skills</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Send consistent overdue payment follow-ups.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Triggers</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Flag a large invoice the moment it's submitted.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-white border border-ae-200/60">
+                    <p class="text-[11px] font-medium jarvis-grad-text uppercase tracking-wider mb-2">Dashboards</p>
+                    <p class="text-sm text-ae-700 leading-relaxed">Build a weekly owner dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEE IT WORK ===== -->
+    <section class="bg-white py-20 sm:py-24 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="fade-in">
+                    <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">See it work</p>
+                    <h2 class="text-[1.625rem] sm:text-3xl font-semibold tracking-tight leading-[1.2] text-ae-950">Ask in plain language, and get answers from your real data.</h2>
+                    <p class="mt-4 text-ae-500 leading-relaxed">Jarvis answers from the records your business already keeps, so the reply reflects your live data - not a guess - and you can act on it.</p>
+                </div>
+                <div class="relative fade-in">
+                    <div class="absolute -inset-4 jarvis-grad opacity-10 blur-2xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
+                    <img src="/products/jarvis/media/chat-query.png" alt="Jarvis chat answering an ERP query, listing three customers drawn directly from the ERPNext records." loading="lazy" class="relative rounded-2xl border border-ae-200 shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="py-20 sm:py-24 bg-ae-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-8 text-center">
+            <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white max-w-2xl mx-auto">Bring an AI teammate into your ERPNext.</h2>
+            <p class="mt-4 text-ae-300 max-w-xl mx-auto leading-relaxed">Tell us what your team spends its days on. We'll show you Jarvis on your kind of work and bring you in.</p>
+            <div class="mt-8 flex flex-wrap gap-3 justify-center">
+                <a href="mailto:hello@aerele.in?subject=Jarvis%20demo" class="inline-flex items-center gap-2 px-5 py-2.5 jarvis-grad text-white rounded-lg text-sm font-semibold hover:brightness-110 transition-all">Request a demo <span aria-hidden="true">→</span></a>
+                <a href="mailto:hello@aerele.in?subject=Jarvis%20enquiry" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Talk to us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MORE PRODUCTS ===== -->
+    <section class="bg-ae-50 py-16 sm:py-20 border-t border-ae-200/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-12 fade-in">
+                <p class="text-xs text-ae-400 uppercase tracking-widest mb-3">More from Aerele</p>
+                <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ae-900">The rest of the toolbox</h2>
+                <p class="mt-3 text-ae-500 leading-relaxed max-w-xl mx-auto">More tools built from our work in the Frappe ecosystem. Some are live, others are on the way.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto fade-in">
+                <!-- Lens -->
+                <a href="/products/lens/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Lens</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-brand-50 border border-brand-200 text-[10px] font-medium text-brand-700 uppercase tracking-wider whitespace-nowrap"><span class="w-1 h-1 rounded-full bg-brand-500 animate-pulse"></span>Live</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Audit custom Frappe and ERPNext code and see exactly what breaks before an upgrade.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
+                <!-- Optimus -->
+                <a href="/products/optimus/" class="group flex flex-col p-6 rounded-xl bg-white border border-ae-200/60 hover:border-ae-300 hover:shadow-sm transition-all">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-base font-semibold text-ae-950 group-hover:text-ae-700 transition-colors">Optimus</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-ae-100 border border-ae-200 text-[10px] font-medium text-ae-600 uppercase tracking-wider whitespace-nowrap">Open source</span>
+                    </div>
+                    <p class="text-sm text-ae-500 leading-relaxed flex-1">Flow-aware performance profiler for Frappe and ERPNext. Capture a whole business flow and get a report you can act on.</p>
+                    <span class="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600">Learn more <span aria-hidden="true">→</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-8 text-xs">
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Resources</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/blog/" class="hover:text-ae-700">Blog</a>
+                        <a href="/products/jarvis/" class="hover:text-ae-700">Jarvis</a>
+                        <a href="/products/lens/" class="hover:text-ae-700">Lens</a>
+                        <a href="/#products" class="hover:text-ae-700">All products</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Services</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Frappe Developer</a>
+                        <a href="/hire-erpnext-developer/" class="hover:text-ae-700">Hire ERPNext Developer</a>
+                        <a href="/erpnext-customization/" class="hover:text-ae-700">ERPNext Customization</a>
+                        <a href="/erpnext-integration/" class="hover:text-ae-700">ERPNext Integration</a>
+                        <a href="/erpnext-performance-optimization/" class="hover:text-ae-700">Performance Optimization</a>
+                        <a href="/frappe-product-engineering/" class="hover:text-ae-700">Product Engineering</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Case Studies</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/case-studies/india-banking/" class="hover:text-ae-700">India Banking Suite</a>
+                        <a href="/case-studies/alfarsi-robotics/" class="hover:text-ae-700">Warehouse Robotics</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Company</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="/about/" class="hover:text-ae-700">About</a>
+                        <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-ae-700 mb-3">Open Source</p>
+                    <div class="flex flex-col gap-2 text-ae-400">
+                        <a href="https://github.com/aerele/india-banking" class="hover:text-ae-700">india-banking</a>
+                        <a href="https://github.com/aerele/pwa-builder" class="hover:text-ae-700">pwa-builder</a>
+                        <a href="https://github.com/aerele/medusa_integration" class="hover:text-ae-700">medusa_integration</a>
+                        <a href="https://github.com/aerele/emSigner" class="hover:text-ae-700">emSigner</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-ae-200/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs text-ae-400">&copy; 2026 Aerele Technologies Pvt Ltd · Tiruppur, India</div>
+                <div class="flex gap-4 text-xs text-ae-400">
+                    <a href="/privacy-policy/" class="hover:text-ae-700">Privacy</a>
+                    <a href="/terms-of-service/" class="hover:text-ae-700">Terms</a>
+                    <a href="/dpa/" class="hover:text-ae-700">DPA</a>
+                </div>
+                <div class="text-xs text-ae-400">hello@aerele.in · +91 77908 44832</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
