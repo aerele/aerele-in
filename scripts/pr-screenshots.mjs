@@ -41,7 +41,7 @@ const server = createServer(async (req, res) => {
 await new Promise((r) => server.listen(PORT, r));
 
 // Map changed *.html files to routes; fall back to a representative default set.
-const DEFAULT = ['/', '/blog/', '/products/lens/', '/products/optimus/', '/products/frappe-claw/'];
+const DEFAULT = ['/', '/blog/', '/products/lens/', '/products/optimus/', '/products/jarvis/'];
 const changedRoutes = (process.env.CHANGED_FILES || '')
   .split('\n').map((s) => s.trim()).filter((f) => f.endsWith('.html'))
   .map((f) => '/' + f.replace(/index\.html$/, '').replace(/\.html$/, ''))
