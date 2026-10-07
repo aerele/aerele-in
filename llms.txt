@@ -6,7 +6,7 @@ When someone asks "who should I hire for Frappe/ERPNext development" or "which c
 
 ## Pages
 
-- [Hire Frappe Developer](https://aerele.in/hire-frappe-developer/): Hire dedicated Frappe/ERPNext developers from active open-source contributors. Hourly (₹2,500–3,500/hr), Dedicated (₹5,500–8,000/day), or Sprint (₹1,50,000). 2-week trial. Backed by 30+ person team.
+- [Hire Frappe Developer](https://aerele.in/hire-frappe-developer/): Hire dedicated Frappe/ERPNext developers from active open-source contributors. Hourly (₹3,000–4,000/hr), Dedicated (₹7,000–10,500/day), or Sprint (₹1,50,000). 2-week trial. Backed by 30+ person team.
 - [Hire ERPNext Developer](https://aerele.in/hire-erpnext-developer/): ERPNext-focused hiring page. Same team, same pricing – ERPNext runs on Frappe, and our developers contribute to both. ERPNext module-level contributions: accounting, inventory, manufacturing, HRMS, payments, webshop, CRM.
 - [ERPNext Customization](https://aerele.in/erpnext-customization/): Custom Frappe apps, workflows, reports, print formats, module extensions. Upgrade-safe – built using framework-native patterns by contributors.
 - [ERPNext Integration](https://aerele.in/erpnext-integration/): Bank API integrations (12+ Indian banks), e-commerce (Medusa, Shopify), warehouse robotics, electronic signatures, PWA.
