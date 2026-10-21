@@ -25,35 +25,36 @@
     <meta name="keywords" content="jarvis, agentic erpnext, ai agents frappe, erpnext ai assistant, aerele">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Jarvis",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Frappe/ERPNext",
-        "url": "https://aerele.in/products/jarvis/",
-        "description": "Your AI teammate inside ERPNext. Ask in plain language, verify the records behind every answer, prepare the next step, and repeat good work safely.",
-        "image": "https://aerele.in/products/jarvis/media/jarvis-og.png",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Aerele Technologies",
-            "url": "https://aerele.in"
-        }
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Jarvis",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Frappe/ERPNext",
+    "url": "https://aerele.in/products/jarvis/",
+    "description": "Your AI teammate inside ERPNext. Ask in plain language, verify the records behind every answer, prepare the next step, and repeat good work safely.",
+    "image": "https://aerele.in/products/jarvis/media/jarvis-og.png",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aerele Technologies Pvt Ltd",
+        "url": "https://aerele.in",
+        "@id": "https://aerele.in/#organization"
     }
+}
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Jarvis by Aerele",
-        "url": "https://aerele.in/products/jarvis/",
-        "inLanguage": "en",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Aerele Technologies",
-            "url": "https://aerele.in"
-        }
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Jarvis by Aerele",
+    "url": "https://aerele.in/products/jarvis/",
+    "inLanguage": "en",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "Aerele Technologies",
+        "url": "https://aerele.in"
     }
+}
     </script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -61,35 +62,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ae': {
-                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
-                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
-                        },
-                        'brand': {
-                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                            800: '#065f46', 900: '#064e3b',
-                        },
-                        'jarvis': {
-                            50:  '#f1f2ff', 100: '#e6e8ff', 200: '#d0d6ff', 300: '#b0baff',
-                            400: '#8b96ff', 500: '#6e8bff', 600: '#8b5cf6', 700: '#7c3aed',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -99,7 +72,7 @@
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
         img { max-width: 100%; }
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(110,139,255,0.14), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.20), transparent 70%); }
         .jarvis-grad { background: linear-gradient(135deg, #6e8bff, #8b5cf6); }
@@ -125,17 +98,13 @@
                 <a href="/#products" class="text-ae-900">Products</a>
                 <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+                <a href="/hire-erpnext-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
-            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+            <details class="sm:hidden relative"><summary class="p-2 cursor-pointer text-ae-700">Menu</summary><div class="absolute right-0 mt-3 w-64 rounded-lg border border-ae-200 bg-white p-5 shadow-lg flex flex-col gap-4 text-sm text-ae-900">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-erpnext-developer/">Hire us</a>
+            <a href="/hire-frappe-developer/">Frappe developers</a></div></details>
         </div>
-        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
-            </div>
-        </div>
+
     </nav>
 
     <!-- ===== HERO ===== -->

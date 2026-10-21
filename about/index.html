@@ -6,7 +6,7 @@
     <title>About Aerele – Frappe Contributors from Tiruppur, India</title>
     <meta name="description" content="Aerele Technologies is a software development company from Tiruppur, Tamil Nadu. 30+ engineers contributing to ERPNext, Frappe Framework, HRMS, and Payments. Working with clients across India, Oman, UAE, and Germany.">
     <meta property="og:title" content="About Aerele – Frappe Contributors from Tiruppur, India">
-    <meta property="og:description" content="30+ engineers, 800+ merged PRs into Frappe core. Based in Tiruppur, working globally.">
+    <meta property="og:description" content="30+ engineers, 800+ merged PRs across the Frappe ecosystem. Based in Tiruppur, working globally.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aerele.in/about/">
     <meta property="og:image" content="https://aerele.in/logo-og.png">
@@ -20,64 +20,61 @@
     <meta name="keywords" content="aerele technologies, aerele tiruppur, frappe development company india, erpnext development team, frappe contributor team, software development tiruppur">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "About Aerele Technologies",
-        "url": "https://aerele.in/about/",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "Aerele Technologies Pvt Ltd",
-            "url": "https://aerele.in",
-            "foundingDate": "2019",
-            "numberOfEmployees": {"@type": "QuantitativeValue", "value": 30},
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Tiruppur",
-                "addressRegion": "Tamil Nadu",
-                "addressCountry": "IN"
-            },
-            "knowsAbout": ["ERPNext", "Frappe Framework", "Python", "JavaScript", "Bank Integration", "Open Source"]
-        }
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Aerele Technologies",
+    "url": "https://aerele.in/about/",
+    "mainEntity": {
+        "@type": "Organization",
+        "name": "Aerele Technologies Pvt Ltd",
+        "url": "https://aerele.in",
+        "foundingDate": "2019",
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 30
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tiruppur",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN"
+        },
+        "knowsAbout": [
+            "ERPNext",
+            "Frappe Framework",
+            "Python",
+            "JavaScript",
+            "Bank Integration",
+            "Open Source"
+        ],
+        "@id": "https://aerele.in/#organization"
     }
+}
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Aerele", "item": "https://aerele.in"},
-            {"@type": "ListItem", "position": 2, "name": "About", "item": "https://aerele.in/about/"}
-        ]
-    }
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Aerele",
+            "item": "https://aerele.in"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://aerele.in/about/"
+        }
+    ]
+}
     </script>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ae': {
-                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
-                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
-                        },
-                        'brand': {
-                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                            800: '#065f46', 900: '#064e3b',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
@@ -86,7 +83,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
     </style>
@@ -102,17 +99,27 @@
             </a>
             <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
                 <a href="/" class="hover:text-ae-900 transition-colors">Home</a>
-                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
+                <a href="/hire-erpnext-developer/" class="hover:text-ae-900 transition-colors">ERPNext Developers</a>
                 <a href="/erpnext-customization/" class="hover:text-ae-900 transition-colors">Customization</a>
                 <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
                 <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
                 <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+                <a href="/hire-erpnext-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
-            <button class="sm:hidden p-2 text-ae-600" aria-label="Menu">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+            <details class="sm:hidden relative">
+                <summary class="p-2 cursor-pointer text-ae-700">Menu</summary>
+                <div class="absolute right-0 mt-3 w-64 rounded-lg border border-ae-200 bg-white p-5 shadow-lg flex flex-col gap-4 text-sm text-ae-900">
+                    <a href="/">Home</a>
+                    <a href="/hire-erpnext-developer/">ERPNext developers</a>
+                    <a href="/hire-frappe-developer/">Frappe developers</a>
+                    <a href="/erpnext-customization/">Customization</a>
+                    <a href="/erpnext-integration/">Integrations</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/about/">About</a>
+                    <a href="mailto:hello@aerele.in">Contact Aerele</a>
+                </div>
+            </details>
         </div>
     </nav>
 
@@ -135,7 +142,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
                 <div>
                     <p class="text-3xl font-extrabold">800+</p>
-                    <p class="text-xs text-ae-400 mt-1">Merged PRs into Frappe core</p>
+                    <p class="text-xs text-ae-400 mt-1">Merged PRs across the Frappe ecosystem</p>
                 </div>
                 <div>
                     <p class="text-3xl font-extrabold">30+</p>
@@ -182,7 +189,7 @@
                     <h3 class="font-semibold text-lg mb-4 text-brand-400">We do</h3>
                     <ul class="space-y-3 text-sm text-ae-300">
                         <li>→ Custom Frappe app development</li>
-                        <li>→ Bank API integrations (12+ Indian banks)</li>
+                        <li>→ Bank API integrations (Indian banks)</li>
                         <li>→ E-commerce integrations (Medusa, Shopify, WooCommerce)</li>
                         <li>→ Product engineering on Frappe framework</li>
                         <li>→ Code review and performance optimization</li>
@@ -278,7 +285,7 @@
             <p>© 2025 Aerele Technologies Pvt Ltd · Tiruppur, India</p>
             <div class="flex gap-6">
                 <a href="/" class="hover:text-ae-700">Home</a>
-                <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Developers</a>
+                <a href="/hire-erpnext-developer/" class="hover:text-ae-700">ERPNext Developers</a>
                 <a href="/erpnext-customization/" class="hover:text-ae-700">Customization</a>
                 <a href="/erpnext-integration/" class="hover:text-ae-700">Integrations</a>
                 <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>
