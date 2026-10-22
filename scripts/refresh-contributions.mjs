@@ -10,14 +10,17 @@ const refreshed = [];
 for (const contributor of data.contributors) {
   const fields = repos.map((repo, i) => `r${i}: search(query: ${JSON.stringify(`repo:frappe/${repo} is:pr is:merged author:${contributor.username}`)}, type: ISSUE, first: 1) { issueCount }`).join('\n');
   let result;
-  for (let attempt=0;attempt<3;attempt++) {
+  for (let attempt=0;attempt<5;attempt++) {
     try {
       result = JSON.parse(execFileSync('gh', ['api', 'graphql', '-f', `query=query { ${fields} }`], { encoding: 'utf8', stdio:['ignore','pipe','pipe'] }));
       if (result.errors) throw new Error(JSON.stringify(result.errors));
+      // Lifetime merged counts never decrease; a drop means a flaky search response, so retry and never write it.
+      const dropped = repos.filter((repo, i) => result.data[`r${i}`].issueCount < (contributor.repos[repo] || 0));
+      if (dropped.length) throw new Error(`${contributor.username}: count dropped for ${dropped.join(', ')}`);
       break;
     } catch(error) {
-      if(attempt===2) throw error;
-      await new Promise(resolve=>setTimeout(resolve,2000 * 2 ** attempt));
+      if(attempt===4) throw error;
+      await new Promise(resolve=>setTimeout(resolve,5000 * 2 ** attempt));
     }
   }
   if (result.errors) throw new Error(JSON.stringify(result.errors));

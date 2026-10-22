@@ -1,5 +1,5 @@
 {
-  "total_prs": 1088,
+  "total_prs": 1105,
   "total_contributors": 18,
   "repos_touched": [
     "ecommerce_integrations",
@@ -17,9 +17,9 @@
       "name": "Pandiyan P",
       "avatar": "https://avatars.githubusercontent.com/u/171273338?v=4",
       "profile_url": "https://github.com/Pandiyan5273",
-      "total_merged_prs": 304,
+      "total_merged_prs": 313,
       "repos": {
-        "erpnext": 300,
+        "erpnext": 309,
         "frappe": 4
       },
       "summary": "Stock and manufacturing contributor. Focused on warehouse mapping, barcode scanning, UOM handling, and work order improvements. Clean, targeted fixes in stock entry and subassembly workflows."
@@ -45,9 +45,9 @@
       "name": "Sudharsanan Ashok",
       "avatar": "https://avatars.githubusercontent.com/u/135326972?v=4",
       "profile_url": "https://github.com/Sudharsanan11",
-      "total_merged_prs": 149,
+      "total_merged_prs": 150,
       "repos": {
-        "erpnext": 147,
+        "erpnext": 148,
         "hrms": 2
       },
       "summary": "Manufacturing and stock operations contributor. Work across production plans, work orders, batch quantity calculations, subcontracting orders, and stock reservations. Also contributed to buying workflows and quality inspection."
@@ -108,11 +108,11 @@
       "name": "Nareshkanna S",
       "avatar": "https://avatars.githubusercontent.com/u/159678797?v=4",
       "profile_url": "https://github.com/nareshkannasln",
-      "total_merged_prs": 64,
+      "total_merged_prs": 70,
       "repos": {
         "erpnext": 4,
         "frappe": 1,
-        "hrms": 59
+        "hrms": 65
       },
       "summary": "HRMS specialist. Contributions across expense claims, salary structure, leave management, gratuity, and attendance. Also built job opening template auto-fetch and improved the salary register report."
     },
@@ -228,9 +228,9 @@
       "name": "Afsal Syed",
       "avatar": "https://avatars.githubusercontent.com/u/146159709?v=4",
       "profile_url": "https://github.com/Afsalsyed",
-      "total_merged_prs": 15,
+      "total_merged_prs": 16,
       "repos": {
-        "erpnext": 14,
+        "erpnext": 15,
         "frappe": 1
       },
       "summary": "Frontend and forms contributor. Fixes across address and contact rendering, Quick Entry link filters, and HTML sanitization of address display in Frappe and ERPNext."
@@ -247,6 +247,6 @@
       "summary": "Contributed to ERPNext accounting setup with print and stationery account renaming."
     }
   ],
-  "snapshot_date": "2026-10-21",
+  "snapshot_date": "2026-10-22",
   "methodology": "Public lifetime merged pull requests by the listed contributors in the specified frappe GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count."
 }
