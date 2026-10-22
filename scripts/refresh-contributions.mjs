@@ -6,9 +6,11 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 const data = JSON.parse(readFileSync('contributions.json', 'utf8'));
 const repos = data.repos_touched;
+// Bare names are frappe/<name>; other ecosystem repositories are listed as owner/name.
+const fullName = repo => repo.includes('/') ? repo : `frappe/${repo}`;
 const refreshed = [];
 for (const contributor of data.contributors) {
-  const fields = repos.map((repo, i) => `r${i}: search(query: ${JSON.stringify(`repo:frappe/${repo} is:pr is:merged author:${contributor.username}`)}, type: ISSUE, first: 1) { issueCount }`).join('\n');
+  const fields = repos.map((repo, i) => `r${i}: search(query: ${JSON.stringify(`repo:${fullName(repo)} is:pr is:merged author:${contributor.username}`)}, type: ISSUE, first: 1) { issueCount }`).join('\n');
   let result;
   for (let attempt=0;attempt<5;attempt++) {
     try {

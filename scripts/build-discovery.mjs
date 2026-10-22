@@ -8,7 +8,7 @@ const cards = data.contributors.filter(c => c.total_merged_prs > 0).map(c => `
                     <h3 class="text-sm font-semibold text-ae-900"><a class="underline" href="${escape(c.profile_url)}">${escape(c.name)}</a></h3>
                     <p class="text-xs text-ae-500 mt-2">${escape(c.summary || '')}</p>
                     <p class="text-xs text-ae-600 mt-3">${c.total_merged_prs} merged ecosystem PRs</p>
-                    <div class="flex flex-wrap gap-2 mt-3">${Object.entries(c.repos).map(([repo, count]) => `<a class="text-xs underline text-ae-700" href="https://github.com/frappe/${encodeURIComponent(repo)}/pulls?q=${encodeURIComponent(`is:pr is:merged author:${c.username}`)}">${escape(repo)} (${count})</a>`).join('')}</div>
+                    <div class="flex flex-wrap gap-2 mt-3">${Object.entries(c.repos).map(([repo, count]) => `<a class="text-xs underline text-ae-700" href="https://github.com/${repo.includes('/') ? repo.split('/').map(encodeURIComponent).join('/') : `frappe/${encodeURIComponent(repo)}`}/pulls?q=${encodeURIComponent(`is:pr is:merged author:${c.username}`)}">${escape(repo.split('/').pop())} (${count})</a>`).join('')}</div>
                 </article>`).join('\n');
 for (const [file, id] of [['index.html', 'contributors-grid'], ['hire-erpnext-developer/index.html', 'erpnext-contributors-grid']]) {
   let source = readFileSync(file, 'utf8');
