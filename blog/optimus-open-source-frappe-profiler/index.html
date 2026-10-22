@@ -20,17 +20,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="author" content="Aerele Engineering">
     <meta name="keywords" content="Optimus, Open Source, Frappe, Performance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"We built Optimus to profile our own Frappe work, then open-sourced it","description":"System freezes under heavy load, lock wait timeouts, 'server is too busy' errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.","datePublished":"2026-06-09","author":{"@type":"Organization","name":"Aerele Engineering"},"publisher":{"@type":"Organization","name":"Aerele Technologies Pvt Ltd","logo":{"@type":"ImageObject","url":"https://aerele.in/logo-nav.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aerele.in/blog/optimus-open-source-frappe-profiler/"},"url":"https://aerele.in/blog/optimus-open-source-frappe-profiler/","keywords":"Optimus, Open Source, Frappe, Performance"}</script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: {
-            colors: {
-                'ae': { 50:'#f7f8fb',100:'#eef2fb',200:'#e4e9f5',300:'#c9d2e8',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#1e293b',800:'#0a1a3f',900:'#060f2b',950:'#05102a' },
-                'brand': { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' }
-            },
-            fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], mono:['JetBrains Mono','ui-monospace','SFMono-Regular','Menlo','monospace'] }
-        } } }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"We built Optimus to profile our own Frappe work, then open-sourced it","description":"System freezes under heavy load, lock wait timeouts, 'server is too busy' errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.","datePublished":"2026-06-09","author":{"@type":"Organization","@id":"https://aerele.in/#organization","name":"Aerele Technologies Pvt Ltd"},"publisher":{"@type":"Organization","@id":"https://aerele.in/#organization","name":"Aerele Technologies Pvt Ltd","logo":{"@type":"ImageObject","url":"https://aerele.in/logo-nav.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aerele.in/blog/optimus-open-source-frappe-profiler/"},"url":"https://aerele.in/blog/optimus-open-source-frappe-profiler/","keywords":"Optimus, Open Source, Frappe, Performance"}</script>
+    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,7 +31,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        .fade-in { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
         .cover-glow { background: radial-gradient(ellipse 70% 80% at 25% 20%, rgba(16,185,129,0.18), transparent 70%), radial-gradient(ellipse 60% 60% at 85% 30%, rgba(26,50,116,0.55), transparent 70%); }
@@ -81,17 +72,13 @@
                 <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
                 <a href="/blog/" class="text-ae-900" aria-current="page">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+                <a href="/hire-erpnext-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
-            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+            <details class="sm:hidden relative"><summary class="p-2 cursor-pointer text-ae-700">Menu</summary><div class="absolute right-0 mt-3 w-64 rounded-lg border border-ae-200 bg-white p-5 shadow-lg flex flex-col gap-4 text-sm text-ae-900">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-erpnext-developer/">Hire us</a>
+            <a href="/hire-frappe-developer/">Frappe developers</a></div></details>
         </div>
-        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
-            </div>
-        </div>
+
     </nav>
 
     <!-- ===== HERO ===== -->
@@ -150,7 +137,7 @@
 <blockquote>
 <p>The team that profiles the framework is the team that understands the framework. We&#39;d rather everyone profiling Frappe have a better starting point than guard ours.</p>
 </blockquote>
-<p>It&#39;s the same instinct behind our <a href="/blog/frappe-upstream-first-600-prs/">800+ merged PRs into Frappe core</a>: fix it once, in the open, for everyone.</p>
+<p>It&#39;s the same instinct behind our <a href="/blog/frappe-upstream-first-600-prs/">600+ merged PRs into Frappe core</a>: fix it once, in the open, for everyone.</p>
 <h2>If you want to try it</h2>
 <p>Clone the repo, point Optimus at a slow flow, and read the report. If the finding is &quot;this background job is the problem,&quot; you&#39;ll see it instead of guessing.</p>
 <ul>
@@ -221,7 +208,7 @@
         <div class="absolute inset-0 hero-glow pointer-events-none"></div>
         <div class="relative max-w-7xl mx-auto px-6 sm:px-8 text-center">
             <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white max-w-2xl mx-auto">Want this kind of result on your ERPNext?</h2>
-            <p class="mt-4 text-ae-200 max-w-xl mx-auto leading-relaxed">We're active Frappe contributors with 800+ merged PRs. Tell us what you're building.</p>
+            <p class="mt-4 text-ae-200 max-w-xl mx-auto leading-relaxed">We're active Frappe contributors with 600+ merged PRs. Tell us what you're building.</p>
             <div class="mt-8 flex flex-wrap gap-3 justify-center">
                 <a href="/hire-frappe-developer/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">Work with us <span aria-hidden="true">→</span></a>
                 <a href="/products/lens/" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Explore Lens</a>
@@ -247,7 +234,7 @@
                     <p class="font-semibold text-ae-700 mb-3">Resources</p>
                     <div class="flex flex-col gap-2 text-ae-400">
                         <a href="/blog/" class="hover:text-ae-700">Blog</a>
-                        <a href="/docs/" class="hover:text-ae-700">Documentation</a>
+                        <a href="https://github.com/aerele" class="hover:text-ae-700">Open-source repositories</a>
                         <a href="/#products" class="hover:text-ae-700">Products</a>
                     </div>
                 </div>
@@ -287,7 +274,7 @@
         </div>
     </footer>
     <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
         document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
         const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => io.observe(el));

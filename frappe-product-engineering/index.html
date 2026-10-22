@@ -18,51 +18,42 @@
     <meta name="keywords" content="frappe product engineering, build saas on frappe, frappe framework product, erpnext saas development, frappe application development, frappe startup, build product frappe, frappe development company">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Frappe Product Engineering",
-        "description": "End-to-end product engineering on the Frappe framework. Architecture, development, and production deployment for SaaS and product companies.",
-        "provider": {"@type": "Organization", "name": "Aerele Technologies Pvt Ltd", "url": "https://aerele.in"}
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Frappe Product Engineering",
+    "description": "End-to-end product engineering on the Frappe framework. Architecture, development, and production deployment for SaaS and product companies.",
+    "provider": {
+        "@type": "Organization",
+        "name": "Aerele Technologies Pvt Ltd",
+        "url": "https://aerele.in",
+        "@id": "https://aerele.in/#organization"
     }
+}
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Aerele", "item": "https://aerele.in"},
-            {"@type": "ListItem", "position": 2, "name": "Frappe Product Engineering", "item": "https://aerele.in/frappe-product-engineering/"}
-        ]
-    }
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Aerele",
+            "item": "https://aerele.in"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Frappe Product Engineering",
+            "item": "https://aerele.in/frappe-product-engineering/"
+        }
+    ]
+}
     </script>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ae': {
-                            50:  '#f7f8fb', 100: '#eef2fb', 200: '#e4e9f5', 300: '#c9d2e8',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#1e293b',
-                            800: '#0a1a3f', 900: '#060f2b', 950: '#05102a',
-                        },
-                        'brand': {
-                            50:  '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-                            800: '#065f46', 900: '#064e3b',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
@@ -71,7 +62,7 @@
     <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
     </style>
@@ -87,17 +78,27 @@
             </a>
             <div class="hidden sm:flex items-center gap-8 text-[14px] font-medium text-ae-600">
                 <a href="/" class="hover:text-ae-900 transition-colors">Home</a>
-                <a href="/hire-frappe-developer/" class="hover:text-ae-900 transition-colors">Hire Developers</a>
+                <a href="/hire-erpnext-developer/" class="hover:text-ae-900 transition-colors">ERPNext Developers</a>
                 <a href="/erpnext-customization/" class="hover:text-ae-900 transition-colors">Customization</a>
                 <a href="/erpnext-integration/" class="hover:text-ae-900 transition-colors">Integrations</a>
                 <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
                 <a href="/blog/" class="hover:text-ae-900 transition-colors">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+                <a href="/hire-erpnext-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
-            <button class="sm:hidden p-2 text-ae-600" aria-label="Menu">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+            <details class="sm:hidden relative">
+                <summary class="p-2 cursor-pointer text-ae-700">Menu</summary>
+                <div class="absolute right-0 mt-3 w-64 rounded-lg border border-ae-200 bg-white p-5 shadow-lg flex flex-col gap-4 text-sm text-ae-900">
+                    <a href="/">Home</a>
+                    <a href="/hire-erpnext-developer/">ERPNext developers</a>
+                    <a href="/hire-frappe-developer/">Frappe developers</a>
+                    <a href="/erpnext-customization/">Customization</a>
+                    <a href="/erpnext-integration/">Integrations</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/about/">About</a>
+                    <a href="mailto:hello@aerele.in">Contact Aerele</a>
+                </div>
+            </details>
         </div>
     </nav>
 
@@ -112,7 +113,7 @@
                 Build your product on Frappe <span class="text-brand-400 font-semibold">with the team that builds Frappe</span>
             </h1>
             <p class="text-lg text-ae-200 leading-relaxed max-w-2xl mb-8">
-                Product companies hire us to be their engineering team on Frappe. Architecture, development, testing, deployment – end to end. We've built entire products for SaaS companies and startups who chose Frappe as their foundation. Our team's 800+ contributions to the framework itself mean we know what it can do, what it can't, and how to push it further.
+                Product companies hire us to be their engineering team on Frappe. Architecture, development, testing, deployment – end to end. We've built entire products for SaaS companies and startups who chose Frappe as their foundation. Our team's 800+ contributions across the Frappe ecosystem mean we know what it can do, what it can't, and how to push it further.
             </p>
             <a href="mailto:hello@aerele.in" class="inline-block px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-lg text-sm font-medium transition-colors">Tell us about your product →</a>
         </div>
@@ -172,7 +173,7 @@
                 </div>
                 <div>
                     <h3 class="font-semibold text-lg mb-2">Integrations</h3>
-                    <p class="text-ae-300 leading-relaxed">Payment gateways, bank APIs, e-commerce platforms, messaging services, external APIs. We've built <a href="/erpnext-integration/" class="underline text-ae-200">integrations with 12+ Indian banks</a>, Medusa e-commerce, and warehouse robotics. Whatever your product needs to connect to, we've probably integrated something harder.</p>
+                    <p class="text-ae-300 leading-relaxed">Payment gateways, bank APIs, e-commerce platforms, messaging services, external APIs. We've built <a href="/erpnext-integration/" class="underline text-ae-200">integrations with Indian banks</a>, Medusa e-commerce, and warehouse robotics. Whatever your product needs to connect to, we've probably integrated something harder.</p>
                 </div>
                 <div>
                     <h3 class="font-semibold text-lg mb-2">Deployment & DevOps</h3>
@@ -219,7 +220,7 @@
             <p>© 2025 Aerele Technologies Pvt Ltd · Tiruppur, India</p>
             <div class="flex gap-6">
                 <a href="/" class="hover:text-ae-700">Home</a>
-                <a href="/hire-frappe-developer/" class="hover:text-ae-700">Hire Developers</a>
+                <a href="/hire-erpnext-developer/" class="hover:text-ae-700">ERPNext Developers</a>
                 <a href="/erpnext-customization/" class="hover:text-ae-700">Customization</a>
                 <a href="/erpnext-integration/" class="hover:text-ae-700">Integrations</a>
                 <a href="https://github.com/aerele" class="hover:text-ae-700">GitHub</a>

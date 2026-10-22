@@ -4,3 +4,4 @@ node_modules/
 blog-preview-*.png
 review-*.png
 *.log
+.pr-screenshots/

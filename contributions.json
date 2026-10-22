@@ -1,5 +1,5 @@
 {
-  "total_prs": 814,
+  "total_prs": 1088,
   "total_contributors": 18,
   "repos_touched": [
     "ecommerce_integrations",
@@ -17,9 +17,10 @@
       "name": "Pandiyan P",
       "avatar": "https://avatars.githubusercontent.com/u/171273338?v=4",
       "profile_url": "https://github.com/Pandiyan5273",
-      "total_merged_prs": 130,
+      "total_merged_prs": 304,
       "repos": {
-        "erpnext": 130
+        "erpnext": 300,
+        "frappe": 4
       },
       "summary": "Stock and manufacturing contributor. Focused on warehouse mapping, barcode scanning, UOM handling, and work order improvements. Clean, targeted fixes in stock entry and subassembly workflows."
     },
@@ -30,12 +31,12 @@
       "profile_url": "https://github.com/ravibharathi656",
       "total_merged_prs": 119,
       "repos": {
-        "erpnext": 98,
-        "payments": 10,
-        "frappe": 6,
         "ecommerce_integrations": 3,
         "education": 1,
-        "hrms": 1
+        "erpnext": 98,
+        "frappe": 6,
+        "hrms": 1,
+        "payments": 10
       },
       "summary": "Accounts and payments specialist. Deep work on payment reconciliation, exchange rate handling, POS, bank transactions, and GL entries. Also contributed performance improvements like batch processing for auto bank reconciliation and subscription processing."
     },
@@ -44,9 +45,9 @@
       "name": "Sudharsanan Ashok",
       "avatar": "https://avatars.githubusercontent.com/u/135326972?v=4",
       "profile_url": "https://github.com/Sudharsanan11",
-      "total_merged_prs": 113,
+      "total_merged_prs": 149,
       "repos": {
-        "erpnext": 111,
+        "erpnext": 147,
         "hrms": 2
       },
       "summary": "Manufacturing and stock operations contributor. Work across production plans, work orders, batch quantity calculations, subcontracting orders, and stock reservations. Also contributed to buying workflows and quality inspection."
@@ -59,8 +60,8 @@
       "total_merged_prs": 92,
       "repos": {
         "erpnext": 73,
-        "hrms": 16,
-        "frappe": 3
+        "frappe": 3,
+        "hrms": 16
       },
       "summary": "Core accounting and payroll contributor. Extensive fixes across payment entries, tax withholding, period closing vouchers, cost center allocation, and multi-currency handling. Strong HRMS work including salary slips, leave encashment, and shift assignments."
     },
@@ -72,8 +73,8 @@
       "total_merged_prs": 63,
       "repos": {
         "erpnext": 57,
-        "hrms": 4,
-        "frappe": 2
+        "frappe": 2,
+        "hrms": 4
       },
       "summary": "Accounting reports and ledger expert. Built features like company currency display in GL reports, cashflow opening/closing balance, and accounting dimension filters. Key fixes in payment reconciliation, trial balance, and asset valuation."
     },
@@ -93,10 +94,10 @@
       "name": "Vishnu Priya Baskaran",
       "avatar": "https://avatars.githubusercontent.com/u/145791817?v=4",
       "profile_url": "https://github.com/ervishnucs",
-      "total_merged_prs": 41,
+      "total_merged_prs": 68,
       "repos": {
-        "erpnext": 37,
         "ecommerce_integrations": 2,
+        "erpnext": 64,
         "frappe": 1,
         "hrms": 1
       },
@@ -107,11 +108,11 @@
       "name": "Nareshkanna S",
       "avatar": "https://avatars.githubusercontent.com/u/159678797?v=4",
       "profile_url": "https://github.com/nareshkannasln",
-      "total_merged_prs": 39,
+      "total_merged_prs": 64,
       "repos": {
-        "hrms": 34,
         "erpnext": 4,
-        "frappe": 1
+        "frappe": 1,
+        "hrms": 59
       },
       "summary": "HRMS specialist. Contributions across expense claims, salary structure, leave management, gratuity, and attendance. Also built job opening template auto-fetch and improved the salary register report."
     },
@@ -147,8 +148,8 @@
       "profile_url": "https://github.com/Bhavan23",
       "total_merged_prs": 26,
       "repos": {
-        "erpnext": 21,
         "ecommerce_integrations": 1,
+        "erpnext": 21,
         "frappe": 1,
         "frappe_docker": 1,
         "payments": 1,
@@ -163,8 +164,8 @@
       "profile_url": "https://github.com/SowmyaArunachalam",
       "total_merged_prs": 23,
       "repos": {
-        "erpnext": 19,
         "ecommerce_integrations": 2,
+        "erpnext": 19,
         "frappe": 1,
         "hrms": 1
       },
@@ -203,8 +204,8 @@
       "profile_url": "https://github.com/sudarsan2001",
       "total_merged_prs": 8,
       "repos": {
-        "erpnext": 5,
         "ecommerce_integrations": 1,
+        "erpnext": 5,
         "frappe": 1,
         "hrms": 1
       },
@@ -227,9 +228,9 @@
       "name": "Afsal Syed",
       "avatar": "https://avatars.githubusercontent.com/u/146159709?v=4",
       "profile_url": "https://github.com/Afsalsyed",
-      "total_merged_prs": 3,
+      "total_merged_prs": 15,
       "repos": {
-        "erpnext": 2,
+        "erpnext": 14,
         "frappe": 1
       },
       "summary": "Frontend and forms contributor. Fixes across address and contact rendering, Quick Entry link filters, and HTML sanitization of address display in Frappe and ERPNext."
@@ -245,5 +246,7 @@
       },
       "summary": "Contributed to ERPNext accounting setup with print and stationery account renaming."
     }
-  ]
+  ],
+  "snapshot_date": "2026-10-21",
+  "methodology": "Public lifetime merged pull requests by the listed contributors in the specified frappe GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count."
 }

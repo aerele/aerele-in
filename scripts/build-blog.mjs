@@ -52,16 +52,7 @@ function youtubeId(input) {
 }
 
 // ---- shared chrome (must match blog/index.html) ----
-const HEAD_COMMON = `    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: {
-            colors: {
-                'ae': { 50:'#f7f8fb',100:'#eef2fb',200:'#e4e9f5',300:'#c9d2e8',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#1e293b',800:'#0a1a3f',900:'#060f2b',950:'#05102a' },
-                'brand': { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' }
-            },
-            fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], mono:['JetBrains Mono','ui-monospace','SFMono-Regular','Menlo','monospace'] }
-        } } }
-    </script>
+const HEAD_COMMON = `    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -72,7 +63,7 @@ const HEAD_COMMON = `    <script src="https://cdn.tailwindcss.com"></script>
 const STYLE = `    <style>
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        .fade-in { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .hero-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(16,185,129,0.08), transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,50,116,0.4), transparent 70%); }
         .cover-glow { background: radial-gradient(ellipse 70% 80% at 25% 20%, rgba(16,185,129,0.18), transparent 70%), radial-gradient(ellipse 60% 60% at 85% 30%, rgba(26,50,116,0.55), transparent 70%); }
@@ -111,17 +102,13 @@ const NAV = `    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-5
                 <a href="/#products" class="hover:text-ae-900 transition-colors">Products</a>
                 <a href="/blog/" class="text-ae-900" aria-current="page">Blog</a>
                 <a href="/about/" class="hover:text-ae-900 transition-colors">About</a>
-                <a href="/hire-frappe-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
+                <a href="/hire-erpnext-developer/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-ae-900 text-white rounded-lg font-semibold hover:bg-ae-800 transition-colors">Hire us <span aria-hidden="true">→</span></a>
             </div>
-            <button id="mobile-menu-btn" class="sm:hidden p-2 text-ae-600" aria-label="Menu">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+            <details class="sm:hidden relative"><summary class="p-2 cursor-pointer text-ae-700">Menu</summary><div class="absolute right-0 mt-3 w-64 rounded-lg border border-ae-200 bg-white p-5 shadow-lg flex flex-col gap-4 text-sm text-ae-900">
+                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-erpnext-developer/">Hire us</a>
+            <a href="/hire-frappe-developer/">Frappe developers</a></div></details>
         </div>
-        <div id="mobile-menu" class="hidden sm:hidden border-t border-ae-200 bg-white">
-            <div class="px-6 py-4 flex flex-col gap-4 text-sm text-ae-700">
-                <a href="/#why">Why Us</a><a href="/#work">Work</a><a href="/#team">Team</a><a href="/#pricing">Pricing</a><a href="/#products">Products</a><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/hire-frappe-developer/">Hire us</a>
-            </div>
-        </div>
+
     </nav>`;
 
 const FOOTER = `    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
@@ -142,7 +129,7 @@ const FOOTER = `    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
                     <p class="font-semibold text-ae-700 mb-3">Resources</p>
                     <div class="flex flex-col gap-2 text-ae-400">
                         <a href="/blog/" class="hover:text-ae-700">Blog</a>
-                        <a href="/docs/" class="hover:text-ae-700">Documentation</a>
+                        <a href="https://github.com/aerele" class="hover:text-ae-700">Open-source repositories</a>
                         <a href="/#products" class="hover:text-ae-700">Products</a>
                     </div>
                 </div>
@@ -183,7 +170,7 @@ const FOOTER = `    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
     </footer>`;
 
 const MENU_JS = `    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
         document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
         const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
@@ -259,8 +246,8 @@ function postPage(post, bodyHtml, related) {
   const ld = {
     '@context': 'https://schema.org', '@type': 'BlogPosting',
     headline: post.title, description: post.excerpt, datePublished: post.date,
-    author: { '@type': 'Organization', name: post.author },
-    publisher: { '@type': 'Organization', name: 'Aerele Technologies Pvt Ltd', logo: { '@type': 'ImageObject', url: `${SITE}/logo-nav.png` } },
+    author: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Aerele Technologies Pvt Ltd' },
+    publisher: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: 'Aerele Technologies Pvt Ltd', logo: { '@type': 'ImageObject', url: `${SITE}/logo-nav.png` } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url }, url,
     keywords: post.tags.join(', ')
   };

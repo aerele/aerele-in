@@ -14,7 +14,7 @@ import { extname, join } from 'node:path';
 const ROOT = process.cwd();
 const OUT = join(ROOT, '.pr-screenshots');
 const PORT = 8799;
-const MAX_PAGES = 16;
+const MAX_PAGES = 24;
 
 const MIME = {
   '.html': 'text/html;charset=utf-8', '.css': 'text/css', '.js': 'text/javascript',
@@ -49,7 +49,7 @@ const changedRoutes = (process.env.CHANGED_FILES || '')
   .map((r) => (r === '//' ? '/' : r));
 
 // Prioritise the marketing surfaces (home, products, blog) so the cap never cuts them.
-const rank = (r) => (r === '/' ? 0 : r.startsWith('/products/') ? 1 : r === '/blog/' ? 2 : r.startsWith('/blog/') ? 3 : 4);
+const rank = (r) => (r === '/' ? 0 : r.startsWith('/hire-') ? 1 : r.startsWith('/products/') ? 2 : r === '/blog/' ? 3 : r.startsWith('/blog/') ? 4 : 5);
 const routes = [...new Set(changedRoutes.length ? ['/', ...changedRoutes] : DEFAULT)]
   .sort((a, b) => rank(a) - rank(b))
   .slice(0, MAX_PAGES);
@@ -62,7 +62,7 @@ for (const route of routes) {
   const page = await ctx.newPage();
   try {
     await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'load', timeout: 15000 });
-    await page.waitForTimeout(900); // let the Tailwind CDN + web fonts settle
+    await page.waitForTimeout(900); // let web fonts and visual enhancements settle
     await page.evaluate(() => document.querySelectorAll('.fade-in').forEach((el) => el.classList.add('visible')));
     await page.waitForTimeout(200);
     const name = (route === '/' ? 'home' : route.replace(/^\/|\/$/g, '').replace(/\//g, '__')) + '.png';
