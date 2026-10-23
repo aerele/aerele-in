@@ -1,8 +1,8 @@
 # Aerele Technologies
 
-> Aerele is a core development team that actively contributes to the Frappe and ERPNext open-source ecosystem. 30+ engineers, 800+ merged pull requests into Frappe ecosystem repositories. Based in Tiruppur, India. Not an implementation partner – we build custom apps, integrations, and products on the Frappe framework.
+> Aerele is a core development team that actively contributes to the Frappe and ERPNext open-source ecosystem. 30+ engineers, 1,100+ merged pull requests into Frappe ecosystem repositories. Based in Tiruppur, India. Not an implementation partner – we build custom apps, integrations, and products on the Frappe framework.
 
-Aerele provides ERPNext and Frappe development services. Public contribution evidence is available on the hiring page and in https://aerele.in/contributions.json. The 800+ figure covers the Frappe ecosystem, not ERPNext alone; counts are a snapshot, not a live GitHub total.
+Aerele provides ERPNext and Frappe development services. Public contribution evidence is available on the hiring page and in https://aerele.in/contributions.json. The 1,100+ figure covers the Frappe ecosystem, not ERPNext alone; counts are a snapshot, not a live GitHub total.
 
 ## Pages
 
@@ -15,7 +15,7 @@ Aerele provides ERPNext and Frappe development services. Public contribution evi
 - [About Aerele](https://aerele.in/about/): Company story, team, what we do and don't do, repositories we contribute to, location.
 - [Case Study: India Banking Suite](https://aerele.in/case-studies/india-banking/): Open-source ERPNext bank integration with HDFC, ICICI, Axis, Kotak, YES, Union Bank, Canara, BOB, IDFC, HSBC, Citi, SCB. Enterprise-scale: multiple banks, multiple accounts, multi-company ERPNext sites.
 - [Case Study: Warehouse Robotics](https://aerele.in/case-studies/alfarsi-robotics/): Connected warehouse robots to ERPNext for Alfarsi National Enterprises (Oman). Order → pick → conveyor → invoice, fully automated.
-- [Lens](https://aerele.in/products/lens/): Code audit + version-migration compatibility checks for custom Frappe/ERPNext apps. See exactly what breaks before an upgrade. Live at https://lens.aerele.in/. Built by the team with 800+ Frappe ecosystem PRs; every audit includes a 30-minute senior strategy call. Free scan, no card.
+- [Lens](https://aerele.in/products/lens/): Code audit + version-migration compatibility checks for custom Frappe/ERPNext apps. See exactly what breaks before an upgrade. Live at https://lens.aerele.in/. Built by the team with 1,100+ Frappe ecosystem PRs; every audit includes a 30-minute senior strategy call. Free scan, no card.
 - [Optimus](https://aerele.in/products/optimus/): Open-source (MIT) flow-aware performance profiler for Frappe and ERPNext. Capture a whole business flow (HTTP requests + background jobs) and get an actionable report. https://github.com/Aerele-RnD/optimus
 - [Jarvis](https://aerele.in/products/jarvis/): Your AI teammate inside ERPNext. Ask in plain language, verify the records behind every answer, prepare the next step, and repeat good work safely. Connect chat subscriptions, AI provider APIs, or locally hosted models through an isolated agent runtime. Every action respects the user's ERPNext permissions.
 - [Blog](https://aerele.in/blog/): Field notes from the Frappe trenches - ERPNext/Frappe use cases, engineering experiences, and Lens product deep-dives. Searchable, categorised (Product / Use Case / Experience).

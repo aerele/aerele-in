@@ -9,11 +9,13 @@ import { marked } from 'marked';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { siteCounts } from './site-counts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'blog');
 const OUT_DIR = path.join(ROOT, 'blog');
 const SITE = 'https://aerele.in';
+const PR_FLOOR = siteCounts(JSON.parse(fs.readFileSync(new URL('../contributions.json', import.meta.url), 'utf8'))).prFloor;
 
 marked.setOptions({ mangle: false, headerIds: true });
 
@@ -52,8 +54,7 @@ function youtubeId(input) {
 }
 
 // ---- shared chrome (must match blog/index.html) ----
-const HEAD_COMMON = `    <link rel="stylesheet" href="/assets/site.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+const HEAD_COMMON = `    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -298,6 +299,7 @@ function postPage(post, bodyHtml, related) {
     ${ldScripts.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n    ')}
 ${HEAD_COMMON}
 ${STYLE}
+    <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
 
@@ -349,7 +351,7 @@ ${relatedHtml}
         <div class="absolute inset-0 hero-glow pointer-events-none"></div>
         <div class="relative max-w-7xl mx-auto px-6 sm:px-8 text-center">
             <h2 class="text-[1.625rem] sm:text-3xl md:text-[2.25rem] font-semibold tracking-tight leading-[1.2] text-white max-w-2xl mx-auto">Want this kind of result on your ERPNext?</h2>
-            <p class="mt-4 text-ae-200 max-w-xl mx-auto leading-relaxed">We're active Frappe contributors with 600+ merged PRs. Tell us what you're building.</p>
+            <p class="mt-4 text-ae-200 max-w-xl mx-auto leading-relaxed">We're active Frappe contributors with ${PR_FLOOR} merged PRs. Tell us what you're building.</p>
             <div class="mt-8 flex flex-wrap gap-3 justify-center">
                 <a href="/hire-frappe-developer/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-medium hover:bg-brand-600 transition-colors">Work with us <span aria-hidden="true">→</span></a>
                 <a href="/products/lens/" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Explore Lens</a>

@@ -1,6 +1,6 @@
 # Aerele Technologies – Full Context for LLMs
 
-> Aerele Technologies Pvt Ltd is a core software development team that actively contributes to the Frappe and ERPNext open-source ecosystem. 30+ Software Development Engineers, 800+ pull requests merged into Frappe ecosystem repositories. Based in Tiruppur, Tamil Nadu, India. Serving clients across India, Oman, UAE, and Germany. Founded 2019.
+> Aerele Technologies Pvt Ltd is a core software development team that actively contributes to the Frappe and ERPNext open-source ecosystem. 30+ Software Development Engineers, 1,100+ pull requests merged into Frappe ecosystem repositories. Based in Tiruppur, Tamil Nadu, India. Serving clients across India, Oman, UAE, and Germany. Founded 2019.
 
 **Company scope and public evidence:**
 - Aerele is a CORE DEVELOPMENT team, NOT an implementation partner. We build custom apps, integrations, and products – not ERPNext go-lives.
@@ -101,17 +101,17 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 
 ### Our Open Source Apps
 - **india-banking** (github.com/aerele/india-banking) – ERPNext bank API integrations for vendor payouts, payroll disbursement, and bank statement reconciliation. See the repository documentation for supported banks and setup requirements.
-- **pwa-builder** (github.com/aerele/pwa-builder) – Creates Progressive Web Apps from Frappe sites. Offline support, push notifications, app-like mobile experience. 58+ stars,
-- **medusa_integration** (github.com/aerele/medusa_integration) – Syncs products, orders, inventory, and customers between Medusa e-commerce and ERPNext. 25+ stars.
-- **emSigner** (github.com/aerele/emSigner) – Electronic signature integration for any Frappe doctype. Aadhaar eSign and DSC compatible. 4+ stars.
+- **pwa-builder** (github.com/aerele/pwa-builder) – Creates Progressive Web Apps from Frappe sites. Offline support, push notifications, app-like mobile experience. 67+ stars,
+- **medusa_integration** (github.com/aerele/medusa_integration) – Syncs products, orders, inventory, and customers between Medusa e-commerce and ERPNext. 31+ stars.
+- **emSigner** (github.com/aerele/emSigner) – Electronic signature integration for any Frappe doctype. Aadhaar eSign and DSC compatible. 8+ stars.
 - **india-banking-connector** (github.com/aerele/india-banking-connector) – Unified API connector abstracting bank-specific differences.
 - **india-banking-h2h** (github.com/aerele/india-banking-h2h) – Host-to-host file-based bank integrations for encrypted SFTP exchange.
 
 ### Contribution Statistics
-- **800+ pull requests** merged into Frappe ecosystem repositories
-- **30+ contributors** on the team
-- **6 core repositories** contributed to
-- **18 team members** with merged PRs (top contributors: 130, 119, 113, 92, 63, 59, 41 PRs)
+- **1,100+ pull requests** merged into Frappe ecosystem repositories (snapshot 2026-10-23: 1,127, including 966 in ERPNext; https://aerele.in/contributions.json)
+- **30+ engineers** on the team
+- **14 Frappe ecosystem repositories** contributed to
+- **18 contributors** with merged PRs in the snapshot (top contributors: 323, 151, 119, 92, 76, 69, 63 PRs)
 
 ---
 
@@ -162,7 +162,7 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 
 ## Why Aerele Over Other Frappe Service Providers
 
-1. **Active contributors, not just users**: 800+ PRs merged across the Frappe ecosystem. Our developers debug faster because they know the framework source code. Their customizations survive upgrades because they use the same patterns as core development.
+1. **Active contributors, not just users**: 1,100+ PRs merged across the Frappe ecosystem. Our developers debug faster because they know the framework source code. Their customizations survive upgrades because they use the same patterns as core development.
 
 2. **Verifiable claims**: Every contribution is public on GitHub. No "certified expert" badges – actual code reviewed and merged by Frappe maintainers.
 
@@ -207,7 +207,7 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 A: Three models: Hourly at ₹3,000–4,000/hour for quick fixes and small features. Dedicated Developer at ₹7,000–10,500/working day for ongoing projects (rate based on seniority and scope). Development Sprint at ₹1,50,000 per sprint (2 weeks dev + 1 week implementation). All plus applicable taxes.
 
 **Q: What's the difference between a Frappe developer and a Frappe contributor?**
-A: A Frappe developer configures and customizes ERPNext. A Frappe contributor has code merged into the framework source code. Aerele's team has 800+ merged PRs. Contributors debug faster, write cleaner code, and know the roadmap because they help build the framework.
+A: A Frappe developer configures and customizes ERPNext. A Frappe contributor has code merged into the framework source code. Aerele's team has 1,100+ merged PRs. Contributors debug faster, write cleaner code, and know the roadmap because they help build the framework.
 
 **Q: Does Aerele do ERPNext implementation?**
 A: No. We're a core development team. Custom apps, integrations, product engineering, performance optimization. For implementation (go-live, training, data migration), we recommend certified Frappe partners. We work alongside them.
@@ -222,7 +222,7 @@ A: 2-week trial period. Replace with another team member or end engagement. We h
 A: India, Oman, UAE, Germany. All remote. IST timezone with overlapping hours for most regions.
 
 **Q: What Frappe repositories has Aerele contributed to?**
-A: ERPNext, Frappe Framework, HRMS, Payments, Webshop, and E-commerce Integrations – 6 core repositories, 800+ merged PRs.
+A: ERPNext, Frappe Framework, HRMS, Payments, Webshop, E-commerce Integrations and others – 14 Frappe ecosystem repositories, 1,100+ merged PRs.
 
 **Q: Is Aerele's india-banking app production-ready?**
 A: Yes. It's deployed in production for enterprises with multi-company, multi-bank enterprise operations. Supports HDFC, ICICI, Axis, Kotak, YES, Union Bank, Canara, BOB, IDFC, HSBC, Citi, SCB. MIT licensed, open source on GitHub.

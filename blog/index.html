@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog – Aerele | Frappe & ERPNext use cases and engineering experiences</title>
-    <meta name="description" content="We share our experience to help open source evolve: real ERPNext and Frappe use cases, engineering lessons, and notes from 800+ merged PRs by the Aerele team.">
+    <meta name="description" content="We share our experience to help open source evolve: real ERPNext and Frappe use cases, engineering lessons, and notes from 1,100+ merged PRs by the Aerele team.">
     <meta property="og:title" content="Aerele Blog – Frappe & ERPNext use cases and experiences">
     <meta property="og:description" content="We share our experience to help open source evolve. Real ERPNext and Frappe use cases and engineering lessons from active contributors.">
     <meta property="og:type" content="website">
@@ -49,7 +49,6 @@
 }
     </script>
 
-    <link rel="stylesheet" href="/assets/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -63,6 +62,7 @@
         .cover-glow { background: radial-gradient(ellipse 70% 80% at 25% 20%, rgba(16,185,129,0.18), transparent 70%), radial-gradient(ellipse 60% 60% at 85% 30%, rgba(26,50,116,0.55), transparent 70%); }
         @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
     </style>
+    <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body class="bg-ae-50 text-ae-900 antialiased">
 
@@ -102,7 +102,7 @@
                 Sharing our experience to help <span class="text-brand-400 font-semibold">open source</span> evolve
             </h1>
             <p class="mt-6 text-lg text-ae-200 leading-relaxed max-w-xl">
-                Lessons from real ERPNext and Frappe work in production, written by the team behind 800+ merged PRs. We publish what we learn so the open-source community we build on keeps getting better.
+                Lessons from real ERPNext and Frappe work in production, written by the team behind 1,100+ merged PRs. We publish what we learn so the open-source community we build on keeps getting better.
             </p>
             <div class="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-ae-400 font-mono">
                 <span>Use cases</span><span class="text-ae-600">·</span>
@@ -116,7 +116,40 @@
     <section id="featured" class="py-16 sm:py-20 bg-ae-50">
         <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <p class="text-xs text-ae-400 uppercase tracking-[0.1em] mb-6 font-medium">Featured</p>
-            <div id="featured-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 fade-in"></div>
+            <div id="featured-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 fade-in"><!-- generated:featured:start -->
+            <a href="/blog/lens-code-audit/" class="group flex flex-col sm:flex-row bg-white border border-ae-200/60 hover:border-ae-300 rounded-2xl overflow-hidden transition-colors">
+                <div class="sm:w-1/2">
+                <div class="relative h-56 sm:h-64 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-7xl sm:text-8xl font-semibold text-white/10 select-none">&lt;/&gt;</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+                    
+                </div></div>
+                <div class="p-7 sm:p-8 flex flex-col justify-center sm:w-1/2">
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-600 mb-3">Product</span>
+                    <h3 class="text-xl font-semibold text-ae-950 leading-snug mb-3 group-hover:text-ae-700 transition-colors">Lens Code Audit: catch risky Frappe customizations before they ship</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-5">Most ERPNext upgrade pain starts in custom code. Lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production.</p>
+                    <div class="flex items-center gap-2 text-[11px] text-ae-400">
+                        <span>Aerele Engineering</span><span>·</span><span>Jun 2, 2026</span><span>·</span><span>6 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/lens-compat-check/" class="group flex flex-col sm:flex-row bg-white border border-ae-200/60 hover:border-ae-300 rounded-2xl overflow-hidden transition-colors">
+                <div class="sm:w-1/2">
+                <div class="relative h-56 sm:h-64 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-7xl sm:text-8xl font-semibold text-white/10 select-none">≅</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+                    
+                </div></div>
+                <div class="p-7 sm:p-8 flex flex-col justify-center sm:w-1/2">
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-600 mb-3">Product</span>
+                    <h3 class="text-xl font-semibold text-ae-950 leading-snug mb-3 group-hover:text-ae-700 transition-colors">Lens Compatibility Check: know if your apps survive the next ERPNext upgrade</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-5">Upgrades stall on one question - will our customizations still work? Lens answers it up front with a per-app compatibility report against your target version.</p>
+                    <div class="flex items-center gap-2 text-[11px] text-ae-400">
+                        <span>Aerele Engineering</span><span>·</span><span>May 26, 2026</span><span>·</span><span>5 min read</span>
+                    </div>
+                </div>
+            </a>
+            <!-- generated:featured:end --></div>
         </div>
     </section>
 
@@ -126,7 +159,12 @@
             <!-- Sticky toolbar -->
             <div class="sticky top-[72px] z-30 -mx-6 sm:-mx-8 px-6 sm:px-8 py-4 bg-ae-50/90 backdrop-blur-md border-y border-ae-200/60 mb-10">
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between">
-                    <div id="filters" class="flex flex-wrap items-center gap-2"></div>
+                    <div id="filters" class="flex flex-wrap items-center gap-2"><!-- generated:filters:start -->
+                <button type="button" data-cat="All" aria-pressed="true" class="px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors bg-ae-900 text-white">All</button>
+                <button type="button" data-cat="Product" aria-pressed="false" class="px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors bg-white text-ae-600 border border-ae-200 hover:border-ae-300">Product</button>
+                <button type="button" data-cat="Use Case" aria-pressed="false" class="px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors bg-white text-ae-600 border border-ae-200 hover:border-ae-300">Use Cases</button>
+                <button type="button" data-cat="Experience" aria-pressed="false" class="px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors bg-white text-ae-600 border border-ae-200 hover:border-ae-300">Experiences</button>
+            <!-- generated:filters:end --></div>
                     <div class="relative sm:w-72">
                         <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ae-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
                         <input id="search" type="search" placeholder="Search posts…" aria-label="Search posts"
@@ -136,12 +174,110 @@
             </div>
 
             <!-- Posts grid -->
-            <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- generated:posts:start --><article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Experience · 2026-06-09</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/optimus-open-source-frappe-profiler/">We built Optimus to profile our own Frappe work, then open-sourced it</a></h3><p class="text-sm text-ae-600 mt-3">System freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.</p></article>
-<article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Product · 2026-06-02</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/lens-code-audit/">Lens Code Audit: catch risky Frappe customizations before they ship</a></h3><p class="text-sm text-ae-600 mt-3">Most ERPNext upgrade pain starts in custom code. Lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production.</p></article>
-<article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Product · 2026-05-26</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/lens-compat-check/">Lens Compatibility Check: know if your apps survive the next ERPNext upgrade</a></h3><p class="text-sm text-ae-600 mt-3">Upgrades stall on one question - will our customizations still work? Lens answers it up front with a per-app compatibility report against your target version.</p></article>
-<article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Experience · 2026-04-30</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/frappe-upstream-first-600-prs/">What 600+ merged PRs into Frappe taught us about upstream-first work</a></h3><p class="text-sm text-ae-600 mt-3">Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.</p></article>
-<article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Use Case · 2026-04-12</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/india-banking-rails-production/">Integrating ERPNext with India&#39;s banking rails: production lessons</a></h3><p class="text-sm text-ae-600 mt-3">NEFT, RTGS, UPI and host-to-host files in a regulated workflow. The retries, idempotency, and audit trails that kept it reliable when money was on the line.</p></article>
-<article class="p-6 border border-ae-200 rounded-xl bg-white"><p class="text-xs text-ae-500">Experience · 2026-03-20</p><h3 class="text-xl font-semibold mt-3"><a class="underline" href="/blog/why-we-built-lens/">Why we built Lens - codifying migration audits into software</a></h3><p class="text-sm text-ae-600 mt-3">Years of migration reviews turned into a tool. What we automated, what still needs a senior human, and what we learned shipping our first product.</p></article><!-- generated:posts:end --></div>
+            <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- generated:posts:start -->
+            <a href="/blog/optimus-open-source-frappe-profiler/" data-cat="Experience" data-search="we built optimus to profile our own frappe work, then open-sourced it system freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. so we built optimus to find them, then open-sourced it for the frappe ecosystem. optimus open source frappe performance" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">Δt</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/10 text-ae-200 ring-1 ring-white/15">Experience</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">We built Optimus to profile our own Frappe work, then open-sourced it</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">System freezes under heavy load, lock wait timeouts, &#39;server is too busy&#39; errors: we kept tracing them back to customization bottlenecks on client sites. So we built Optimus to find them, then open-sourced it for the Frappe ecosystem.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Optimus</span><span class="text-[11px] text-ae-400 font-mono">#Open Source</span><span class="text-[11px] text-ae-400 font-mono">#Frappe</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>Jun 9, 2026 · 6 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/lens-code-audit/" data-cat="Product" data-search="lens code audit: catch risky frappe customizations before they ship most erpnext upgrade pain starts in custom code. lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production. lens frappe code review migration" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">&lt;/&gt;</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Lens Code Audit: catch risky Frappe customizations before they ship</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Most ERPNext upgrade pain starts in custom code. Lens reads your apps the way a senior reviewer would and flags the patterns that break - before they reach production.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Lens</span><span class="text-[11px] text-ae-400 font-mono">#Frappe</span><span class="text-[11px] text-ae-400 font-mono">#Code Review</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>Jun 2, 2026 · 6 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/lens-compat-check/" data-cat="Product" data-search="lens compatibility check: know if your apps survive the next erpnext upgrade upgrades stall on one question - will our customizations still work? lens answers it up front with a per-app compatibility report against your target version. lens erpnext upgrade compatibility" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">≅</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40">Product</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Lens Compatibility Check: know if your apps survive the next ERPNext upgrade</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Upgrades stall on one question - will our customizations still work? Lens answers it up front with a per-app compatibility report against your target version.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Lens</span><span class="text-[11px] text-ae-400 font-mono">#ERPNext</span><span class="text-[11px] text-ae-400 font-mono">#Upgrade</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>May 26, 2026 · 5 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/frappe-upstream-first-600-prs/" data-cat="Experience" data-search="what 600+ merged prs into frappe taught us about upstream-first work forking is easy; contributing upstream is hard and worth it. the habits that got our patches merged into the framework your erpnext runs on. frappe open source engineering culture" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">{ }</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/10 text-ae-200 ring-1 ring-white/15">Experience</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">What 600+ merged PRs into Frappe taught us about upstream-first work</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Forking is easy; contributing upstream is hard and worth it. The habits that got our patches merged into the framework your ERPNext runs on.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Frappe</span><span class="text-[11px] text-ae-400 font-mono">#Open Source</span><span class="text-[11px] text-ae-400 font-mono">#Engineering Culture</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>Apr 30, 2026 · 8 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/india-banking-rails-production/" data-cat="Use Case" data-search="integrating erpnext with india&#39;s banking rails: production lessons neft, rtgs, upi and host-to-host files in a regulated workflow. the retries, idempotency, and audit trails that kept it reliable when money was on the line. erpnext banking integrations" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">⇄</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-brand-500/15 text-brand-400 ring-1 ring-brand-500/30">Use Case</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Integrating ERPNext with India&#39;s banking rails: production lessons</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">NEFT, RTGS, UPI and host-to-host files in a regulated workflow. The retries, idempotency, and audit trails that kept it reliable when money was on the line.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#ERPNext</span><span class="text-[11px] text-ae-400 font-mono">#Banking</span><span class="text-[11px] text-ae-400 font-mono">#Integrations</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>Apr 12, 2026 · 9 min read</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blog/why-we-built-lens/" data-cat="Experience" data-search="why we built lens - codifying migration audits into software years of migration reviews turned into a tool. what we automated, what still needs a senior human, and what we learned shipping our first product. lens product frappe" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
+                
+                <div class="relative h-44 bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
+                    <span class="font-mono text-6xl font-semibold text-white/10 select-none">◎</span>
+                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/10 text-ae-200 ring-1 ring-white/15">Experience</span>
+                    
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">Why we built Lens - codifying migration audits into software</h3>
+                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">Years of migration reviews turned into a tool. What we automated, what still needs a senior human, and what we learned shipping our first product.</p>
+                    <div class="flex items-center gap-3 mb-3"><span class="text-[11px] text-ae-400 font-mono">#Lens</span><span class="text-[11px] text-ae-400 font-mono">#Product</span><span class="text-[11px] text-ae-400 font-mono">#Frappe</span></div>
+                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
+                        <span>Aerele Engineering</span>
+                        <span>Mar 20, 2026 · 5 min read</span>
+                    </div>
+                </div>
+            </a>
+            <!-- generated:posts:end --></div>
 
             <!-- Empty state -->
             <div id="empty-state" class="hidden text-center py-20">
@@ -236,96 +372,32 @@
             a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
         });
 
-        const CATEGORIES = ['All', 'Product', 'Use Case', 'Experience'];
-        let POSTS = [];
+        // Posts, featured cards and filters are server-rendered; this only filters them.
+        const cards = [...document.querySelectorAll('#posts-grid [data-cat]')];
+        const ACTIVE = 'bg-ae-900 text-white';
+        const INACTIVE = 'bg-white text-ae-600 border border-ae-200 hover:border-ae-300';
         let activeCategory = 'All';
         let query = '';
 
-        const fmtDate = (iso) => new Date(iso + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-
-        function cover(post, big) {
-            const glyphSize = big ? 'text-7xl sm:text-8xl' : 'text-6xl';
-            const h = big ? 'h-56 sm:h-64' : 'h-44';
-            return `
-                <div class="relative ${h} bg-ae-950 cover-glow overflow-hidden flex items-center justify-center">
-                    <span class="font-mono ${glyphSize} font-semibold text-white/10 select-none">${esc(post.cover.glyph)}</span>
-                    <span class="absolute top-4 left-4 inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider ${post.category === 'Use Case' ? 'bg-brand-500/15 text-brand-400 ring-1 ring-brand-500/30' : post.category === 'Product' ? 'bg-brand-500/20 text-brand-300 ring-1 ring-brand-500/40' : 'bg-white/10 text-ae-200 ring-1 ring-white/15'}">${esc(post.category)}</span>
-                    ${post.video ? `<span class="absolute bottom-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-brand-500/90 text-white shadow-md ring-1 ring-white/20" title="Includes a demo video"><svg class="w-4 h-4 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>` : ''}
-                </div>`;
-        }
-
-        function tagPills(tags) {
-            return tags.slice(0, 3).map(t => `<span class="text-[11px] text-ae-400 font-mono">#${esc(t)}</span>`).join('');
-        }
-
-        function card(post) {
-            return `
-            <a href="/blog/${esc(post.slug)}/" class="group flex flex-col bg-white border border-ae-200/60 hover:border-ae-300 rounded-xl overflow-hidden transition-colors">
-                ${cover(post, false)}
-                <div class="p-6 flex flex-col flex-1">
-                    <h3 class="text-base font-semibold text-ae-950 leading-snug mb-2 group-hover:text-ae-700 transition-colors">${esc(post.title)}</h3>
-                    <p class="text-sm text-ae-500 leading-relaxed mb-4 flex-1">${esc(post.excerpt)}</p>
-                    <div class="flex items-center gap-3 mb-3">${tagPills(post.tags)}</div>
-                    <div class="flex items-center justify-between text-[11px] text-ae-400 pt-3 border-t border-ae-200/60">
-                        <span>${esc(post.author)}</span>
-                        <span>${fmtDate(post.date)} · ${esc(post.readingTime)}</span>
-                    </div>
-                </div>
-            </a>`;
-        }
-
-        function featuredCard(post) {
-            return `
-            <a href="/blog/${esc(post.slug)}/" class="group flex flex-col sm:flex-row bg-white border border-ae-200/60 hover:border-ae-300 rounded-2xl overflow-hidden transition-colors">
-                <div class="sm:w-1/2">${cover(post, true)}</div>
-                <div class="p-7 sm:p-8 flex flex-col justify-center sm:w-1/2">
-                    <span class="text-[11px] font-semibold uppercase tracking-wider ${post.category === 'Use Case' || post.category === 'Product' ? 'text-brand-600' : 'text-ae-400'} mb-3">${esc(post.category)}</span>
-                    <h3 class="text-xl font-semibold text-ae-950 leading-snug mb-3 group-hover:text-ae-700 transition-colors">${esc(post.title)}</h3>
-                    <p class="text-sm text-ae-500 leading-relaxed mb-5">${esc(post.excerpt)}</p>
-                    <div class="flex items-center gap-2 text-[11px] text-ae-400">
-                        <span>${esc(post.author)}</span><span>·</span><span>${fmtDate(post.date)}</span><span>·</span><span>${esc(post.readingTime)}</span>
-                    </div>
-                </div>
-            </a>`;
-        }
-
-        function renderFilters() {
-            document.getElementById('filters').innerHTML = CATEGORIES.map(c => `
-                <button data-cat="${c}" class="px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors ${c === activeCategory ? 'bg-ae-900 text-white' : 'bg-white text-ae-600 border border-ae-200 hover:border-ae-300'}">${c === 'Use Case' ? 'Use Cases' : c === 'Experience' ? 'Experiences' : c}</button>`).join('');
-            document.querySelectorAll('#filters button').forEach(b => b.addEventListener('click', () => { activeCategory = b.dataset.cat; renderFilters(); renderGrid(); }));
-        }
-
-        function renderGrid() {
+        function applyFilters() {
             const q = query.trim().toLowerCase();
-            const filtered = POSTS.filter(p => {
-                const catOk = activeCategory === 'All' || p.category === activeCategory;
-                const hay = (p.title + ' ' + p.excerpt + ' ' + p.tags.join(' ')).toLowerCase();
-                return catOk && (!q || hay.includes(q));
+            let shown = 0;
+            cards.forEach(card => {
+                const visible = (activeCategory === 'All' || card.dataset.cat === activeCategory) && (!q || card.dataset.search.includes(q));
+                card.classList.toggle('hidden', !visible);
+                if (visible) shown++;
             });
-            document.getElementById('posts-grid').innerHTML = filtered.map(card).join('');
-            document.getElementById('empty-state').classList.toggle('hidden', filtered.length > 0);
+            document.getElementById('empty-state').classList.toggle('hidden', shown > 0);
+            document.querySelectorAll('#filters button').forEach(b => {
+                const on = b.dataset.cat === activeCategory;
+                b.setAttribute('aria-pressed', on);
+                b.classList.remove(...ACTIVE.split(' '), ...INACTIVE.split(' '));
+                b.classList.add(...(on ? ACTIVE : INACTIVE).split(' '));
+            });
         }
 
-        function renderFeatured() {
-            const feat = POSTS.filter(p => p.featured).slice(0, 2);
-            document.getElementById('featured-grid').innerHTML = feat.map(featuredCard).join('');
-        }
-
-        fetch('/blog/posts.json')
-            .then(r => r.json())
-            .then(data => {
-                POSTS = (data.posts || []).slice().sort((a, b) => b.date.localeCompare(a.date));
-                renderFeatured();
-                renderFilters();
-                renderGrid();
-                // fade-in
-                const io = new IntersectionObserver((entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
-                document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
-            })
-            .catch(() => { /* Keep the server-rendered post links. */ });
-
-        document.getElementById('search').addEventListener('input', (e) => { query = e.target.value; renderGrid(); });
+        document.querySelectorAll('#filters button').forEach(b => b.addEventListener('click', () => { activeCategory = b.dataset.cat; applyFilters(); }));
+        document.getElementById('search').addEventListener('input', (e) => { query = e.target.value; applyFilters(); });
     </script>
 </body>
 </html>
