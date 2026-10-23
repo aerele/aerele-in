@@ -1,5 +1,5 @@
 {
-  "total_prs": 1118,
+  "total_prs": 1127,
   "total_contributors": 18,
   "repos_touched": [
     "crm",
@@ -23,9 +23,9 @@
       "name": "Pandiyan P",
       "avatar": "https://avatars.githubusercontent.com/u/171273338?v=4",
       "profile_url": "https://github.com/Pandiyan5273",
-      "total_merged_prs": 317,
+      "total_merged_prs": 323,
       "repos": {
-        "erpnext": 313,
+        "erpnext": 319,
         "frappe": 4
       },
       "summary": "Stock and manufacturing contributor. Focused on warehouse mapping, barcode scanning, UOM handling, and work order improvements. Clean, targeted fixes in stock entry and subassembly workflows."
@@ -117,11 +117,11 @@
       "name": "Nareshkanna S",
       "avatar": "https://avatars.githubusercontent.com/u/159678797?v=4",
       "profile_url": "https://github.com/nareshkannasln",
-      "total_merged_prs": 73,
+      "total_merged_prs": 76,
       "repos": {
         "erpnext": 4,
         "frappe": 1,
-        "hrms": 65,
+        "hrms": 68,
         "india-payroll": 3
       },
       "summary": "HRMS specialist. Contributions across expense claims, salary structure, leave management, gratuity, and attendance. Also built job opening template auto-fetch and improved the salary register report."
@@ -260,6 +260,24 @@
       "summary": "Contributed to ERPNext accounting setup with print and stationery account renaming."
     }
   ],
-  "snapshot_date": "2026-10-22",
-  "methodology": "Public lifetime merged pull requests by the listed contributors in the specified frappe GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count."
+  "snapshot_date": "2026-10-23",
+  "methodology": "Public lifetime merged pull requests by the listed contributors in the specified Frappe ecosystem GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count.",
+  "open_source": {
+    "india-banking": {
+      "stars": 50,
+      "forks": 55
+    },
+    "pwa-builder": {
+      "stars": 67,
+      "forks": 43
+    },
+    "medusa_integration": {
+      "stars": 31,
+      "forks": 5
+    },
+    "emSigner": {
+      "stars": 8,
+      "forks": 10
+    }
+  }
 }
