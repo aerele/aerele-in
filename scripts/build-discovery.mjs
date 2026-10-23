@@ -25,7 +25,7 @@ const cards = data.contributors.filter(c => c.total_merged_prs > 0).sort((a, b) 
                 </article>`).join('\n');
 for (const [file, id] of [['index.html', 'contributors-grid'], ['hire-erpnext-developer/index.html', 'erpnext-contributors-grid']]) {
   let source = readFileSync(file, 'utf8');
-  const note = `<p class="text-sm text-ae-600 sm:col-span-2 lg:col-span-3">Snapshot: ${escape(data.snapshot_date)}. ${counts.total} public merged PRs across ${counts.repos} Frappe ecosystem repositories, including ${counts.erpnext} in ERPNext. Counts cover these contributors' public lifetime work, may include backport PRs opened by the contributor, and do not attribute contributions to employment at Aerele. Ask us about current developer availability. <a class="underline" href="/contributions.json">Data and methodology</a>.</p>`;
+  const note = `<p class="text-sm text-ae-600 sm:col-span-2 lg:col-span-3">Snapshot: ${escape(data.snapshot_date)}. ${counts.total} public merged PRs across ${counts.repos} Frappe ecosystem repositories, including ${counts.erpnext} in ERPNext, made by our engineers as part of their work at Aerele. Counts may include backport PRs opened by the contributor. Ask us about current developer availability. <a class="underline" href="/contributions.json">Data and methodology</a>.</p>`;
   source = source.replace(new RegExp(`(<div id="${id}"[^>]*>)[\\s\\S]*?(?=\\n            </div>)`), `$1\n<!-- generated:contributors:start -->${note}${cards}\n<!-- generated:contributors:end -->`);
   writeFileSync(file, source);
 }

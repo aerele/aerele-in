@@ -1,6 +1,6 @@
 // Requires an authenticated GitHub CLI. Run manually, review the diff, then build.
-// Counts all public lifetime PRs of listed contributors in these repositories;
-// these are not claims about work completed during employment at Aerele.
+// Counts the public merged PRs of the listed Aerele engineers in these repositories,
+// all made as part of their work at Aerele.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -28,7 +28,7 @@ const refreshed = [];
 for (const contributor of data.contributors) {
   const fields = repos.map((repo, i) => `r${i}: search(query: ${JSON.stringify(`repo:${fullName(repo)} is:pr is:merged author:${contributor.username}`)}, type: ISSUE, first: 1) { issueCount }`).join('\n');
   const result = await graphql(fields, data => {
-    // Lifetime merged counts never decrease; a drop means a flaky search response, so retry and never write it.
+    // Merged counts never decrease; a drop means a flaky search response, so retry and never write it.
     const dropped = repos.filter((repo, i) => data[`r${i}`].issueCount < (contributor.repos[repo] || 0));
     if (dropped.length) throw new Error(`${contributor.username}: count dropped for ${dropped.join(', ')}`);
   });
@@ -81,7 +81,7 @@ data.total_prs = refreshed.reduce((sum,c) => sum+c.total_merged_prs,0);
 data.total_contributors = refreshed.filter(c=>c.total_merged_prs>0).length;
 data.snapshot_date = new Date().toISOString().slice(0,10);
 data.open_source = openSource;
-data.methodology = 'Public lifetime merged pull requests by the listed contributors in the specified Frappe ecosystem GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count.';
+data.methodology = 'Public merged pull requests by the listed Aerele engineers in the specified Frappe ecosystem GitHub repositories, made as part of their work at Aerele. May include backport PRs opened by the contributor, counted separately. Not a live total or an exhaustive organization-wide count.';
 writeFileSync('contributions.json', JSON.stringify(data,null,2)+'\n');
 writeFileSync('recent-prs.json', JSON.stringify(recentPrs,null,2)+'\n');
 console.log(`Refreshed ${data.total_prs} merged PRs for ${data.total_contributors} contributors and ${recentPrs.length} recent PRs as of ${data.snapshot_date}. Run npm run build and review before publishing.`);
