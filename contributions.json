@@ -261,7 +261,7 @@
     }
   ],
   "snapshot_date": "2026-10-23",
-  "methodology": "Public lifetime merged pull requests by the listed contributors in the specified Frappe ecosystem GitHub repositories. May include backport PRs opened by the contributor, counted separately. Does not attribute work to an employment period; not a live total or an exhaustive organization-wide count.",
+  "methodology": "Public merged pull requests by the listed Aerele engineers in the specified Frappe ecosystem GitHub repositories, made as part of their work at Aerele. May include backport PRs opened by the contributor, counted separately. Not a live total or an exhaustive organization-wide count.",
   "open_source": {
     "india-banking": {
       "stars": 50,
