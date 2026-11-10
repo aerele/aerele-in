@@ -1,142 +1,142 @@
 [
   {
-    "title": "fix(stock): ignore cancelled entries when changing default valuation method",
+    "title": "feat: add option to create production plan from sales order",
     "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/62101",
-    "date": "2026-10-23"
+    "author": "Venkatesh",
+    "url": "https://github.com/frappe/erpnext/pull/53662",
+    "date": "2026-04-16"
   },
   {
-    "title": "fix: add confirmation before cancelling request in pwa",
+    "title": "fix(payment reconciliation): honour user permissions on accounting dimensions",
+    "repo": "erpnext",
+    "author": "NaviN",
+    "url": "https://github.com/frappe/erpnext/pull/55803",
+    "date": "2026-06-23"
+  },
+  {
+    "title": "fix(sales invoice): toggle Get Items From button based on is_return and POS view",
+    "repo": "erpnext",
+    "author": "NaviN",
+    "url": "https://github.com/frappe/erpnext/pull/52594",
+    "date": "2026-04-08"
+  },
+  {
+    "title": "feat(stock): add configurable Stock Delivered But Not Billed (SDBNB) support",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/56070",
+    "date": "2026-07-02"
+  },
+  {
+    "title": "feat: add Stock Delivered But Not Billed (SDBNB) accounting for DN and SI",
+    "repo": "erpnext",
+    "author": "Kavin",
+    "url": "https://github.com/frappe/erpnext/pull/53679",
+    "date": "2026-05-22"
+  },
+  {
+    "title": "fix(stock): keep the picked serial and batch bundle when a putaway rule re-targets or splits a row",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/64272",
+    "date": "2026-11-06"
+  },
+  {
+    "title": "fix(manufacturing): keep the template row uom on variant bom and work order rows",
+    "repo": "erpnext",
+    "author": "Sudharsanan Ashok",
+    "url": "https://github.com/frappe/erpnext/pull/64340",
+    "date": "2026-11-06"
+  },
+  {
+    "title": "feat(opening invoice creation tool): add project to opening invoice child row",
+    "repo": "erpnext",
+    "author": "Ravibharathi",
+    "url": "https://github.com/frappe/erpnext/pull/54662",
+    "date": "2026-06-23"
+  },
+  {
+    "title": "fix(payment_entry): recompute base amount when exchange rate changes",
+    "repo": "erpnext",
+    "author": "Ravibharathi",
+    "url": "https://github.com/frappe/erpnext/pull/56136",
+    "date": "2026-06-23"
+  },
+  {
+    "title": "fix: update additional salary zero overwrite to remove structure amount",
     "repo": "hrms",
     "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5440",
-    "date": "2026-10-23"
+    "url": "https://github.com/frappe/hrms/pull/5336",
+    "date": "2026-10-26"
   },
   {
-    "title": "feat(pwa): add compensatory leave requests",
+    "title": "fix: update pwa layout direction for rtl languages",
     "repo": "hrms",
     "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5260",
+    "url": "https://github.com/frappe/hrms/pull/5433",
     "date": "2026-10-23"
   },
   {
-    "title": "fix: update date fields on leave period selection",
-    "repo": "hrms",
-    "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5278",
-    "date": "2026-10-23"
+    "title": "fix(accounts): restore auto reconciliation scheduler registration",
+    "repo": "erpnext",
+    "author": "Vishnu Priya Baskaran",
+    "url": "https://github.com/frappe/erpnext/pull/63568",
+    "date": "2026-11-06"
   },
   {
-    "title": "fix(accounts): correct dunning amounts and validate overdue payment",
+    "title": "fix(accounts): set paid from/to based on selected company bank account",
+    "repo": "erpnext",
+    "author": "Vishnu Priya Baskaran",
+    "url": "https://github.com/frappe/erpnext/pull/62093",
+    "date": "2026-11-02"
+  },
+  {
+    "title": "fix(accounts): reverse unrecognized deferred revenue on credit notes",
     "repo": "erpnext",
     "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61667",
-    "date": "2026-10-23"
+    "url": "https://github.com/frappe/erpnext/pull/64259",
+    "date": "2026-11-10"
   },
   {
-    "title": "fix(selling): select purchase suppliers by sales order row",
+    "title": "feat(accounts): allow filtering reports by blank accounting dimensions",
     "repo": "erpnext",
     "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61972",
-    "date": "2026-10-23"
+    "url": "https://github.com/frappe/erpnext/pull/58681",
+    "date": "2026-11-10"
   },
   {
-    "title": "fix(selling): normalize near-complete billing percentages",
+    "title": "fix(accounts): allow cross-doctype loyalty points redemption",
     "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61983",
-    "date": "2026-10-23"
+    "author": "Afsal Syed",
+    "url": "https://github.com/frappe/erpnext/pull/62219",
+    "date": "2026-10-26"
   },
   {
-    "title": "fix(stock): enhance quantity tolerance handling in disassembly process",
+    "title": "fix(accounts): reset foreign currency payment request status on cancellation",
     "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/62000",
-    "date": "2026-10-23"
+    "author": "Afsal Syed",
+    "url": "https://github.com/frappe/erpnext/pull/61664",
+    "date": "2026-10-21"
   },
   {
-    "title": "fix(setup): count only submitted documents in the sales person heatmap",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61952",
-    "date": "2026-10-22"
+    "title": "fix: inverted discount calculation for fixed amount coupons",
+    "repo": "lms",
+    "author": "Rethik M",
+    "url": "https://github.com/frappe/lms/pull/2896",
+    "date": "2026-10-12"
   },
   {
-    "title": "fix(manufacturing): keep pending work orders open on shop floor",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61955",
-    "date": "2026-10-22"
+    "title": "fix(workflows): show save error on the failing step when a wait has arms",
+    "repo": "crm",
+    "author": "Rethik M",
+    "url": "https://github.com/frappe/crm/pull/2975",
+    "date": "2026-10-06"
   },
   {
-    "title": "fix(selling): filter bundle components by purchase supplier",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61966",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(stock): leave cancelled entries out of the item heatmap",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61867",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(accounts): accept date objects in payment terms",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61989",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(accounts): preserve company and bank ownership in payment orders",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61602",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(accounts): include payment entries in order advance payment status",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61480",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix: update roster filters to load only permitted doctypes",
-    "repo": "hrms",
-    "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5422",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(accounts): fetch selected overdue payments in dunning",
-    "repo": "erpnext",
-    "author": "Pandiyan P",
-    "url": "https://github.com/frappe/erpnext/pull/61267",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix(pwa): update to_date in sync with from_date",
-    "repo": "hrms",
-    "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5321",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix: allow amending cancelled training results",
-    "repo": "hrms",
-    "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5469",
-    "date": "2026-10-22"
-  },
-  {
-    "title": "fix: preserve job requisition completion date",
-    "repo": "hrms",
-    "author": "Nareshkanna S",
-    "url": "https://github.com/frappe/hrms/pull/5462",
-    "date": "2026-10-22"
+    "title": "fix(auto-renewal-token): refresh access token on 401 and retry once so long-running syncs survive token expiry",
+    "repo": "ecommerce_integrations",
+    "author": "Sudarshan",
+    "url": "https://github.com/frappe/ecommerce_integrations/pull/442",
+    "date": "2026-07-08"
   }
 ]
