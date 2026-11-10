@@ -139,8 +139,11 @@
         .doc h3 { font-weight: 600; font-size: 15px; color: var(--ink); margin-top: 24px; }
         .doc p + p, .doc h2 + p, .doc h2 + ol { margin-top: 12px; }
         .doc h3 + p { margin-top: 4px; }
-        .doc ol + p { margin-top: 16px; }
+        .doc ol + p, .doc ul + p { margin-top: 16px; }
+        .doc p + ul { margin-top: 12px; }
         .doc ol { list-style: decimal; padding-left: 20px; display: grid; gap: 8px; }
+        .doc ul { list-style: disc; padding-left: 20px; display: grid; gap: 8px; }
+        .doc li strong { font-weight: 600; color: var(--ink); }
         .doc a.inline { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
         .doc code.i { font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 1px 5px; }
         .doc pre.cmd { margin-top: 8px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); font-family: var(--mono); font-size: 13px; letter-spacing: 0; color: var(--ink); overflow-x: auto; white-space: pre; }
@@ -370,6 +373,15 @@ Run `frappe-code-review`. Quick check: qb not raw SQL | whitelist perms + type h
             </ol>
             <p>Or download it from a terminal:</p>
             <pre class="cmd"><code>curl -o CLAUDE.md https://aerele.in/frappe-claude-md/template.md</code></pre>
+
+            <h2>Why it's worth its size</h2>
+            <p>The file is about 3,000 to 4,000 tokens. That looks like a lot for a context file, but it costs very little in practice.</p>
+            <ul>
+                <li><strong>It's cached.</strong> Claude Code loads CLAUDE.md at the start of every session, at the top of the context. Text that stays the same at the start of the context is cached, so after the first request it's reused at a fraction of the normal cost instead of being paid in full on every turn.</li>
+                <li><strong>It's a small share of the context.</strong> It's about 2% of a 200K-token context window, and well under 1% of a 1M-token one. A single read of a large ERPNext controller like <code class="i">sales_invoice.py</code> uses more tokens than this whole file.</li>
+                <li><strong>It saves more than it costs.</strong> Each rule stops a mistake we've seen in Frappe code reviews: SQL injection, missing permission checks, stray commits, queries in loops, direct ledger entries. Fixing one of those in review, or worse in production, costs far more time and tokens than loading this file.</li>
+            </ul>
+            <p>So don't trim it. Fill in the version placeholders at the top so the agent uses the right APIs for your project, and add your own rules at the end.</p>
 
             <h2>Questions</h2>
             <h3>What should a CLAUDE.md for a Frappe app contain?</h3>
