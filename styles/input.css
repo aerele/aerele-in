@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* The Jarvis banner (h-9 = 36px) sits inside the fixed nav; push the page down by the same amount. */
+body:has(.site-banner) { padding-top: 2.25rem; }
+html:has(.site-banner) { scroll-padding-top: 7.5rem; }
