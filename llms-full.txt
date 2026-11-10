@@ -190,6 +190,17 @@ Note: Aerele is one of the only Frappe service providers that publishes pricing 
 
 ---
 
+## Frappe Development Guidelines (CLAUDE.md / AGENTS.md)
+
+Aerele publishes the development guidelines its engineers follow on the Frappe framework, written as a copy-paste CLAUDE.md for AI coding agents (Claude Code, Codex, Cursor) and usable as a human code review checklist.
+
+- **Page**: https://aerele.in/frappe-claude-md/
+- **Raw file**: https://aerele.in/frappe-claude-md/template.md (save as CLAUDE.md or AGENTS.md at the app root, then fill in the {{placeholders}})
+- **Covers**: pinning Frappe/ERPNext versions; safe bench commands (tests only on a test site, never on production); never editing core files (doc_events, override_doctype_class, Custom Fields, Property Setters, filtered fixtures); patches for every schema or data change; whitelisted methods with permission checks, type hints, declared HTTP methods and get_list over get_all; parameterised SQL or frappe.qb; no manual commit/rollback; no direct GL, Stock Ledger or Payment Ledger inserts; no database calls in loops; real tests for every doctype; a pre-PR checklist.
+- Works alongside the frappe/skills repository (https://github.com/frappe/skills); the project file wins when the two conflict.
+
+---
+
 ## Contact
 
 - **Email**: hello@aerele.in

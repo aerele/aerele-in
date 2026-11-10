@@ -130,6 +130,7 @@ const FOOTER = `    <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
                     <p class="font-semibold text-ae-700 mb-3">Resources</p>
                     <div class="flex flex-col gap-2 text-ae-400">
                         <a href="/blog/" class="hover:text-ae-700">Blog</a>
+                        <a href="/frappe-claude-md/" class="hover:text-ae-700">Frappe development guidelines</a>
                         <a href="https://github.com/aerele" class="hover:text-ae-700">Open-source repositories</a>
                         <a href="/#products" class="hover:text-ae-700">Products</a>
                     </div>
