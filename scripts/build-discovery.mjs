@@ -111,6 +111,14 @@ let home = readFileSync('index.html', 'utf8');
 home = region(home, 'pr-ticker', 'ticker', tickerItems(false) + tickerItems(true));
 writeFileSync('index.html', home);
 
+// The CLAUDE.md page shows the raw template verbatim, so copy and the raw file never drift.
+// Only spans are added for colour; the code element's textContent stays identical to the file.
+const claudeMd = escape(readFileSync('frappe-claude-md/template.md', 'utf8'))
+  .replace(/^(#{1,6} .*)$/gm, '<span class="md-h">$1</span>')
+  .replace(/\{\{[^}]*\}\}/g, '<span class="md-ph">$&</span>');
+const claudePage = readFileSync('frappe-claude-md/index.html', 'utf8');
+writeFileSync('frappe-claude-md/index.html', claudePage.replace(/(<!-- generated:claude-md:start -->)[\s\S]*?(<!-- generated:claude-md:end -->)/, (_, start, end) => start + claudeMd + end));
+
 // Include only indexable canonical pages. Omit lastmod rather than publish stale
 // or build-time dates; git timestamps are not reliable content modification dates.
 const urls = htmlFiles().flatMap(file => {
