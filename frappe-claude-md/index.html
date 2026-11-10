@@ -112,27 +112,66 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preload" href="/logo-nav.png" as="image">
 
     <style>
+        /* Layout: one centred reading column (frappe.io detail-page style), file in a quiet grey box. */
+        :root {
+            --ink: #171717; --body: #383838; --muted: #525252; --faint: #7c7c7c;
+            --rule: #ebebeb; --surface: #f8f8f8; --bg: #ffffff;
+            --display: 'Newsreader', Georgia, serif; --text: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+        }
         html { scroll-behavior: smooth; overflow-x: clip; }
-        body { font-family: 'Inter', system-ui, sans-serif; overflow-x: clip; }
+        body { font-family: var(--text); overflow-x: clip; background: var(--bg); }
         img { max-width: 100%; }
-        .hero-glow { background: radial-gradient(ellipse 70% 60% at 20% 20%, rgba(16,185,129,0.12), transparent 70%); }
-        .jarvis-glow { background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(110,139,255,0.16), transparent 70%), radial-gradient(ellipse 60% 50% at 85% 20%, rgba(139,92,246,0.22), transparent 70%); }
-        .jarvis-grad { background: linear-gradient(135deg, #6e8bff, #8b5cf6); }
-        .jarvis-grad-text { background: linear-gradient(135deg, #6e8bff, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .md-h { color: #6ee7b7; font-weight: 600; }
-        .md-ph { color: #fcd34d; }
+        .doc { max-width: 680px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); color: var(--body); font-size: 15px; line-height: 1.57; letter-spacing: 0.02em; }
+        .doc h1 { font-family: var(--display); font-weight: 500; font-size: clamp(28px, 4vw, 36px); line-height: 1.25; letter-spacing: 0; color: var(--ink); text-align: center; text-wrap: balance; }
+        .doc .lede { margin-top: 12px; font-size: 17px; line-height: 1.5; color: var(--muted); text-align: center; text-wrap: balance; }
+        .doc .meta { margin-top: 16px; font-size: 13px; color: var(--faint); text-align: center; }
+        .doc .actions { margin-top: 24px; display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .doc .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 8px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 500; }
+        .doc .btn:hover { background: #000; }
+        .doc .btn-quiet { font-size: 14px; color: var(--ink); }
+        .doc .btn-quiet:hover { text-decoration: underline; }
+        .doc .divider { width: 72px; height: 1px; background: var(--rule); margin: 40px auto; }
+        .doc h2 { font-family: var(--display); font-weight: 500; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: var(--ink); margin-top: 56px; }
+        .doc h3 { font-weight: 600; font-size: 15px; color: var(--ink); margin-top: 24px; }
+        .doc p + p, .doc h2 + p, .doc h2 + ol { margin-top: 12px; }
+        .doc h3 + p { margin-top: 4px; }
+        .doc ol + p { margin-top: 16px; }
+        .doc ol { list-style: decimal; padding-left: 20px; display: grid; gap: 8px; }
+        .doc a.inline { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+        .doc code.i { font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 1px 5px; }
+        .doc pre.cmd { margin-top: 8px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); font-family: var(--mono); font-size: 13px; letter-spacing: 0; color: var(--ink); overflow-x: auto; white-space: pre; }
+        .doc .jarvis { padding: 28px; border: 1px solid var(--rule); border-radius: 12px; background: var(--bg); }
+        .doc .jarvis .eyebrow { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
+        .doc .jarvis h2 { margin-top: 6px; font-size: 22px; }
+        .doc .jarvis h2 + p { margin-top: 8px; }
+        .doc .jarvis-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .doc .btn-outline { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--rule); color: var(--ink); font-size: 14px; font-weight: 500; }
+        .doc .btn-outline:hover { border-color: #c4c4c4; }
+        .doc .credit { margin-top: 20px; font-size: 13px; color: var(--faint); text-align: center; }
+        .doc .credit .inline { color: var(--ink); }
+        .file { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+        .file-bar { position: sticky; top: 109px; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 8px 12px 8px 16px; background: var(--surface); border-bottom: 1px solid var(--rule); border-radius: 10px 10px 0 0; }
+        @media (min-width: 640px) { .file-bar { top: 106px; } }
+        .file-bar span.name { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+        .file-bar button { font-size: 13px; font-weight: 500; color: var(--ink); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); }
+        .file-bar button:hover { border-color: #d4d4d4; }
+        .file pre { padding: 20px; font-family: var(--mono); font-size: 13px; line-height: 1.65; letter-spacing: 0; color: var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+        .md-h { font-weight: 600; }
+        .md-ph { }
+        :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
     </style>
     <link rel="stylesheet" href="/assets/site.css">
     <script defer src="/analytics.js"></script>
 </head>
-<body class="bg-ae-50 text-ae-900 antialiased">
+<body class="antialiased">
 
     <!-- Nav -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">
+        <!-- generated:jarvis-banner:start --><a href="https://jarvis.aerele.in/playground" target="_blank" rel="noopener" class="site-banner flex items-center justify-center gap-3 h-9 px-4 bg-black text-white text-[13px] hover:bg-neutral-800 transition-colors"><span class="truncate"><strong class="font-semibold">Jarvis</strong><span class="hidden sm:inline">, your AI teammate inside ERPNext. Try it on a live company, nothing to install.</span><span class="sm:hidden">: AI inside ERPNext.</span></span><span class="shrink-0 font-semibold underline underline-offset-4">Try Jarvis Playground →</span></a><!-- generated:jarvis-banner:end -->
         <div class="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-2.5">
                 <img src="/logo-nav.png" alt="Aerele Technologies" class="h-8">
@@ -154,78 +193,23 @@
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
-    <section class="relative pt-28 pb-14 sm:pt-32 sm:pb-16 overflow-hidden bg-ae-900 text-white">
-        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
-        <div class="relative max-w-4xl mx-auto px-6 sm:px-8">
-            <nav class="flex items-center gap-2 text-[12px] text-ae-400 mb-6" aria-label="Breadcrumb">
-                <a href="/" class="hover:text-ae-200">Home</a><span aria-hidden="true">/</span>
-                <span class="text-ae-300">Frappe development guidelines</span>
-            </nav>
-            <p class="font-mono text-[12px] text-brand-400 mb-4">CLAUDE.md · AGENTS.md</p>
-            <h1 class="font-semibold tracking-tight leading-[1.12] text-white" style="font-size: clamp(1.75rem, 4.4vw, 3rem);">
-                Frappe and ERPNext development guidelines, as a CLAUDE.md
-            </h1>
-            <p class="mt-5 text-lg text-ae-200 leading-relaxed max-w-2xl">
-                The rules our engineers follow when building on the Frappe framework, written for AI coding agents. Copy it into your app, fill in the highlighted placeholders, and commit it. It covers safe bench commands, whitelist security, transactions, patches, ledger safety, performance and tests.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-                <button type="button" data-copy class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-500 text-white rounded-lg text-sm font-semibold hover:bg-brand-600 transition-colors">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                    <span data-label>Copy CLAUDE.md</span>
-                </button>
-                <a href="/frappe-claude-md/template.md" class="inline-flex items-center px-5 py-2.5 border border-white/15 text-white rounded-lg text-sm font-medium hover:bg-white/5 transition-colors">Raw file</a>
+    <main class="pt-28 pb-20">
+        <article class="doc">
+            <h1>Frappe development guidelines</h1>
+            <p class="lede">A CLAUDE.md for Frappe and ERPNext apps. Copy it into your app, fill in the placeholders, and your coding agent follows the rules our engineers do.</p>
+            <p class="meta">By Aerele Technologies · For Claude Code, Codex and Cursor</p>
+            <div class="actions">
+                <button type="button" data-copy class="btn"><span data-label>Copy CLAUDE.md</span></button>
+                <a href="/frappe-claude-md/template.md" class="btn-quiet">View raw →</a>
             </div>
-            <p class="mt-5 font-mono text-[12px] text-ae-400 break-all">curl -o CLAUDE.md https://aerele.in/frappe-claude-md/template.md</p>
-        </div>
-    </section>
+            <div class="divider"></div>
 
-    <main>
-        <!-- ===== HOW TO USE ===== -->
-        <section class="py-12 sm:py-14 bg-white border-b border-ae-200/60">
-            <div class="max-w-4xl mx-auto px-6 sm:px-8">
-                <h2 class="text-xl font-semibold tracking-tight text-ae-950">Using it</h2>
-                <ol class="mt-6 grid sm:grid-cols-3 gap-4 text-sm text-ae-600 leading-relaxed">
-                    <li class="p-5 rounded-xl border border-ae-200/60 bg-ae-50">
-                        <span class="block font-mono text-xs text-brand-600 mb-2">01</span>
-                        <strong class="block text-ae-900 mb-1">Save it at the app root</strong>
-                        Put it at <code class="font-mono text-[12px] text-ae-800">apps/your_app/CLAUDE.md</code>. Using Codex, Cursor or another agent? Save the same file as <code class="font-mono text-[12px] text-ae-800">AGENTS.md</code>.
-                    </li>
-                    <li class="p-5 rounded-xl border border-ae-200/60 bg-ae-50">
-                        <span class="block font-mono text-xs text-brand-600 mb-2">02</span>
-                        <strong class="block text-ae-900 mb-1">Fill in the placeholders</strong>
-                        Replace every <code class="font-mono text-[12px] text-amber-700">{{…}}</code> with your versions, app name and sites. The version line matters most: the agent should only use APIs your Frappe version has.
-                    </li>
-                    <li class="p-5 rounded-xl border border-ae-200/60 bg-ae-50">
-                        <span class="block font-mono text-xs text-brand-600 mb-2">03</span>
-                        <strong class="block text-ae-900 mb-1">Add the Frappe skills</strong>
-                        Install <a href="https://github.com/frappe/skills" class="underline hover:text-ae-900">frappe/skills</a> and commit them with the file. Then add your own client rules, such as process quirks and naming, at the end.
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- ===== THE FILE ===== -->
-        <section class="py-12 sm:py-16">
-            <div class="max-w-4xl mx-auto px-6 sm:px-8">
-                <a href="https://jarvis.aerele.in/playground" target="_blank" rel="noopener" class="group mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 rounded-lg border border-jarvis-200 bg-jarvis-50 text-sm text-ae-700 hover:border-jarvis-400 transition-colors">
-                    <span class="inline-flex items-center gap-1.5 font-semibold text-jarvis-700"><span class="w-1.5 h-1.5 rounded-full jarvis-grad"></span>Jarvis</span>
-                    <span>This file is for agents that write Frappe code. Jarvis is the agent that works inside ERPNext. Try it on a live company.</span>
-                    <span class="font-medium text-ae-900 group-hover:underline">Open the playground ↗</span>
-                </a>
-
-                <div class="rounded-xl border border-ae-800 bg-ae-950 shadow-sm">
-                    <div class="sticky top-[73px] sm:top-[70px] z-10 flex items-center justify-between gap-3 px-4 py-2.5 rounded-t-xl bg-ae-900 border-b border-white/10">
-                        <span class="font-mono text-[13px] text-ae-200">CLAUDE.md</span>
-                        <div class="flex items-center gap-2">
-                            <a href="/frappe-claude-md/template.md" class="hidden sm:inline-flex px-3 py-1.5 rounded-md text-[12px] text-ae-300 hover:text-white hover:bg-white/5 transition-colors">Raw</a>
-                            <button type="button" data-copy class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/10 text-[12px] font-medium text-white hover:bg-white/20 transition-colors">
-                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                                <span data-label>Copy</span>
-                            </button>
-                        </div>
-                    </div>
-                    <pre class="p-5 sm:p-6 text-[12.5px] sm:text-[13px] leading-relaxed text-ae-200 font-mono whitespace-pre-wrap break-words"><code id="claude-md"><!-- generated:claude-md:start --><span class="md-h"># CLAUDE.md</span>
+            <div class="file">
+                <div class="file-bar">
+                    <span class="name">CLAUDE.md</span>
+                    <button type="button" data-copy><span data-label>Copy</span></button>
+                </div>
+                <pre><code id="claude-md"><!-- generated:claude-md:start --><span class="md-h"># CLAUDE.md</span>
 
 <span class="md-h">## Stack</span>
 - Frappe: `<span class="md-ph">{{FRAPPE_VERSION}}</span>` | ERPNext: `<span class="md-ph">{{ERPNEXT_VERSION}}</span>` | Other apps: `<span class="md-ph">{{HRMS / INDIA_COMPLIANCE / ...}}</span>`
@@ -344,74 +328,42 @@ Run `frappe-code-review`. Quick check: SQL injection | whitelist perms + type hi
 - Branch `feat/&lt;desc&gt;` or `fix/&lt;desc&gt;`. Conventional commits: `fix: ...`, `feat: ...`.
 - Never commit `site_config.json`, keys or `.env`.
 <!-- generated:claude-md:end --></code></pre>
-                </div>
-                <p class="mt-3 text-xs text-ae-500">Copy takes the file exactly as shown. The template is versioned with this site; the raw file at <a href="/frappe-claude-md/template.md" class="underline">/frappe-claude-md/template.md</a> is always the current one.</p>
             </div>
-        </section>
 
-        <!-- ===== FAQ ===== -->
-        <section class="pb-14 sm:pb-16">
-            <div class="max-w-4xl mx-auto px-6 sm:px-8">
-                <h2 class="text-xl font-semibold tracking-tight text-ae-950">Questions</h2>
-                <div class="mt-2 divide-y divide-ae-200">
-                    <div class="py-5">
-                        <h3 class="text-base font-semibold text-ae-950">What should a CLAUDE.md for a Frappe app contain?</h3>
-                        <p class="mt-2 text-sm text-ae-600 leading-relaxed">Your exact Frappe and ERPNext versions, the bench commands the agent may run (and the ones it must not), and the framework rules that matter most: never editing core files, patches for every schema or data change, filtered fixtures, permission checks and type hints on every whitelisted method, no manual commits, no direct ledger inserts, and no database calls in loops. It should end with a checklist to run before every pull request.</p>
-                    </div>
-                    <div class="py-5">
-                        <h3 class="text-base font-semibold text-ae-950">Does it work with Codex, Cursor or other coding agents?</h3>
-                        <p class="mt-2 text-sm text-ae-600 leading-relaxed">Yes. Claude Code reads CLAUDE.md. Codex, Cursor and other agents that follow the AGENTS.md convention read the same content if you save it as AGENTS.md at the app root.</p>
-                    </div>
-                    <div class="py-5">
-                        <h3 class="text-base font-semibold text-ae-950">Which Frappe and ERPNext versions does it cover?</h3>
-                        <p class="mt-2 text-sm text-ae-600 leading-relaxed">Any. You state your versions in the Stack section, and the file tells the agent to use only APIs that exist in that version and to read the Frappe and ERPNext source when unsure. Where versions differ, such as test base classes, it names both.</p>
-                    </div>
-                    <div class="py-5">
-                        <h3 class="text-base font-semibold text-ae-950">How is it different from the frappe/skills repository?</h3>
-                        <p class="mt-2 text-sm text-ae-600 leading-relaxed">frappe/skills teaches an agent how to do things in Frappe and runs workflows like code review and fixing issues. This file sets the rules for your project. It tells the agent to install those skills, and says that this file wins when the two conflict.</p>
-                    </div>
-                    <div class="py-5">
-                        <h3 class="text-base font-semibold text-ae-950">Is it useful without an AI agent?</h3>
-                        <p class="mt-2 text-sm text-ae-600 leading-relaxed">Yes. The same rules work as a code review checklist and onboarding guide for Frappe developers. The Before PR section is a quick review list on its own.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <h2>How to use it</h2>
+            <ol>
+                <li>Save it as <code class="i">CLAUDE.md</code> at your app root. For Codex, Cursor or other agents, save the same file as <code class="i">AGENTS.md</code>.</li>
+                <li>Replace every <code class="i">{{…}}</code> placeholder with your versions, app name and sites. The version line matters most.</li>
+                <li>Install <a href="https://github.com/frappe/skills" class="inline">frappe/skills</a> and commit them with the file.</li>
+                <li>Add your own rules at the end: client process quirks, naming, anything your team repeats in review.</li>
+            </ol>
+            <p>Or download it from a terminal:</p>
+            <pre class="cmd"><code>curl -o CLAUDE.md https://aerele.in/frappe-claude-md/template.md</code></pre>
 
-        <!-- ===== JARVIS ===== -->
-        <section class="relative py-16 sm:py-20 overflow-hidden bg-ae-900 text-white">
-            <div class="absolute inset-0 jarvis-glow pointer-events-none"></div>
-            <div class="relative max-w-4xl mx-auto px-6 sm:px-8">
-                <p class="text-[11px] font-medium uppercase tracking-wider text-jarvis-300 mb-4">From the same team</p>
-                <h2 class="font-semibold tracking-tight leading-tight" style="font-size: clamp(1.5rem, 3.4vw, 2.25rem);">
-                    Your developers have an agent. Give your ERPNext users one too: <span class="jarvis-grad-text">Jarvis</span>.
-                </h2>
-                <p class="mt-5 text-base sm:text-lg text-ae-200 leading-relaxed max-w-2xl">
-                    Jarvis is an AI teammate inside ERPNext. Your team asks in plain language, sees the records behind every answer, and prepares the next step. Every action respects the signed-in user's ERPNext permissions.
-                </p>
-                <div class="mt-8 grid sm:grid-cols-2 gap-4">
-                    <a href="https://jarvis.aerele.in/playground" target="_blank" rel="noopener" class="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-jarvis-400/60 hover:bg-white/[0.07] transition-colors">
-                        <div class="text-sm font-semibold text-white">Try the Jarvis Playground <span aria-hidden="true">↗</span></div>
-                        <p class="mt-2 text-sm text-ae-300 leading-relaxed">Try Jarvis on a live ERPNext company with sample data. Nothing to install.</p>
-                        <p class="mt-4 font-mono text-[12px] text-jarvis-300 group-hover:underline">jarvis.aerele.in/playground</p>
-                    </a>
-                    <a href="https://www.youtube.com/@AereleTechnologies" target="_blank" rel="noopener" class="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-jarvis-400/60 hover:bg-white/[0.07] transition-colors">
-                        <div class="text-sm font-semibold text-white">Watch Jarvis on YouTube <span aria-hidden="true">↗</span></div>
-                        <p class="mt-2 text-sm text-ae-300 leading-relaxed">Demos and walkthroughs of Jarvis at work in ERPNext, on the Aerele Technologies channel.</p>
-                        <p class="mt-4 font-mono text-[12px] text-jarvis-300 group-hover:underline">youtube.com/@AereleTechnologies</p>
-                    </a>
-                </div>
-                <p class="mt-6 text-sm text-ae-400"><a href="/products/jarvis/" class="underline hover:text-white">How Jarvis works</a> · <a href="https://jarvis.aerele.in" target="_blank" rel="noopener" class="underline hover:text-white">jarvis.aerele.in</a></p>
-            </div>
-        </section>
+            <h2>Questions</h2>
+            <h3>What should a CLAUDE.md for a Frappe app contain?</h3>
+            <p>Your exact Frappe and ERPNext versions, the bench commands the agent may run (and the ones it must not), and the framework rules that matter most: never editing core files, patches for every schema or data change, filtered fixtures, permission checks and type hints on every whitelisted method, no manual commits, no direct ledger inserts, and no database calls in loops. It should end with a checklist to run before every pull request.</p>
+            <h3>Does it work with Codex, Cursor or other coding agents?</h3>
+            <p>Yes. Claude Code reads CLAUDE.md. Codex, Cursor and other agents that follow the AGENTS.md convention read the same content if you save it as AGENTS.md at the app root.</p>
+            <h3>Which Frappe and ERPNext versions does it cover?</h3>
+            <p>Any. You state your versions in the Stack section, and the file tells the agent to use only APIs that exist in that version and to read the Frappe and ERPNext source when unsure. Where versions differ, such as test base classes, it names both.</p>
+            <h3>How is it different from the frappe/skills repository?</h3>
+            <p>frappe/skills teaches an agent how to do things in Frappe and runs workflows like code review and fixing issues. This file sets the rules for your project. It tells the agent to install those skills, and says that this file wins when the two conflict.</p>
+            <h3>Is it useful without an AI agent?</h3>
+            <p>Yes. The same rules work as a code review checklist and onboarding guide for Frappe developers. The Before PR section is a quick review list on its own.</p>
 
-        <!-- ===== HIRE ===== -->
-        <section class="py-12 bg-white">
-            <div class="max-w-4xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <p class="text-sm text-ae-600 leading-relaxed max-w-xl">These rules come from Aerele's Frappe engineers, who have 1,100+ merged PRs in Frappe ecosystem repositories. Need people who work this way on your app?</p>
-                <a href="/hire-frappe-developer/" class="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 bg-ae-900 text-white rounded-lg text-sm font-semibold hover:bg-ae-800 transition-colors">Hire Frappe developers <span aria-hidden="true">→</span></a>
-            </div>
-        </section>
+            <div class="divider"></div>
+            <section class="jarvis" aria-labelledby="jarvis-title">
+                <p class="eyebrow">Also from Aerele</p>
+                <h2 id="jarvis-title">Jarvis, your AI teammate inside ERPNext</h2>
+                <p>Ask in plain language and see the records behind every answer. Every action respects the user's ERPNext permissions.</p>
+                <div class="jarvis-actions">
+                    <a href="https://jarvis.aerele.in/playground" target="_blank" rel="noopener" class="btn">Try Jarvis Playground ↗</a>
+                    <a href="https://www.youtube.com/@AereleTechnologies" target="_blank" rel="noopener" class="btn-outline">Watch on YouTube ↗</a>
+                </div>
+            </section>
+            <p class="credit">These guidelines come from Aerele's Frappe engineers, who have 1,100+ merged PRs in Frappe ecosystem repositories. <a href="/hire-frappe-developer/" class="inline">Hire our Frappe developers →</a></p>
+        </article>
     </main>
 
     <footer class="border-t border-ae-200/60 py-10 bg-ae-50">
@@ -477,22 +429,31 @@ Run `frappe-code-review`. Quick check: SQL injection | whitelist perms + type hi
 
     <script>
         // The file is server-rendered into #claude-md; this only copies its text.
+        // navigator.clipboard exists only on HTTPS/localhost; elsewhere fall back to execCommand('copy').
         const source = document.getElementById('claude-md');
+        function legacyCopy() {
+            const range = document.createRange();
+            range.selectNodeContents(source);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            if (ok) selection.removeAllRanges();
+            return ok;
+        }
         document.querySelectorAll('[data-copy]').forEach((button) => {
             const label = button.querySelector('[data-label]');
             const original = label.textContent;
             button.addEventListener('click', async () => {
+                let ok = false;
                 try {
                     await navigator.clipboard.writeText(source.textContent);
-                    label.textContent = 'Copied';
+                    ok = true;
                 } catch (e) {
-                    const range = document.createRange();
-                    range.selectNodeContents(source);
-                    const selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                    label.textContent = 'Press Ctrl+C';
+                    ok = legacyCopy();
                 }
+                label.textContent = ok ? 'Copied' : 'Press Ctrl+C';
                 setTimeout(() => { label.textContent = original; }, 2000);
             });
         });

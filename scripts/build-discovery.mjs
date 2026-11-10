@@ -119,6 +119,19 @@ const claudeMd = escape(readFileSync('frappe-claude-md/template.md', 'utf8'))
 const claudePage = readFileSync('frappe-claude-md/index.html', 'utf8');
 writeFileSync('frappe-claude-md/index.html', claudePage.replace(/(<!-- generated:claude-md:start -->)[\s\S]*?(<!-- generated:claude-md:end -->)/, (_, start, end) => start + claudeMd + end));
 
+// Site-wide Jarvis banner: one source, injected as the first row of every page's fixed nav.
+// Its fixed height (h-9) is offset by `body:has(.site-banner)` in styles/input.css.
+const NAV_OPEN = '<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-ae-200/60">';
+const BANNER = `<!-- generated:jarvis-banner:start --><a href="https://jarvis.aerele.in/playground" target="_blank" rel="noopener" class="site-banner flex items-center justify-center gap-3 h-9 px-4 bg-black text-white text-[13px] hover:bg-neutral-800 transition-colors"><span class="truncate"><strong class="font-semibold">Jarvis</strong><span class="hidden sm:inline">, your AI teammate inside ERPNext. Try it on a live company, nothing to install.</span><span class="sm:hidden">: AI inside ERPNext.</span></span><span class="shrink-0 font-semibold underline underline-offset-4">Try Jarvis Playground →</span></a><!-- generated:jarvis-banner:end -->`;
+for (const file of htmlFiles()) {
+  const source = readFileSync(file, 'utf8');
+  if (!source.includes(NAV_OPEN)) continue;
+  const updated = source
+    .replace(/\n *<!-- generated:jarvis-banner:start -->[\s\S]*?<!-- generated:jarvis-banner:end -->/, '')
+    .replace(NAV_OPEN, `${NAV_OPEN}\n        ${BANNER}`);
+  if (updated !== source) writeFileSync(file, updated);
+}
+
 // Include only indexable canonical pages. Omit lastmod rather than publish stale
 // or build-time dates; git timestamps are not reliable content modification dates.
 const urls = htmlFiles().flatMap(file => {

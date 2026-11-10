@@ -24,6 +24,7 @@ for (const file of files) {
   assert(!/\.fade-in\s*\{\s*opacity:\s*0/.test(html), `${file}: content hidden without JS`);
   assert(!html.includes('id="mobile-menu"'), `${file}: use native navigation, not a JS-only menu panel`);
   assert(html.includes('<details class="sm:hidden relative">'), `${file}: native mobile navigation missing`);
+  assert(html.includes('class="site-banner') && html.includes('href="https://jarvis.aerele.in/playground"'), `${file}: Jarvis banner missing; run npm run build`);
   // Dated blog posts keep their historical wording (see managesCounts).
   if (managesCounts(file)) assert(!/\b\d[\d,]*\+[^<"\n]{0,80}(?:framework itself|Frappe core|into core|into ERPNext (?:&|&amp;|and) Frappe\b(?! ecosystem))/.test(html), `${file}: ambiguous contribution scope`);
   function checkOrganization(obj) {
