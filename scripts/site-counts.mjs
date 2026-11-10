@@ -1,6 +1,9 @@
 // One source of truth for every count published on the site: contributions.json.
 // The build rewrites these figures in place; check-seo fails if any claim disagrees.
 const fmt = n => n.toLocaleString('en-IN');
+const backportCount = (c, repo) => repo ? (c.backports?.[repo] || 0) : Object.values(c.backports || {}).reduce((a, b) => a + b, 0);
+// All of a contributor's merged PRs, including backports counted separately from their card figure.
+export const mergedPrs = c => c.total_merged_prs + backportCount(c);
 
 // Refuse internally inconsistent data, so a hand edit can never publish a figure the cards contradict.
 export function validateCounts(data) {
@@ -9,23 +12,25 @@ export function validateCounts(data) {
     const sum = Object.values(c.repos).reduce((a, b) => a + b, 0);
     if (sum !== c.total_merged_prs) fail(`${c.username} total ${c.total_merged_prs} != repository sum ${sum}`);
     for (const repo of Object.keys(c.repos)) if (!data.repos_touched.includes(repo)) fail(`${c.username} has unlisted repository ${repo}`);
+    for (const repo of Object.keys(c.backports || {})) if (!data.repos_touched.includes(repo)) fail(`${c.username} has unlisted backport repository ${repo}`);
   }
-  const total = data.contributors.reduce((a, c) => a + c.total_merged_prs, 0);
+  // Backports counted separately (see refresh-contributions.mjs) still count towards the total.
+  const total = data.contributors.reduce((a, c) => a + mergedPrs(c), 0);
   if (total !== data.total_prs) fail(`total_prs ${data.total_prs} != contributor sum ${total}`);
-  const active = data.contributors.filter(c => c.total_merged_prs > 0).length;
+  const active = data.contributors.filter(c => mergedPrs(c) > 0).length;
   if (active !== data.total_contributors) fail(`total_contributors ${data.total_contributors} != ${active}`);
 }
 
 export function siteCounts(data) {
   validateCounts(data);
-  const active = data.contributors.filter(c => c.total_merged_prs > 0);
+  const active = data.contributors.filter(c => mergedPrs(c) > 0);
   return {
     // Rounded down so the public figure stays a conservative lower bound between refreshes.
     prFloor: `${fmt(Math.floor(data.total_prs / 100) * 100)}+`,
     total: fmt(data.total_prs),
-    erpnext: fmt(active.reduce((sum, c) => sum + (c.repos.erpnext || 0), 0)),
+    erpnext: fmt(active.reduce((sum, c) => sum + (c.repos.erpnext || 0) + backportCount(c, 'erpnext'), 0)),
     contributors: active.length,
-    repos: new Set(active.flatMap(c => Object.keys(c.repos))).size,
+    repos: new Set(active.flatMap(c => [...Object.keys(c.repos), ...Object.keys(c.backports || {})])).size,
   };
 }
 
