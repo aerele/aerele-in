@@ -7,7 +7,13 @@ const escape = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&l
 const data = JSON.parse(readFileSync('contributions.json', 'utf8'));
 const counts = siteCounts(data);
 const repoUrl = repo => `https://github.com/${repo.includes('/') ? repo.split('/').map(encodeURIComponent).join('/') : `frappe/${encodeURIComponent(repo)}`}`;
-// Cards follow the order in contributions.json.
+// Cards follow the order in contributions.json (sorted by PR count on refresh).
+// Repositories where the contributor opened PRs link to the GitHub search; others are plain labels.
+const repoChip = (c, repo, count) => {
+  const label = `${escape(repo.split('/').pop())} (${fmt(count)})`;
+  if (!(c.opened_repos ?? Object.keys(c.repos)).includes(repo)) return `<span class="px-2 py-0.5 rounded text-[10px] bg-ae-50 text-ae-500">${label}</span>`;
+  return `<a class="px-2 py-0.5 rounded text-[10px] bg-ae-50 text-ae-500 hover:text-ae-900 hover:bg-ae-100 transition-colors" href="${repoUrl(repo)}/pulls?q=${encodeURIComponent(`is:pr is:merged author:${c.username}`)}">${label}</a>`;
+};
 const cards = data.contributors.filter(c => c.total_merged_prs > 0).map(c => `
                 <article class="p-5 rounded-xl border border-ae-200/60 hover:border-ae-300 bg-white transition-all">
                     <div class="flex items-center gap-3 mb-3">
@@ -22,7 +28,7 @@ const cards = data.contributors.filter(c => c.total_merged_prs > 0).map(c => `
                         </div>
                     </div>
                     <p class="text-sm text-ae-500 leading-relaxed mb-3">${escape(c.summary || '')}</p>
-                    <div class="flex flex-wrap gap-1">${Object.entries(c.repos).sort((a, b) => b[1] - a[1]).map(([repo, count]) => `<a class="px-2 py-0.5 rounded text-[10px] bg-ae-50 text-ae-500 hover:text-ae-900 hover:bg-ae-100 transition-colors" href="${repoUrl(repo)}/pulls?q=${encodeURIComponent(`is:pr is:merged author:${c.username}${c.backports && data.default_branches?.[repo] ? ` base:${data.default_branches[repo]}` : ''}`)}">${escape(repo.split('/').pop())} (${fmt(count)})</a>`).join('')}</div>
+                    <div class="flex flex-wrap gap-1">${Object.entries(c.repos).sort((a, b) => b[1] - a[1]).map(([repo, count]) => repoChip(c, repo, count)).join('')}</div>
                 </article>`).join('\n');
 for (const [file, id] of [['index.html', 'contributors-grid'], ['hire-erpnext-developer/index.html', 'erpnext-contributors-grid']]) {
   let source = readFileSync(file, 'utf8');
